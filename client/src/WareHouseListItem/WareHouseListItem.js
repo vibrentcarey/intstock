@@ -3,7 +3,8 @@ import './WareHouseListItem.css';
 import chevronIcon from '../assets/chevron_right-24px.svg';
 
 const WareHouseListItem = (props) => {
-  const {wareHouseName, address, contactName, contactInfo} = props
+  // ListItem props to be used!!
+  // const {wareHouseName, address, contactName, contactInfo} = props
   return (
     <>
       <article className='ware-house-list-item'>
