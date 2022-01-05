@@ -1,9 +1,9 @@
-import TopBarSearch from './components/TopBarSearch'
+import TopBar from './components/TopBar';
 
 function App() {
   return (
     <div className="App">
-      <TopBarSearch title='Warehouses' />
+      <TopBar title='King West' />
 
     </div>
   );
