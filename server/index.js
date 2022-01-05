@@ -1,10 +1,9 @@
 const express = require('express');
+const wareHouseRouter = require('./routes/warehouses')
 
 const app = express();
 
-app.get('/', (req, res) => {
-  res.send('hello world')
-});
+app.use('/warehouses', wareHouseRouter)
 
 app.listen(8080, () => {
   console.log('Server started on port 8080');
