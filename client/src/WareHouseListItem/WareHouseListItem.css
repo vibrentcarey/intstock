@@ -86,4 +86,41 @@
     line-height: 22px;
   }
 }
+@media screen and (min-width: 1280px){
+  .ware-house-list-item {
+    display: inline-flex; 
+    gap: 100px;
+    margin: auto;
+    width: 800px;
+    
+  }
+  .ware-house-list-item__right {
+    display: inline-flex; 
+    gap: 120px; 
+  }
+  .ware-house-list-item__left {
+    display: inline-flex; 
+    gap: 120px; 
+  }
+  .ware-house-list-item__address {
+    margin-top: 24px;   
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ware-house-list-item__name {
+    align-self: center;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ware-house-list-item__contact-info {
+    width: 100px;
+    font-size: 14px;
+    line-height: 22px;
+  }
+  .ware-house-list-item__contact-name{
+    align-self: center;
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
 
