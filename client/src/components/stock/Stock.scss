@@ -1,0 +1,23 @@
+@import "../../style/partials/typography";
+@import "../../style/partials/variables";
+.in-stock {
+  color: #158463;
+  width: 49px;
+  height: 18px;
+  top: 4px;
+  left: 8px;
+  font-size: 10px;
+  background-color: #bdc5d5;
+  border-radius: 10px;
+}
+.out-of-stock {
+  color: #c94515;
+  width: 76px;
+  height: 18px;
+  top: 4px;
+  bottom: 4px;
+  left: 8px;
+  font-size: 10px;
+  background-color: #bdc5d5;
+  border-radius: 10px;
+}
