@@ -1,0 +1,46 @@
+.ware-house-list-item {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 16px;
+  margin-right: 16px;
+  font-family: Titillium Web;
+}
+.ware-house-list-item__name { 
+  font-style: normal;
+  font-weight: 600;
+  font-size: 13px;
+  line-height: 20px;
+  color: #2E66E6;
+  
+}
+
+.ware-house-list-item__container {
+  display: flex;
+}
+.ware-house-list-item__icon {
+  height: 15px;
+  width: 20px;
+  align-self: center;
+
+}
+.ware-house-list-item__contact-name {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.ware-house-list-item__contact-info {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  
+}
+.ware-house-list-item__address {
+  margin-top: 0px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+}
