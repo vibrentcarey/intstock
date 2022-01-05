@@ -1,0 +1,70 @@
+//primary colors
+$instock-black: #13182c;
+$instock-indigo: #2e66e5;
+$white: #ffff;
+
+//secondary colors
+$slate: #5c667e;
+$cloud: #bdc5d5;
+
+//background colors
+$graphite: #232940;
+$light-grey: #f7f8f9;
+
+//supporting colors
+$green: #158463;
+$red: #c94515;
+
+@mixin common() {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  border: none;
+  padding: 0;
+}
+
+.button {
+  &__primary {
+    color: $white;
+    background-color: $instock-indigo;
+    @include common;
+
+    &:hover {
+      background-color: $instock-black;
+    }
+
+    &:active {
+      background-color: $instock-indigo;
+    }
+  }
+
+  &__secondary {
+    color: $instock-black;
+    background-color: $white;
+    @include common;
+    border: 1px solid $cloud;
+
+    &:hover {
+      color: $instock-indigo;
+      border: 1px solid $instock-indigo;
+    }
+
+    &:active {
+      background-color: $white;
+    }
+  }
+
+  &__delete {
+    color: $white;
+    background-color: $red;
+    @include common;
+
+    &:hover {
+      background-color: $instock-black;
+    }
+
+    &:active {
+      background-color: $red;
+    }
+  }
+}
