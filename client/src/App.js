@@ -1,9 +1,10 @@
-import TopBarSearch from "./components/TopBarSearch";
+import TopBarSearch from './components/TopBarSearch'
 
 function App() {
   return (
     <div className="App">
-    <TopBarSearch title='Warehouses'/>
+      <TopBarSearch title='Warehouses' />
+
     </div>
   );
 }

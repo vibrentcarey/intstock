@@ -1,5 +1,6 @@
 import React from 'react';
 import './TopBarSearch.css'
+import PropTypes from 'prop-types'
 
 const TopBarSearch = (props) => {
   return (
@@ -9,5 +10,9 @@ const TopBarSearch = (props) => {
     </div>
   );
 };
+
+TopBarSearch.propTypes = {
+  title: PropTypes.string.isRequired
+}
 
 export default TopBarSearch;
