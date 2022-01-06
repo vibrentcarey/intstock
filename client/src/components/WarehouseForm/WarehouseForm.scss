@@ -1,0 +1,124 @@
+@use "../../style/partials/mixins" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/variables" as *;
+
+.warehouse-form {
+    background-color: $white;
+    @include flex(flex-start, stretch, column);
+
+    &__form {
+        @include flex(center, center, column);
+        width: 100%;
+        @include tablet {
+            @include dividerStyleTop;
+        }
+    }
+
+    &__input-container{
+        @include flex(center, center, column);
+        width: 100%;
+        @include tablet {
+            @include flex(space-between, flex-start, row);
+
+        }
+    }
+
+    &__warehouse-details,
+    &__contact-details {
+        @include flex(flex-start, stretch, column);
+        width: 100%;
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+        border: none;
+        @include dividerStyleTop;
+        @include tablet {
+            border-top:none;
+            margin: 1.5rem 0 2rem 0;
+            width: 50%;
+            padding: 0rem 2rem;
+        }
+        @include desktop {
+            padding: 0rem 2.5rem;
+        }
+    }
+
+    &__warehouse-details{
+        @include tablet {
+            @include dividerStyleRight;
+        }
+    }
+
+
+    &__heading {
+        @include font-stack-m-h2;
+        padding-bottom: 0.5rem;
+        @include tablet{
+            @include font-stack-tab-desc-h2;  
+        }
+    }
+
+    &__label {
+        @include font-stack-m-h3;
+        padding: 1rem 0 0.25rem 0;
+        @include tablet{
+            @include font-stack-tab-desc-h3;  
+            padding: 1.5rem 0 0.25rem 0;
+        }
+    }
+
+    &__input {
+        height: 2.25rem;
+        width: 100%;
+        margin-bottom: 0.25rem;
+        @include formfield;
+        @include tablet{
+            height: 2.375rem;
+        }
+
+    &::placeholder {
+        @include font-stack-m-p2;
+        @include tablet{
+            @include font-stack-tab-desc-p2;
+        }
+    }
+
+    &[type = 'text'] {
+        @include font-stack-m-p2;
+        color: $instock-black;
+        @include tablet{
+            @include font-stack-tab-desc-p2;
+        }
+    } 
+
+    &:focus{
+        border:1px solid $instock-indigo;
+        }
+    }
+
+    &__input--invalid {
+        @include formfield-invalid;
+    }
+
+    &__warning--valid {
+        display: none;
+    }
+
+    &__warning {
+        @include flex(flex-start, stretch, row); 
+    }
+
+    &__warning-icon {
+        width: 1rem;
+        margin-right: 5px;
+    }
+
+    &__warning-message{
+        @include font-stack-m-p3;
+        color: $red;
+        @include tablet{
+            @include font-stack-tab-desc-p3;
+            color: $red;
+        }
+    }
+
+
+}

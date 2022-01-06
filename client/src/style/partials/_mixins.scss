@@ -1,4 +1,6 @@
 @use "./variables" as *;
+@use "./typography" as *;
+
 @mixin desktop {
   @media screen and (min-width: $desktop-breakpoint) {
     @content;
@@ -16,3 +18,25 @@
   align-items: $align-items;
   flex-direction: $flex-direction;
 }
+
+@mixin dividerStyleTop {
+  border-top: 1px solid $cloud; 
+}
+
+@mixin dividerStyleRight {
+  border-right: 1px solid $cloud; 
+}
+
+@mixin formfield {
+  outline: none;
+  border-radius: 1.25rem;
+  border: 1px solid $cloud;
+  padding: 0.5rem 1rem;
+  background-color: $white;
+  box-shadow: 0 0 0px 1000px $white inset;
+}
+
+@mixin formfield-invalid {
+  border:1px solid $red;
+}
+
