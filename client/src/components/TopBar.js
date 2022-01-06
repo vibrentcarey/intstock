@@ -20,8 +20,8 @@ const TopBar = (props) => {
         <div className='top-bar__details'>
           <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
           <div className='top-bar__additional'>
-          <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-          <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
+            <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
+            <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
           </div>
         </div>
       )}
