@@ -1,7 +1,7 @@
 @import "../../style/partials/typography";
 @import "../../style/partials/variables";
 .in-stock {
-  color: #158463;
+  color: $green;
   width: 49px;
   height: 18px;
   top: 4px;
@@ -11,7 +11,7 @@
   border-radius: 10px;
 }
 .out-of-stock {
-  color: #c94515;
+  color: $red;
   width: 76px;
   height: 18px;
   top: 4px;
