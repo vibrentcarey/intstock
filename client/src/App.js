@@ -4,7 +4,7 @@ import Stock from "./components/stock/Stock";
 function App() {
   return (
     <div className="App">
-      <Stock instock={true} />
+      <Stock instock={false} />
     </div>
   );
 }

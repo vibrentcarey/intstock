@@ -2,22 +2,24 @@
 @import "../../style/partials/variables";
 .in-stock {
   color: $green;
-  width: 49px;
-  height: 18px;
-  top: 4px;
-  left: 8px;
-  font-size: 10px;
+  width: 3.06rem;
+  height: 1.125rem;
+  top: 0.25rem;
+  left: 0.5rem;
+  font-size: 0.625rem;
+  white-space: nowrap;
   background-color: #bdc5d5;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 .out-of-stock {
   color: $red;
-  width: 76px;
-  height: 18px;
-  top: 4px;
-  bottom: 4px;
-  left: 8px;
-  font-size: 10px;
+  width: 4.75rem;
+  height: 1.125rem;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.5rem;
+  font-size: 0.625rem;
+  white-space: nowrap;
   background-color: #bdc5d5;
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
