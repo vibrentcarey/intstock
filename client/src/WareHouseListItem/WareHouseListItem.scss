@@ -1,0 +1,189 @@
+@use '../style/partials/mixins';
+// @use '../style/partials/typography';
+@use '../style/partials/variables';
+
+
+.warehouse-list-item {
+  font-family: "Titillium Web Regular";
+  margin-left: 16px;
+  margin-right: 16px;
+
+  @include mixins.tablet {
+    margin-left: 32px;
+    margin-right: 32px;
+  }
+  @include mixins.desktop {
+    width: 1000px;
+    margin: auto;
+  }
+
+  &__wrapper {
+    color: variables.$instock-black; 
+    display: flex;
+    justify-content: space-between;
+
+    @include mixins.tablet {
+      max-width: 100%;
+    }
+    @include mixins.desktop {
+      max-width: 100%;
+    }
+  }
+
+  &__name {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 20px;
+    color: variables.$instock-indigo;
+
+    @include  mixins.tablet {
+      width: 100%;
+      align-self: center;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @include  mixins.desktop {
+      align-self: center;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  &__left {
+    width: 100%;
+
+    @include mixins.tablet {
+      width: 100%;
+      display: flex; 
+    }
+    @include mixins.desktop {
+      width: 100%;
+      display: flex; 
+    }
+  }
+
+  &__right {
+    width: 100%; 
+    
+    @include mixins.tablet {
+      width: 100%;
+      display: inline-flex; 
+      gap: 90px;
+    }
+    @include mixins.desktop {
+      width: 100%;
+      display: inline-flex; 
+      gap: 90px;
+    }
+  }
+
+  &__container {
+    display: flex;
+  }
+
+  &__icon {
+    height: 15px;
+    width: 20px;
+    align-self: center;
+  }
+
+  &__contact-name {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+
+    @include mixins.tablet {
+      width: 50%;
+      align-self: center;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @include mixins.desktop {
+      width: 40%;
+      align-self: center;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  &__contact-info {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+
+    @include mixins.tablet {
+      width: 60%;
+      font-size: 14px;
+      line-height: 22px;;
+    }
+    
+    @include mixins.desktop {
+    width: 40%;
+    font-size: 14px;
+    line-height: 22px;
+    }
+  }
+
+  &__address {
+    width: 100px;
+    margin-top: 0px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+
+    @include mixins.tablet {
+      margin-top: 13px;
+      width: 30%;
+      font-size: 14px;
+      line-height: 22px;
+    }
+    @include mixins.desktop {
+      margin-top: 13px;
+      width: 20%;
+      font-size: 14px;
+      line-height: 22px;
+    }
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-between;
+    &--tablet {
+      display: none;
+    } 
+    
+    @include mixins.tablet {
+      display: inline-flex;
+      align-items: center;     
+      gap: 5px;
+
+      &--mobile {
+        display: none;
+      }
+    }
+    @include mixins.desktop {
+      display: inline-flex;
+      align-items: center;     
+      gap: 5px;
+
+      &--mobile {
+        display: none;
+      }
+    }
+  }
+
+  &__edit {
+    height: 20px;
+    width: 20px;
+  }
+
+  &__delete {
+    height: 20px;
+    width: 20px;
+  
+  }
+}
