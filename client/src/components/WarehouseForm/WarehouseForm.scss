@@ -19,7 +19,6 @@
         width: 100%;
         @include tablet {
             @include flex(space-between, flex-start, row);
-
         }
     }
 
@@ -46,7 +45,6 @@
             @include dividerStyleRight;
         }
     }
-
 
     &__heading {
         @include font-stack-m-h2;
@@ -119,6 +117,4 @@
             color: $red;
         }
     }
-
-
 }
