@@ -1,26 +1,87 @@
-@mixin tablet {
-    @media screen and (min-width: 48rem) {
-        @content;        
-    }
-}
-
-@mixin desktop {
-    @media screen and (min-width: 80rem) {
-        @content;        
-    }
-}
+@use "../../style/partials/mixins" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/variables" as *;
 
 .warehouse-form {
-    background-color: #FFFFFF;
+    background-color: $white;
+    @include flex(flex-start, stretch, column);
 
     &__form {
-       display: flex;
-       justify-content: row;
+        @include flex(center, center, column);
+        width: 100%;
     }
 
-    &__input-container {
-        display: flex;
-       justify-content: row;
+    &__input-container{
+        @include flex(center, center, column);
+        width: 100%;
+        @include tablet {
+            @include flex(center, center, row);
+        }
     }
+
+    &__warehouse-details,
+    &__contact-details {
+        @include flex(flex-start, stretch, column);
+        width: 100%;
+        padding: 1rem 1.5rem 1.5rem 1.5rem;
+        border: none;
+        @include dividerStyleTop;
+        @include tablet {
+            width: 50%;
+        }
+    }
+
+    &__heading {
+        @include font-stack-m-h2;
+        padding-bottom: 0.5rem;
+    }
+
+    &__label {
+        @include font-stack-m-h3;
+        padding: 1rem 0 0.25rem 0;
+    }
+
+    &__input {
+        height: 2.25rem;
+        width: 100%;
+        margin-bottom: 0.25rem;
+        @include formfield;
+
+    &::placeholder {
+        @include font-stack-m-p2;
+    }
+
+    &[type = 'text'] {
+        @include font-stack-m-p2;
+        color: $instock-black;
+        } 
+
+    &:focus{
+        border:1px solid $instock-indigo;
+        }
+    }
+
+    &__input--invalid {
+        @include formfield-invalid;
+    }
+
+    &__warning--valid {
+        display: none;
+    }
+
+    &__warning {
+        @include flex(flex-start, stretch, row); 
+    }
+
+    &__warning-icon {
+        width: 1rem;
+        margin-right: 5px;
+    }
+
+    &__warning-message{
+        @include font-stack-m-p3;
+        color: $red;
+    }
+
 
 }

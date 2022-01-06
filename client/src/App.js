@@ -1,4 +1,5 @@
-import WarehouseForm from '../../client/src/components/WarehouseForm/WarehouseForm'
+import WarehouseForm from '../../client/src/components/WarehouseForm/WarehouseForm';
+import './App.scss';
 
 function App() {
   return (

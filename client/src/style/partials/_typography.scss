@@ -1,0 +1,99 @@
+@use "./variables" as *;
+
+@font-face {
+  font-family:'Titillium Web';
+  src: url("../../assets/fonts/Titillium_web/TitilliumWeb-SemiBold.ttf")
+      format("truetype"),
+    url("../../assets/fonts/transfonter.org-semi-bold/TitilliumWeb-SemiBold.woff")
+      format("woff"),
+    url("../../assets/fonts/transfonter.org-semi-bold/TitilliumWeb-SemiBold.woff2")
+      format("woff2");
+  font-weight: 600;
+}
+
+@font-face {
+  font-family:'Titillium Web';
+  src: url("../../assets/fonts/Titillium_web/TitilliumWeb-Regular.ttf") format("truetype"),
+    url("../../assets/fonts/transfonter.org-regular/TitilliumWeb-Regular.woff")
+      format("woff"),
+    url("../../assets/fonts/transfonter.org-regular/TitilliumWeb-Regular.woff2")
+      format("woff2");
+  font-weight: 400;
+}
+
+@mixin font-stack ($font-family, $font-size, $font-weight, $line-height, $color){
+  font-style: normal;
+  font-family:$font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  line-height:$line-height;
+  color: $color;
+}
+
+// Page Header 
+@mixin font-stack-m-h1 {
+  @include font-stack ('Titillium Web', 1.75rem, 600, 2.25rem, $instock-black);
+}
+
+@mixin font-stack-tab-desc-h1 {
+  @include font-stack ('Titillium Web', 2rem, 600, 2.5rem, $instock-black);
+}
+
+// Subheader 
+@mixin font-stack-m-h2{
+  @include font-stack ('Titillium Web', 1.25rem, 600, 1.75rem, $instock-black);
+}
+
+@mixin font-stack-tab-desc-h2 {
+  @include font-stack ('Titillium Web', 1.5rem, 600, 2rem, $instock-black);
+}
+
+// Labels, Links, Buttons
+
+@mixin font-stack-m-h3{
+  @include font-stack ('Titillium Web', 0.8125rem, 600, 1.25rem, $instock-black);
+}
+
+@mixin font-stack-tab-desc-h3 {
+  @include font-stack ('Titillium Web', 0.75rem, 600, 1.125rem, $instock-black);
+}
+
+// Body Medium p2
+@mixin font-stack-m-p2{
+  @include font-stack ('Titillium Web', 0.8125rem, 400, 1.25rem, $slate);
+}
+
+@mixin font-stack-tab-desc-p2 {
+  @include font-stack ('Titillium Web', 0.875rem, 400, 1.375rem, $slate);
+}
+
+// Body Small p3
+@mixin font-stack-m-p3{
+  @include font-stack ('Titillium Web', 0.6875rem, 400, 1rem, $instock-black);
+}
+
+@mixin font-stack-tab-desc-p3 {
+  @include font-stack ('Titillium Web', 0.75rem, 400, 1.125rem, $instock-black);
+}
+
+// // Body
+// @mixin font-stack-body-mobile {
+//   @include font-stack (0.8125rem, 400, 1.125rem, $text-color);
+// }
+
+// @mixin font-stack-body-tablet-desktop{
+//   @include font-stack (0.875rem, 400, 1.375rem, $text-color);
+// }
+
+// // Labels&Buttons
+// @mixin font-stack-button-labels {
+//   @include font-stack (0.75rem, 600, 1.25rem, $bg-color);
+// }
+
+// @mixin font-placeholder-text {
+//   @include font-stack-body-mobile;
+// }
+
+
+
+
