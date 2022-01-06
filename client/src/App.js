@@ -8,6 +8,7 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
+import Dev from "./pages/Dev/Dev";
 
 // InStock Application
 class App extends Component {
@@ -38,6 +39,10 @@ class App extends Component {
             <Route
               path="/add-inventory-item"
               component={AddInventoryItemPage}
+            />
+            <Route
+              path="/dev"
+              component={Dev} //Stock filter
             />
           </Switch>
         </BrowserRouter>
