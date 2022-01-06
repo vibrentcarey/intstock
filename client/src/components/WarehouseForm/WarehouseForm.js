@@ -55,7 +55,7 @@ class WarehouseForm extends Component {
 
         return (
             <section className='warehouse-form'>
-                <h1>Edit Warehouse</h1>
+
                 {/* Title Page will be here */}
                 <form className='warehouse-form__form' id='warehouse-form' onSubmit={submitHandler}>
                     <div className='warehouse-form__input-container'>
