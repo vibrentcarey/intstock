@@ -1,12 +1,7 @@
-// import AvatarLogo from "../../assets/images/Mohan-muruge.jpg";
 import "../Button/Button.scss";
-// import { Link } from "react-router-dom";
 
-// Button OR Call to Action Component
+// Button Component
 function Button(props) {
-  console.log("type=", props.type);
-  console.log("value=", props.value);
-
   let btnDesign;
   switch (props.type) {
     case "primary":
@@ -17,7 +12,6 @@ function Button(props) {
       break;
     case "delete":
       btnDesign = "button__delete";
-
       break;
     default:
       btnDesign = "button__primary";
