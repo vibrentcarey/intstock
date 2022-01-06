@@ -55,6 +55,7 @@ class WarehouseForm extends Component {
 
         return (
             <section className='warehouse-form'>
+                <h1>Edit Warehouse</h1>
                 {/* Title Page will be here */}
                 <form className='warehouse-form__form' id='warehouse-form' onSubmit={submitHandler}>
                     <div className='warehouse-form__input-container'>
@@ -77,11 +78,11 @@ class WarehouseForm extends Component {
                             </div>
 
                             {/* Street Address */}
-                            <label className='warehouse-form__label' htmlFor='street'>Street Address</label>
+                            <label className='warehouse-form__label' htmlFor='address'>Street Address</label>
                             <input
                                 className={this.state.form.address ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
-                                id='name'
-                                name='name'
+                                id='address'
+                                name='address'
                                 type='text'
                                 placeholder='Street Address'
                                 onChange={this.handleChange} />
@@ -91,22 +92,34 @@ class WarehouseForm extends Component {
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
                             {/* City */}
-                            <label className='warehouse-form__label' htmlFor='name'>City</label>
+                            <label className='warehouse-form__label' htmlFor='city'>City</label>
                             <input
                                 className={this.state.form.city ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
-                                id='name'
-                                name='name'
+                                id='city'
+                                name='city'
                                 type='text'
-                                placeholder='Street Address'
+                                placeholder='City'
                                 onChange={this.handleChange} />
                             {/* Validation form */}
-                            <div className={this.state.form.address ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={this.state.form.city ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
 
                             {/* Country */}
-
+                            <label className='warehouse-form__label' htmlFor='country'>Country</label>
+                            <input
+                                className={this.state.form.country ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                id='country'
+                                name='country'
+                                type='text'
+                                placeholder='Country'
+                                onChange={this.handleChange} />
+                            {/* Validation form */}
+                            <div className={this.state.form.country ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                                <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
+                                <p className='warehouse-form__warning-message'>This field is required</p>
+                            </div>
                         </fieldset>
                         {/* Contact Details */}
                         <fieldset className='warehouse-form__contact-details' form='warehouse-form' name='warehouse-form__contact-details'>
@@ -115,7 +128,8 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='contactName'>Contact Name</label>
                             <input
                                 className={this.state.form.contactName ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
-                                id='name' name='name'
+                                id='contactName'
+                                name='contactName'
                                 type='text'
                                 placeholder='Contact Name'
                                 onChange={this.handleChange} />
