@@ -1,9 +1,44 @@
-.top-bar{
+.top-bar {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
   justify-content: space-between;
 }
 
-.top-bar__left{
+.top-bar__top{
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid silver;
+}
+
+.top-bar__left {
+  display: flex;
+  align-items: center;
+}
+
+.top-bar__details{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+@media (min-width:641px)  {
+  .top-bar__details{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .top-bar__additional{
+    border-left: 1px solid grey;
+    height: 80px;
+  }
+}
+
+.top-bar__additional{
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  justify-content: space-between;
 }
