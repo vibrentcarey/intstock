@@ -1,0 +1,12 @@
+@use "../src/style/partials/mixins" as *;
+@use "../src/style/partials/variables" as *;
+@use "../src/style/partials/typography" as *;
+
+* {
+    margin: 0;
+    box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Titillium Web', 'Calibri', sans-serif;
+}

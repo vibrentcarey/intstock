@@ -1,0 +1,23 @@
+@import "../../style/partials/typography";
+@import "../../style/partials/variables";
+.in-stock {
+  color: $green;
+  width: 3.06rem;
+  height: 1.125rem;
+  top: 0.25rem;
+  left: 0.5rem;
+  font-size: 0.625rem;
+  background-color: $cloud;
+  border-radius: 0.625rem;
+}
+.out-of-stock {
+  color: $red;
+  width: 4.75rem;
+  height: 1.125rem;
+  top: 0.25rem;
+  bottom: 0.25rem;
+  left: 0.5rem;
+  font-size: 0.625rem;
+  background-color: $cloud;
+  border-radius: 0.625rem;
+}
