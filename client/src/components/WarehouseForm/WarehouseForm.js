@@ -5,20 +5,19 @@ import { Link } from 'react-router-dom';
 import back from '../../assets/arrow_back-24px.svg';
 import errorIcon from '../../assets/error-24px.svg';
 import Button from '../../Button/Button';
+import axios from 'axios'
 
 class WarehouseForm extends Component {
     state = {
-            name: true,
-            address: true,
-            city: true,
-            country: true,
-            contactName: true,
-            position: true,
-            phone: true,
-            email: true,
-
+        name: true,
+        address: true,
+        city: true,
+        country: true,
+        contactName: true,
+        position: true,
+        phone: true,
+        email: true,
     }
-
 
     nameRef = React.createRef();
     addressRef = React.createRef();
@@ -64,12 +63,12 @@ class WarehouseForm extends Component {
         e.preventDefault()
         console.log(e.target.name);
         //TODO: Check for better way to do this
-        if(!this.nameRef.current.value){
-            this.setState({...this.state.form, name: false }, () => {
+        if (!this.nameRef.current.value) {
+            this.setState({ ...this.state.form, name: false }, () => {
                 console.log(this.state);
             })
         }
-        
+
         const warehouseDetails = {
             name: this.nameRef.current.value,
             address: this.addressRef.current.value,
@@ -80,9 +79,18 @@ class WarehouseForm extends Component {
             phone: this.phoneRef.current.value,
             email: this.emailRef.current.value
         }
+        axios.post('http://localhost:8080/warehouses', warehouseDetails)
+            .then(res => console.log(res))
+            .catch(err => console.log(err))
 
-        console.log(warehouseDetails);
     }
+
+    editHandler = (e) => {
+        e.preventDefault()
+        console.log('edit');
+    }
+    //Temporary value to be replaced with query param
+    // id = true
 
     render() {
         // let submitHandler = this.handleEdit;
@@ -91,7 +99,7 @@ class WarehouseForm extends Component {
             <section className='warehouse-form'>
 
                 {/* Title Page will be here */}
-                <form className='warehouse-form__form' id='warehouse-form' onSubmit={this.addHandler}>
+                <form className='warehouse-form__form' id='warehouse-form' onSubmit={!this.id ? this.addHandler : this.editHandler}>
                     <div className='warehouse-form__input-container'>
                         {/* Warehouse Details */}
                         <fieldset className='warehouse-form__warehouse-details' form='warehouse-form' name='warehouse-form__warehouse-details'>
