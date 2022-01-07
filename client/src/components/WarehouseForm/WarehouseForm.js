@@ -6,35 +6,20 @@ import axios from 'axios'
 
 // Temporary value to be replaced with query param
 const warehouseId = '2922c286-16cd-4d43-ab98-c79f698aeab0';
-
-const data = {
-    "id": "2922c286-16cd-4d43-ab98-c79f698aeab0",
-    "name": "Manhattan",
-    "address": "503 Broadway",
-    "city": "New York",
-    "country": "USA",
-    "contact": {
-        "name": "Parmin Aujla",
-        "position": "Warehouse Manager",
-        "phone": "+1 (646) 123-1234",
-        "email": "paujla@instock.com"
-    }
-}
-
 // const warehouseId = '';
 
 class WarehouseForm extends Component {
     state = {
         data: null,
         form: {
-            name: false,
-            address: false,
-            city: false,
-            country: false,
-            contactName: false,
-            position: false,
-            phone: false,
-            email: false,
+            name: true,
+            address: true,
+            city: true,
+            country: true,
+            contactName: true,
+            position: true,
+            phone: true,
+            email: true,
         }
     }
 
@@ -71,7 +56,6 @@ class WarehouseForm extends Component {
                 })
                 .catch(err => console.log(err))
         }
-
     }
 
     nameRef = React.createRef();
@@ -83,83 +67,13 @@ class WarehouseForm extends Component {
     phoneRef = React.createRef();
     emailRef = React.createRef();
 
-
-    // handleChange = (e) => {
-    //     if (e.target.value === "") {
-    //         this.setState({
-    //             ...this.state, [e.target.name]: false,
-    //         })
-    //     } else {
-    //         this.setState({
-    //             ...this.state, [e.target.name]: true,
-    //         })
-    //     }
-    // }
-
-    // ifEmailValid = (email) => {
-    //     if (email.includes('@')) {
-    //         return true
-    //     } else {
-    //         return alert('Invalid email')
-    //     }
-    // }
-
-    // ifNumbervalid = (phone) => {
-    //     let format = new RegExp(/^[+]?[1]?[ ]?[(]?[0-9]{3}[)]?[ ]?([0-9]{3})[- ]?([0-9]{4})$/)
-    //     if (phone.match(format)) {
-    //         return true
-    //     } else {
-    //         return alert("Phone number format need to be +1(area code) 000-0000")
-    //     }
-    // }
-
-    // isFormValid = () => {
-    //     if (!this.nameRef.current.value) {
-    //         this.setState({ ...this.state, name: false })
-    //         console.log(this.state)
-    //     } else {
-    //         this.setState({ ...this.state, name: true })
-    //     }
-
-    // if (!this.addressRef.current.value) {
-    //     this.setState({ ...this.state, address: false })
-    // }
-
-    // if (!this.cityRef.current.value) {
-    //     this.setState({ ...this.state, city: false })
-    // }
-
-    // if (!this.countryRef.current.value) {
-    //     this.setState({ ...this.state, country: false })
-    // }
-
-    // if (!this.contactNameRef.current.value) {
-    //     this.setState({ ...this.state, contactName: false })
-    // }
-
-    // if (!this.positionRef.current.value) {
-    //     this.setState({ ...this.state, position: false })
-    // }
-
-    // if (!this.phoneRef.current.value) {
-    //     this.setState({ ...this.state, phone: false })
-    // }
-
-    // if (!this.emailRef.current.value) {
-    //     this.setState({ ...this.state, email: false })
-    //     console.log(this.state)
-    // }
-
-    // }
-
-
     addHandler = (e) => {
         e.preventDefault()
         console.log(e.target.name);
         //TODO: Check for better way to do this
-        if (this.nameRef.current.value) {
-            this.setState({ ...this.state, name: true }, () => {
-                console.log(this.state);
+        if (!this.nameRef.current.value) {
+            this.setState({ ...this.state.form, name: false }, () => {
+                console.log(this.state.form);
             })
         }
 
@@ -222,15 +136,14 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='name'>Warehouse Name</label>
                             <input
                                 ref={this.nameRef}
-                                className={this.state.name ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.name ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='name'
                                 name='name'
                                 type='text'
                                 placeholder='Warehouse Name'
-                                onChange={this.handleChange}
                             />
                             {/* Validation form */}
-                            <div className={this.state.name ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={this.state.form.name ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -239,14 +152,14 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='address'>Street Address</label>
                             <input
                                 ref={this.addressRef}
-                                className={this.state.address ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.address ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='address'
                                 name='address'
                                 type='text'
                                 placeholder='Street Address'
-                                onChange={this.handleChange} />
+                            />
                             {/* Validation form */}
-                            <div className={this.state.address ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={this.state.form.address ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -254,14 +167,14 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='city'>City</label>
                             <input
                                 ref={this.cityRef}
-                                className={this.state.city ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.city ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='city'
                                 name='city'
                                 type='text'
                                 placeholder='City'
                                 onChange={this.handleChange} />
                             {/* Validation form */}
-                            <div className={this.state.city ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={this.state.form.city ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -270,15 +183,14 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='country'>Country</label>
                             <input
                                 ref={this.countryRef}
-
-                                className={this.state.country ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.country ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='country'
                                 name='country'
                                 type='text'
                                 placeholder='Country'
-                                onChange={this.handleChange} />
+                            />
                             {/* Validation form */}
-                            <div className={this.state.country ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={this.state.form.country ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -290,14 +202,14 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='contactName'>Contact Name</label>
                             <input
                                 ref={this.contactNameRef}
-                                className={this.state.contactName ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.contactName ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='contactName'
                                 name='contactName'
                                 type='text'
                                 placeholder='Contact Name'
-                                onChange={this.handleChange} />
+                            />
                             {/* Validation form */}
-                            <div className={this.state.contactName ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={this.state.form.contactName ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -305,13 +217,13 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='position'>Position</label>
                             <input
                                 ref={this.positionRef}
-                                className={this.state.position ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.position ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='position'
                                 name='position'
                                 type='text'
                                 placeholder='Position'
-                                onChange={this.handleChange} />
-                            <div className={this.state.position ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            />
+                            <div className={this.state.form.position ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -319,13 +231,13 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='phone'>Phone Number</label>
                             <input
                                 ref={this.phoneRef}
-                                className={this.state.phone ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.phone ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='phone'
                                 name='phone'
                                 type='text'
                                 placeholder='Phone Number'
-                                onChange={this.handleChange} />
-                            <div className={this.state.phone ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            />
+                            <div className={this.state.form.phone ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -333,13 +245,12 @@ class WarehouseForm extends Component {
                             <label className='warehouse-form__label' htmlFor='email'>Email</label>
                             <input
                                 ref={this.emailRef}
-                                className={this.state.email ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={this.state.form.email ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='email'
                                 name='email'
                                 type='text'
-                                placeholder='Email'
-                                onChange={this.handleChange} />
-                            <div className={this.state.email ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                                placeholder='Email' />
+                            <div className={this.state.form.email ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
