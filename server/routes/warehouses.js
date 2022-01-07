@@ -16,6 +16,7 @@ wareHouseRouter.get("/", (_req, res) => {
   // console.log(wareHouseList);
   wareHouseList = wareHouseList.map((warehouse) => {
     return {
+      id: warehouse.id,
       name: warehouse.name,
       address: warehouse.address,
       contact: warehouse.contact.name,
