@@ -4,6 +4,7 @@ import './TopBar.css'
 import back from '../assets/arrow_back-24px.svg'
 import PropTypes from 'prop-types'
 import TopBarDetails from './TopBarDetails';
+import Button from '../Button/Button';
 
 const TopBar = (props) => {
   const showButton = true

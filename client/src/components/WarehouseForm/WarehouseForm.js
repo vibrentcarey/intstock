@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // import axios from 'axios';
 import back from '../../assets/arrow_back-24px.svg';
 import errorIcon from '../../assets/error-24px.svg';
+import Button from '../../Button/Button';
 
 class WarehouseForm extends Component {
     state = {
@@ -180,8 +181,8 @@ class WarehouseForm extends Component {
                         </fieldset>
                     </div>
                     <div className='warehouse-form__button-container'>
-                        {/* Button Cancel will be here */}
-                        {/* Button Save/Add Warehouse will be here */}
+                        <Button value='Cancel' type='secondary' />
+                        <Button value='+Add Warehouse' />
                     </div>
                 </form>
             </section>
