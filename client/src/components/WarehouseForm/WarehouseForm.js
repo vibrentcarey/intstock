@@ -1,12 +1,12 @@
 import './WarehouseForm.scss';
 import React, { Component } from 'react';
-// import axios from 'axios';
 import errorIcon from '../../assets/error-24px.svg';
 import Button from '../../Button/Button';
-<<<<<<< HEAD
-=======
 import axios from 'axios'
->>>>>>> develop
+
+// Temporary value to be replaced with query param
+// const warehouseId = '2922c286-16cd-4d43-ab98-c79f698aeab0';
+const warehouseId = '';
 
 class WarehouseForm extends Component {
     state = {
@@ -30,42 +30,84 @@ class WarehouseForm extends Component {
     emailRef = React.createRef();
 
 
-    // componentDidMount() {
-    //     const currentWarehousesId = this.props.match.params.warehousesId;
+    // handleChange = (e) => {
+    //     if (e.target.value === "") {
+    //         this.setState({
+    //             ...this.state, [e.target.name]: false,
+    //         })
+    //     } else {
+    //         this.setState({
+    //             ...this.state, [e.target.name]: true,
+    //         })
+    //     }
+    // }
+
+    // ifEmailValid = (email) => {
+    //     if (email.includes('@')) {
+    //         return true
+    //     } else {
+    //         return alert('Invalid email')
+    //     }
+    // }
+
+    // ifNumbervalid = (phone) => {
+    //     let format = new RegExp(/^[+]?[1]?[ ]?[(]?[0-9]{3}[)]?[ ]?([0-9]{3})[- ]?([0-9]{4})$/)
+    //     if (phone.match(format)) {
+    //         return true
+    //     } else {
+    //         return alert("Phone number format need to be +1(area code) 000-0000")
+    //     }
+    // }
+
+    // isFormValid = () => {
+    //     if (!this.nameRef.current.value) {
+    //         this.setState({ ...this.state, name: false })
+    //         console.log(this.state)
+    //     } else {
+    //         this.setState({ ...this.state, name: true })
+    //     }
+
+    // if (!this.addressRef.current.value) {
+    //     this.setState({ ...this.state, address: false })
+    // }
+
+    // if (!this.cityRef.current.value) {
+    //     this.setState({ ...this.state, city: false })
+    // }
+
+    // if (!this.countryRef.current.value) {
+    //     this.setState({ ...this.state, country: false })
+    // }
+
+    // if (!this.contactNameRef.current.value) {
+    //     this.setState({ ...this.state, contactName: false })
+    // }
+
+    // if (!this.positionRef.current.value) {
+    //     this.setState({ ...this.state, position: false })
+    // }
+
+    // if (!this.phoneRef.current.value) {
+    //     this.setState({ ...this.state, phone: false })
+    // }
+
+    // if (!this.emailRef.current.value) {
+    //     this.setState({ ...this.state, email: false })
+    //     console.log(this.state)
+    // }
 
     // }
 
-    handleChange = (e) => {
-        this.setState({
-            selectedWarehouse: {
-                ...this.state.selectedWarehouse, [e.target.name]: e.target.value,
-            }
-        })
-        if (e.target.value === "") {
-            this.setState({
-                ...this.state.form, [e.target.name]: false,
-            })
-        } else {
-            this.setState({
-                ...this.state.form, [e.target.name]: true,
-            })
-        }
-    }
 
-    handleAdd = (e) => {
-        e.preventDefault();
-    }
 
-    handleEdit = (e) => {
-        e.preventDefault();
-    }
+
 
     addHandler = (e) => {
         e.preventDefault()
         console.log(e.target.name);
         //TODO: Check for better way to do this
         if (!this.nameRef.current.value) {
-            this.setState({ ...this.state.form, name: false }, () => {
+            this.setState({ ...this.state, name: false }, () => {
                 console.log(this.state);
             })
         }
@@ -83,24 +125,44 @@ class WarehouseForm extends Component {
         axios.post('http://localhost:8080/warehouses', warehouseDetails)
             .then(res => console.log(res))
             .catch(err => console.log(err))
-
     }
+    // }
 
     editHandler = (e) => {
         e.preventDefault()
         console.log('edit');
+        console.log(`http://localhost:8080/warehouses/${warehouseId}`)
+
+        const warehouseDetails = {
+            name: this.nameRef.current.value,
+            address: this.addressRef.current.value,
+            city: this.cityRef.current.value,
+            country: this.countryRef.current.value,
+            contact: this.contactNameRef.current.value,
+            position: this.positionRef.current.value,
+            phone: this.phoneRef.current.value,
+            email: this.emailRef.current.value
+        }
+
+        axios
+            .put(`http://localhost:8080/warehouses/${warehouseId}`, warehouseDetails)
+            .then(res => {
+                console.log(res)
+                // alert('Warehouse edited!')
+                // this.props.history.push('/warehouse')
+            })
+            .catch(err => console.log(`Put request for editing of warehouse with: ${err}`))
     }
-    //Temporary value to be replaced with query param
-    // id = true
+
+    // cancelHandler = (e) => {
+    //     e.preventDefault()
+    //     this.props.history.push("/")
+    // }
 
     render() {
-        // let submitHandler = this.handleEdit;
-
         return (
             <section className='warehouse-form'>
-
-                {/* Title Page will be here */}
-                <form className='warehouse-form__form' id='warehouse-form' onSubmit={!this.id ? this.addHandler : this.editHandler}>
+                <form className='warehouse-form__form' id='warehouse-form' onSubmit={!warehouseId ? this.addHandler : this.editHandler}>
                     <div className='warehouse-form__input-container'>
                         {/* Warehouse Details */}
                         <fieldset className='warehouse-form__warehouse-details' form='warehouse-form' name='warehouse-form__warehouse-details'>
@@ -114,6 +176,7 @@ class WarehouseForm extends Component {
                                 name='name'
                                 type='text'
                                 placeholder='Warehouse Name'
+                                onChange={this.handleChange}
                             />
                             {/* Validation form */}
                             <div className={this.state.name ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
@@ -232,13 +295,8 @@ class WarehouseForm extends Component {
                         </fieldset>
                     </div>
                     <div className='warehouse-form__button-container'>
-<<<<<<< HEAD
-                        <Button type='secondary' value='Cancel' />
+                        <Button type='secondary' value='Cancel' onClick={this.CancelHandler} />
                         <Button type='primary' value={this.props.submitValue} />
-=======
-                        <Button value='Cancel' type='secondary' />
-                        <Button value={this.props.submitValue} />
->>>>>>> develop
                     </div>
                 </form>
             </section>
