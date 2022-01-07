@@ -9,15 +9,38 @@
    font-weight: normal;
    font-size: 13px;
    line-height: 20px;
+   color: $instock-black;
+
+   @include tablet {
+    margin: 32px;
+    font-size: 14px;
+    line-height: 22px;
+
+   }
    
    &__container {
      display: inline-flex;
      gap: 50%;
      flex-direction: row;
+     @include tablet {
+       width: 100%;
+       display: flex;
+       justify-content: space-between;
+     }
+
+     @include tablet {
+       display: flex;
+       gap: 0;
+     }
    }
    &__item-category {
      display: flex;
      flex-direction: column;
+     @include tablet {
+       flex-direction: row;
+       width: 20%;
+       justify-content: space-between;
+     }
    }
    &__category{
     flex-basis: 20%;
@@ -42,6 +65,11 @@
    &__status-quantity {
      display: flex;
      flex-direction: column;
+     @include tablet {
+       flex-direction: row;
+       width: 20%;
+       justify-content: space-between;
+     }
    }
    &__status {
     flex-basis: 20%;
@@ -60,10 +88,21 @@
      display: flex;
      justify-content: space-between;
      padding-top: 16px;
+     @include tablet {
+       padding-top: 0;
+       width: 33%;
+       justify-content: flex-end;
+     }
    }
    &__icon {
      width: 20px;
      height: 20px;
+   }
+   &__desktop {
+     display: none;
+     @include tablet {
+       display: inline-block;
+     }
    }
 
    

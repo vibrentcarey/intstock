@@ -20,9 +20,13 @@ const WareHouseInventoryList = () => {
             <p className='inventory__category inventory__item'>Electronics</p>
           </div>
 
-          <div className='inventory__status-quantiy'>
+          <div className='inventory__status-quantity'>
             <p className='inventory__status inventory__item'>Status</p>
             <p className='inventory__quantity inventory__item'>500</p>
+          </div>
+          <div className='inventory__icons inventory__desktop' >
+            <img className='inventory__icon' src={deleteIcon} alt='delete icon'/>
+            <img className='inventory__icon' src={editIcon} alt='edit icon'/>
           </div>
 
           </div>
