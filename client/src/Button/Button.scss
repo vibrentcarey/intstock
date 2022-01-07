@@ -1,0 +1,92 @@
+@use "../style/partials/variables" as *;
+@use "../style/partials/typography" as *;
+@use "../style/partials/mixins" as *;
+
+// Common properties for all buttons.
+@mixin common() {
+  height: 2.25rem;
+  width: 100%;
+  border-radius: 1.25rem;
+  border: none;
+  padding: 0;
+  margin: 1rem;
+}
+
+.button {
+  &__primary {
+    color: $white;
+    background-color: $instock-indigo;
+
+    @include common;
+
+    @include tablet {
+      height: 2.375rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    @include desktop {
+      height: 2.375rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    &:hover {
+      background-color: $instock-black;
+    }
+
+    &:active {
+      background-color: $instock-indigo;
+    }
+  }
+
+  &__secondary {
+    color: $instock-black;
+    background-color: $white;
+
+    @include common;
+    border: 1px solid $cloud;
+
+    @include tablet {
+      height: 2.375rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    @include desktop {
+      height: 2.375rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    &:hover {
+      color: $instock-indigo;
+      border: 1px solid $instock-indigo;
+    }
+
+    &:active {
+      background-color: $white;
+    }
+  }
+
+  &__delete {
+    color: $white;
+    background-color: $red;
+
+    @include common;
+
+    @include tablet {
+      height: 2.375rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    @include desktop {
+      height: 2.375rem;
+      padding: 0 1rem 0 1rem;
+    }
+
+    &:hover {
+      background-color: $instock-black;
+    }
+
+    &:active {
+      background-color: $red;
+    }
+  }
+}
