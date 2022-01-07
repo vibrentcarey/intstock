@@ -6,7 +6,7 @@ import editIcon from '../assets/edit-24px.svg';
 
 const WareHouseListItem = (props) => {
   // ListItem props to be used!!
-  // const {wareHouseName, address, contactName, contactInfo} = props
+  const {wareHouseName, address, contactName, email, phone} = props
   return (
     <>
     {/* ⇧⌘L */}
@@ -14,21 +14,19 @@ const WareHouseListItem = (props) => {
       <div className='warehouse-list-item__wrapper'>
         <div className='warehouse-list-item__right'>
           <div className='warehouse-list-item__container'>
-            <p className='warehouse-list-item__name'>Manhattan</p>
+            <p className='warehouse-list-item__name'>{wareHouseName}</p>
             <img className='warehouse-list-item__icon'src={chevronIcon} alt='chevron icon'/>
           </div>
           <p className='warehouse-list-item__address'>
-            503 Broadway
-            New York, USA
+            {address}
           </p>
           
         </div>
 
         <div className='warehouse-list-item__left'>
-          <p className='warehouse-list-item__contact-name'>Permin Aujla</p>
+          <p className='warehouse-list-item__contact-name'>{contactName}</p>
           <p className='warehouse-list-item__contact-info'>
-          +1(629)555-0129
-          paujla@instock.com
+          {phone} {email}
           </p>
           <div className='warehouse-list-item__icons warehouse-list-item__icons--tablet'>
             <img className='warehouse-list-item__delete' src={deleteIcon} alt='delete icon'/>

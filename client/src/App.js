@@ -42,7 +42,7 @@ class App extends Component {
             />
             <Route
               path="/dev"
-              component={Dev} //Stock filter
+              component={Dev}
             />
           </Switch>
         </BrowserRouter>
