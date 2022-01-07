@@ -13,9 +13,10 @@ const readFile = () => {
 // Fetch warehouse list end point
 wareHouseRouter.get("/", (_req, res) => {
   let wareHouseList = readFile();
-  console.log(wareHouseList);
+  // console.log(wareHouseList);
   wareHouseList = wareHouseList.map((warehouse) => {
     return {
+      id: warehouse.id,
       name: warehouse.name,
       address: warehouse.address,
       contact: warehouse.contact.name,
@@ -27,7 +28,7 @@ wareHouseRouter.get("/", (_req, res) => {
 });
 
 // Fetch a single warehouse
-wareHouseRouter.get("/:wareHouseId", (req, res) => {});
+wareHouseRouter.get("/:warehouseId", (req, res) => {});
 
 //create warehouse
 wareHouseRouter.post("/", (req, res) => {});
