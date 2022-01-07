@@ -4,6 +4,7 @@ import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
 import Stock from "../../components/stock/Stock";
 import EditWarehousePage from '../EditWarehousePage/EditWarehousePage';
 import AddWarehousePage from '../AddWarehousePage/AddWarehousePage';
+import Footer from '../../components/Footer/Footer';
 
 const Dev = () => {
   return (
@@ -19,6 +20,7 @@ const Dev = () => {
       /> */}
       {/* <EditWarehousePage /> */}
       <AddWarehousePage />
+      <Footer />
     </div>
   )
 }

@@ -1,8 +1,11 @@
-import './WarehouseForm.scss';
-import React, { Component } from 'react';
-import errorIcon from '../../assets/error-24px.svg';
-import Button from '../../Button/Button';
-import axios from 'axios'
+import "./WarehouseForm.scss";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+// import axios from 'axios';
+import back from "../../assets/arrow_back-24px.svg";
+import errorIcon from "../../assets/error-24px.svg";
+import Button from "../../Button/Button";
+import axios from "axios";
 
 // Temporary value to be replaced with query param
 const warehouseId = '2922c286-16cd-4d43-ab98-c79f698aeab0';
@@ -268,4 +271,3 @@ class WarehouseForm extends Component {
 }
 
 export default WarehouseForm;
-
