@@ -1,0 +1,118 @@
+@use "../../style/partials/variables" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/mixins" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  margin: 0;
+  font-family: "Titillium Web";
+}
+
+.header {
+  background-color: $graphite;
+  margin: 0;
+  padding: 24px 0 24px 0;
+
+  @include flex(flex-start, center, column);
+
+  @include tablet {
+    @include flex(space-between, center, row);
+    padding: 2rem 2rem 2rem 2rem;
+  }
+
+  @include desktop {
+    @include flex(space-between, center, row);
+    padding: 2rem 5rem 2rem 5rem;
+  }
+
+  &__logo {
+    width: 100%;
+    height: auto;
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    @include tablet {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include desktop {
+      flex-direction: row;
+      justify-content: space-between;
+      margin: 0;
+    }
+  }
+
+  &__list-item {
+    color: $cloud;
+    height: 2.25rem;
+    width: 100%;
+    margin: 1rem;
+    padding: 0.3rem 1rem;
+
+    @include tablet {
+      margin: 0 0 0 1rem;
+      padding: 0.3rem 0 0.3rem 1rem;
+    }
+
+    @include desktop {
+      margin: 0 0 0 1rem;
+      padding: 0.3rem 0 0.3rem 1rem;
+    }
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: $cloud;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: $white;
+    }
+  }
+
+  &__active-item {
+    color: $white;
+    background-color: $instock-black;
+    height: 2.25rem;
+    width: 100%;
+    border-radius: 1.25rem;
+    padding: 0.3rem 1rem 0 1rem;
+
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: $white;
+    }
+
+    a:hover {
+      text-decoration: none;
+      color: $white;
+    }
+  }
+}
