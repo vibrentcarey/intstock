@@ -13,7 +13,7 @@ const readFile = () => {
 // Fetch warehouse list end point
 wareHouseRouter.get("/", (_req, res) => {
   let wareHouseList = readFile();
-  console.log(wareHouseList);
+  // console.log(wareHouseList);
   wareHouseList = wareHouseList.map((warehouse) => {
     return {
       name: warehouse.name,
@@ -27,7 +27,17 @@ wareHouseRouter.get("/", (_req, res) => {
 });
 
 // Fetch a single warehouse
-wareHouseRouter.get("/:wareHouseId", (req, res) => {});
+// wareHouseRouter.get("/:warehouseId", (req, res) => {
+//   const wareHouseList = readFile();
+//   const warehouse = wareHouseList.find(
+//     (warehouse) => warehouse.id === req.params.warehouseId
+//   );
+
+//   if (!warehouse) {
+//     return res.status(404).send("Warehouse not found");
+//   }
+//   return res.status(200).json(warehouse);
+// });
 
 //create warehouse
 wareHouseRouter.post("/", (req, res) => {});
