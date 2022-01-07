@@ -9,7 +9,11 @@ import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/Inventory
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import Dev from "./pages/Dev/Dev";
+<<<<<<< HEAD
 import './App.scss';
+=======
+import WarehouseForm from "./components/WarehouseForm/WarehouseForm";
+>>>>>>> develop
 
 // InStock Application
 class App extends Component {
