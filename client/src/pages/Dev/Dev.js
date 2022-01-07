@@ -17,7 +17,12 @@ const Dev = () => {
         email= "pauji@gmail.com"
         phone= "1(333)333-3333"
       />
-      <WareHouseInventoryList/>
+      <WareHouseInventoryList
+        name='Television'
+        category= 'Electronics'
+        quantity='500'
+       
+      />
     </div>
   )
 }

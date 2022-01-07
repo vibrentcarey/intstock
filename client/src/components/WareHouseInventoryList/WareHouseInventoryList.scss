@@ -11,12 +11,18 @@
    line-height: 20px;
    color: $instock-black;
 
-   @include tablet {
-    margin: 32px;
-    font-size: 14px;
-    line-height: 22px;
+    @include tablet {
+      margin: 32px;
+      font-size: 14px;
+      line-height: 22px;
 
-   }
+    }
+    @include desktop {
+      width: 1000px;
+      margin: auto;
+      font-size: 14px;
+      line-height: 22px;
+    }
    
    &__container {
      display: inline-flex;
@@ -26,17 +32,21 @@
        width: 100%;
        display: flex;
        justify-content: space-between;
-     }
-
-     @include tablet {
-       display: flex;
        gap: 0;
      }
+
    }
    &__item-category {
      display: flex;
      flex-direction: column;
+
      @include tablet {
+       flex-direction: row;
+       width: 35%;
+       justify-content: space-between;
+     }
+
+     @include desktop {
        flex-direction: row;
        width: 35%;
        justify-content: space-between;
@@ -46,12 +56,34 @@
     flex-basis: 20%;
     margin: 0 1% 20px;
     height: 300px;
+    
+    @include tablet {
+      flex-basis: 0%;
+      margin: 0;
+      height: 0;
+    }
+    @include desktop {
+      flex-basis: 0%;
+      margin: 0;
+      height: 0;
+    }
 
    }
    &__wrapper {
     flex-basis: 20%;
     margin: 0 1% 20px;
     height: 30px;
+
+    @include tablet {
+      flex-basis: 0%;
+      margin: 0;
+      height: 0;
+    }
+    @include desktop{
+      flex-basis: 0%;
+      margin: 0;
+      height: 0;
+    }
    }
    &__name-wrapper {
      display: inline-flex;
@@ -65,16 +97,33 @@
    &__status-quantity {
      display: flex;
      flex-direction: column;
+
      @include tablet {
+       flex-direction: row;
+       width: 40%;
+       justify-content: space-around;
+     }
+     @include desktop {
        flex-direction: row;
        width: 40%;
        justify-content: space-around;
      }
    }
    &__status {
-    flex-basis: 20%;
-    margin: 0 1% 20px;
-    height: 40px;
+    flex-basis: 70%;
+    // margin: 0 1% 40px;
+    // height: 40px;
+
+    @include tablet {
+      flex-basis: 0%;
+      margin: 0;
+      height: 0;
+    }
+    @include desktop {
+      flex-basis: 0%;
+      margin: 0;
+      height: 0;
+    }
    }
    &__arrow {
      align-self: center;
@@ -88,7 +137,12 @@
      display: flex;
      justify-content: space-between;
      padding-top: 16px;
+
      @include tablet {
+       padding-top: 0;
+       display: inline-flex; 
+     }
+     @include desktop {
        padding-top: 0;
        display: inline-flex; 
      }
@@ -99,11 +153,28 @@
      @include tablet {
        padding-left: 10px;
      }
+
+     @include desktop {
+       padding-left: 10px;
+     }
    }
    &__desktop {
      display: none;
+
      @include tablet {
        display: inline-block;
      }
+     @include desktop {
+       display: inline-block;
+     }
    }  
+
+   &__mobile {
+     @include tablet {
+       display: none;
+     }
+     @include desktop {
+       display: none;
+     }
+   }
  }
