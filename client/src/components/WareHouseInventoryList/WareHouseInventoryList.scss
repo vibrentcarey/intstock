@@ -1,1 +1,70 @@
- 
+ @use '../../style/partials/typography' as *;
+ @use '../../style/partials/mixins' as *;
+ @use '../../style/partials/variables' as *;
+
+ .inventory {
+   margin: 16px;
+   font-family: 'Titillium Web';
+   font-style: normal;
+   font-weight: normal;
+   font-size: 13px;
+   line-height: 20px;
+   
+   &__container {
+     display: inline-flex;
+     gap: 50%;
+     flex-direction: row;
+   }
+   &__item-category {
+     display: flex;
+     flex-direction: column;
+   }
+   &__category{
+    flex-basis: 20%;
+    margin: 0 1% 20px;
+    height: 300px;
+
+   }
+   &__wrapper {
+    flex-basis: 20%;
+    margin: 0 1% 20px;
+    height: 30px;
+   }
+   &__name-wrapper {
+     display: inline-flex;
+     gap: 5px;
+     
+   }
+   &__name {
+     color: $instock-indigo;
+     font-weight: 600;
+   }
+   &__status-quantity {
+     display: flex;
+     flex-direction: column;
+   }
+   &__status {
+    flex-basis: 20%;
+    margin: 0 1% 20px;
+    height: 40px;
+   }
+   &__arrow {
+     align-self: center;
+     height: 20px;
+     width: 15px;
+   }
+   &__item {
+     margin: 0;
+   }
+   &__icons {
+     display: flex;
+     justify-content: space-between;
+     padding-top: 16px;
+   }
+   &__icon {
+     width: 20px;
+     height: 20px;
+   }
+
+   
+ }
