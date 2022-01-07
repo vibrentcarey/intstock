@@ -5,19 +5,73 @@ import Button from '../../Button/Button';
 import axios from 'axios'
 
 // Temporary value to be replaced with query param
-// const warehouseId = '2922c286-16cd-4d43-ab98-c79f698aeab0';
-const warehouseId = '';
+const warehouseId = '2922c286-16cd-4d43-ab98-c79f698aeab0';
+
+const data = {
+    "id": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "name": "Manhattan",
+    "address": "503 Broadway",
+    "city": "New York",
+    "country": "USA",
+    "contact": {
+        "name": "Parmin Aujla",
+        "position": "Warehouse Manager",
+        "phone": "+1 (646) 123-1234",
+        "email": "paujla@instock.com"
+    }
+}
+
+// const warehouseId = '';
 
 class WarehouseForm extends Component {
     state = {
-        name: true,
-        address: true,
-        city: true,
-        country: true,
-        contactName: true,
-        position: true,
-        phone: true,
-        email: true,
+        data: null,
+        form: {
+            name: false,
+            address: false,
+            city: false,
+            country: false,
+            contactName: false,
+            position: false,
+            phone: false,
+            email: false,
+        }
+    }
+
+    //  component was created, insert into DOM, and rendered first time
+    componentDidMount() {
+        if (warehouseId) {
+            axios
+                .get(`http://localhost:8080/warehouses/${warehouseId}`)
+                .then(res => {
+                    this.setState({
+                        data: {
+                            name: res.data.name,
+                            address: res.data.address,
+                            city: res.data.city,
+                            country: res.data.country,
+                            contactName: res.data.contact.name,
+                            position: res.data.contact.position,
+                            phone: res.data.contact.phone,
+                            email: res.data.contact.email,
+                        }
+                    })
+                    this.setState({
+                        form: {
+                            name: true,
+                            address: true,
+                            city: true,
+                            country: true,
+                            contactName: true,
+                            position: true,
+                            phone: true,
+                            email: true,
+                        }
+                    })
+                })
+                .catch(err => console.log(err))
+        }
+
     }
 
     nameRef = React.createRef();
@@ -99,15 +153,12 @@ class WarehouseForm extends Component {
     // }
 
 
-
-
-
     addHandler = (e) => {
         e.preventDefault()
         console.log(e.target.name);
         //TODO: Check for better way to do this
-        if (!this.nameRef.current.value) {
-            this.setState({ ...this.state, name: false }, () => {
+        if (this.nameRef.current.value) {
+            this.setState({ ...this.state, name: true }, () => {
                 console.log(this.state);
             })
         }
@@ -122,6 +173,7 @@ class WarehouseForm extends Component {
             phone: this.phoneRef.current.value,
             email: this.emailRef.current.value
         }
+
         axios.post('http://localhost:8080/warehouses', warehouseDetails)
             .then(res => console.log(res))
             .catch(err => console.log(err))
@@ -132,7 +184,6 @@ class WarehouseForm extends Component {
         e.preventDefault()
         console.log('edit');
         console.log(`http://localhost:8080/warehouses/${warehouseId}`)
-
         const warehouseDetails = {
             name: this.nameRef.current.value,
             address: this.addressRef.current.value,
