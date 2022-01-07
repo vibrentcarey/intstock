@@ -19,7 +19,7 @@ function Button(props) {
   }
 
   return (
-    <button type="button" className={btnDesign} onClick={props.onClick}>
+    <button type="submit" className={btnDesign} onClick={props.onClick}>
       {props.value}
     </button>
   );

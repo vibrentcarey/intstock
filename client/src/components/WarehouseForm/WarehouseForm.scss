@@ -6,6 +6,18 @@
     background-color: $white;
     @include flex(flex-start, stretch, column);
 
+    &__button-container {
+        background-color: $light-grey;
+        @include flex(space-between, flex-start, row);
+        width: 100%;
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+
+        @include tablet {
+            padding: 1rem 2rem;
+        }
+    }
+
     &__form {
         @include flex(center, center, column);
         width: 100%;
