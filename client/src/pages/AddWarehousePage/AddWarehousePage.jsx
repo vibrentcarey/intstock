@@ -6,7 +6,7 @@ const AddWarehousePage = (props) => {
   return (
     <div>
       <TopBar title='Add Warehouse' />
-      <WarehouseForm />
+      <WarehouseForm submitValue='Save' />
     </div>
   )
 };

@@ -51,6 +51,11 @@ class WarehouseForm extends Component {
         e.preventDefault();
     }
 
+    addHandler = (e) => {
+        e.preventDefault()
+        console.log();
+    }
+
     render() {
         let submitHandler = this.handleEdit;
 
@@ -58,7 +63,7 @@ class WarehouseForm extends Component {
             <section className='warehouse-form'>
 
                 {/* Title Page will be here */}
-                <form className='warehouse-form__form' id='warehouse-form' onSubmit={submitHandler}>
+                <form className='warehouse-form__form' id='warehouse-form' onSubmit={this.id ? this.addHandler : this.editHandler}>
                     <div className='warehouse-form__input-container'>
                         {/* Warehouse Details */}
                         <fieldset className='warehouse-form__warehouse-details' form='warehouse-form' name='warehouse-form__warehouse-details'>
@@ -182,7 +187,7 @@ class WarehouseForm extends Component {
                     </div>
                     <div className='warehouse-form__button-container'>
                         <Button value='Cancel' type='secondary' />
-                        <Button value='+Add Warehouse' />
+                        <Button value={this.props.submitValue} />
                     </div>
                 </form>
             </section>
