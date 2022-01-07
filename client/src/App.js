@@ -43,7 +43,7 @@ class App extends Component {
             />
             <Route
               path="/dev"
-              component={AddWarehousePage} //Stock filter: ;
+              component={Dev}
             />
           </Switch>
         </BrowserRouter>
