@@ -95,6 +95,7 @@ class WarehouseForm extends Component {
     // }
 
     editHandler = (e) => {
+        // will be condition to validation form
         e.preventDefault()
         console.log('edit');
         console.log(`http://localhost:8080/warehouses/${warehouseId}`)
@@ -114,7 +115,7 @@ class WarehouseForm extends Component {
             .then(res => {
                 console.log(res)
                 // alert('Warehouse edited!')
-                // this.props.history.push('/warehouse')
+                // this.props.history.push('/')
             })
             .catch(err => console.log(`Put request for editing of warehouse with: ${err}`))
     }
