@@ -1,10 +1,13 @@
+
 import React from 'react';
 import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
+import Stock from "../../components/stock/Stock";
 
 const Dev = () => {
   return (
-    // wareHouseName, address, contactName, email, phone
     <div>
+      <Stock instock={true} />
+      <Stock instock={false} />
       <WareHouseListItem 
         wareHouseName='Manhattan'
         address="503 Adreess Road"
@@ -17,3 +20,4 @@ const Dev = () => {
 }
 
 export default Dev
+
