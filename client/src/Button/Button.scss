@@ -75,41 +75,6 @@
     }
   }
 
-  // &__edit {
-  //   color: $white;
-  //   background-color: $instock-indigo;
-
-  //   span {
-  //     display: none;
-  //   }
-
-  //   @include common;
-
-  //   @include tablet {
-  //     height: 2.375rem;
-  //     padding: 0 1rem 0 1rem;
-
-  //     span {
-  //       display: flex;
-  //     }
-  //   }
-
-  //   @include desktop {
-  //     height: 2.375rem;
-  //     padding: 0 1rem 0 1remš span {
-  //       display: flex;
-  //     }
-  //   }
-
-  //   &:hover {
-  //     background-color: $instock-black;
-  //   }
-
-  //   &:active {
-  //     background-color: $instock-indigo;
-  //   }
-  // }
-
   &__delete {
     color: $white;
     background-color: $red;
@@ -147,7 +112,6 @@
 
   height: 2.25rem;
   width: 2.25rem;
-  //padding: 0.25rem;
   border: 1px solid $instock-indigo;
   border-radius: 50%;
   margin: 0;
