@@ -1,0 +1,132 @@
+@use "../../style/partials/variables" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/mixins" as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $white;
+  margin: 0;
+  font-family: "Titillium Web";
+}
+
+.header {
+  background-color: $graphite;
+
+  &__box {
+    @include flex(flex-start, stretch, column);
+    margin: 0;
+    padding: 1.5rem 1rem 1.5rem 1rem;
+
+    @include tablet {
+      @include flex(space-between, center, row);
+      padding: 2rem 2rem 2rem 2rem;
+    }
+
+    @include desktop {
+      @include flex(space-between, center, row);
+      padding: 2rem 5rem 2rem 5rem;
+    }
+  }
+
+  &__link {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      margin-bottom: 0;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__list-item {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    color: $cloud;
+    height: 2.25rem;
+    margin: 0;
+    padding: 0.5rem 3rem 0 3rem;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 0 0.5rem 1rem;
+    }
+
+    @include desktop {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 0 0.5rem 1rem;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: $cloud;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: $white;
+    }
+
+    &:first-child {
+      padding-right: 1rem;
+    }
+  }
+
+  &__active-item {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
+    color: $white;
+    background-color: $instock-black;
+    height: 2.25rem;
+    min-width: 0;
+    border-radius: 1.25rem;
+    padding: 0.5rem 3rem 0 3rem;
+    margin: 0;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 1rem 0 1rem;
+    }
+
+    @include desktop {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 1rem 0 1rem;
+    }
+
+    a:link,
+    a:visited,
+    a:active {
+      text-decoration: none;
+      color: $white;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: $white;
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import React from 'react';
 import TopBar from '../../components/TopBar';
 import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
 import Footer from '../../components/Footer/Footer';
@@ -6,12 +7,10 @@ import Footer from '../../components/Footer/Footer';
 const EditWarehousePage = (props) => {
   return (
     <div>
-      {/* Header */}
       <TopBar title='Edit Warehouse' />
       <WarehouseForm submitValue='Save' />
       <Footer />
     </div>
-  )
+  );
 };
-
 export default EditWarehousePage;
