@@ -16,29 +16,36 @@ body {
 
 .header {
   background-color: $graphite;
-  margin: 0;
-  padding: 24px 0 24px 0;
 
-  @include flex(flex-start, center, column);
+  &__box {
+    @include flex(flex-start, stretch, column);
+    margin: 0;
+    padding: 1.5rem 1rem 1.5rem 1rem;
 
-  @include tablet {
-    @include flex(space-between, center, row);
-    padding: 2rem 2rem 2rem 2rem;
-  }
+    @include tablet {
+      @include flex(space-between, center, row);
+      padding: 2rem 2rem 2rem 2rem;
+    }
 
-  @include desktop {
-    @include flex(space-between, center, row);
-    padding: 2rem 5rem 2rem 5rem;
-  }
-
-  &__logo {
-    width: 100%;
-    height: auto;
+    @include desktop {
+      @include flex(space-between, center, row);
+      padding: 2rem 5rem 2rem 5rem;
+    }
   }
 
   &__link {
     display: flex;
     flex-direction: row;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+
+    @include tablet {
+      margin-bottom: 0;
+    }
+
+    @include desktop {
+      margin-bottom: 0;
+    }
   }
 
   &__list {
@@ -48,38 +55,26 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 0;
-
-    @include tablet {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    @include desktop {
-      flex-direction: row;
-      justify-content: space-between;
-      margin: 0;
-    }
   }
 
   &__list-item {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
     color: $cloud;
     height: 2.25rem;
-    width: 100%;
-    margin: 1rem;
-    padding: 0.3rem 1rem;
+    margin: 0;
+    padding: 0.5rem 3rem 0 3rem;
 
     @include tablet {
-      margin: 0 0 0 1rem;
-      padding: 0.3rem 0 0.3rem 1rem;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 0 0.5rem 1rem;
     }
 
     @include desktop {
-      margin: 0 0 0 1rem;
-      padding: 0.3rem 0 0.3rem 1rem;
-    }
-
-    &:hover {
-      text-decoration: underline;
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 0 0.5rem 1rem;
     }
 
     a:link,
@@ -90,18 +85,37 @@ body {
     }
 
     a:hover {
-      text-decoration: none;
+      text-decoration: underline;
       color: $white;
+    }
+
+    &:first-child {
+      padding-right: 1rem;
     }
   }
 
   &__active-item {
+    font-size: 0.813rem;
+    line-height: 1.25rem;
     color: $white;
     background-color: $instock-black;
     height: 2.25rem;
-    width: 100%;
+    min-width: 0;
     border-radius: 1.25rem;
-    padding: 0.3rem 1rem 0 1rem;
+    padding: 0.5rem 3rem 0 3rem;
+    margin: 0;
+
+    @include tablet {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 1rem 0 1rem;
+    }
+
+    @include desktop {
+      font-size: 0.875rem;
+      line-height: 1.375rem;
+      padding: 0.5rem 1rem 0 1rem;
+    }
 
     a:link,
     a:visited,
@@ -111,7 +125,7 @@ body {
     }
 
     a:hover {
-      text-decoration: none;
+      text-decoration: underline;
       color: $white;
     }
   }

@@ -26,24 +26,22 @@ class Header extends Component {
   render() {
     return (
       <header className="header">
-        <Link to="/" className="header__link">
-          <div className="header__logo-box">
-            <img
-              src={InStockLogo}
-              alt="InStock logo"
-              className="header__logo"
-            />
-          </div>
-        </Link>
+        <div className="header__box">
+          <Link
+            to="/"
+            className="header__link"
+            onClick={() => this.setActiveId(1)}
+          >
+            <img src={InStockLogo} alt="InStock logo" />
+          </Link>
 
-        <div className="header__button-box">
           <ul className="header__list">
             {values.map((val) => (
               <li
                 key={val.text}
                 className={
                   this.state.activeId === val.id
-                    ? "header__list-item header__active-item"
+                    ? "header__active-item"
                     : "header__list-item"
                 }
                 onClick={() => this.setActiveId(val.id)}
