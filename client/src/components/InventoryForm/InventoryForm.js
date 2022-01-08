@@ -41,8 +41,20 @@ class InventoryForm extends Component {
                             <img className="inventory-form__warning-icon" src={errorIcon} alt="error icon" />
                             <p className="inventory-form__warning-message"> This field is required</p>
                         </div>
-
-
+                        <label className="inventory-form__label" htmlFor="category">Category</label>
+                        <select className={this.state.form.category ? "inventory-form__select-option" : "inventory-form__select-option inventory-form__select-option--invalid"}>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                            <option></option>
+                        </select>
+                        <div className={this.state.form.category ? "inventory-form--valid" : "inventory-form__warning"}>
+                            <img className="inventory-form__warning-icon" src={errorIcon} alt="error icon" />
+                            <p className="inventory-form__warning-message"> This field is required</p>
+                        </div>
+                    </fieldset>
+                    <fieldset className="inventory-form__item-availability" form="inventory-form" name="inventory-form__item-availability">
+                        <h2 className="inventory-form__heading">Item Availability</h2>
 
                     </fieldset>
                 </form>
