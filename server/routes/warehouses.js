@@ -30,7 +30,36 @@ const readInventoriesData = () => {
 };
 
 // Fetch a single warehouse
-wareHouseRouter.get("/:warehouseId", (req, res) => {});
+wareHouseRouter.get("/:warehouseId", (req, res) => {
+  let wareHouseList = readFile();
+  const warehouseInfo = wareHouseList.find(warehouse => warehouse.id === req.params.warehouseId)
+  if (!warehouseInfo) {
+    res.status(400).send({ message: `There is no warehouse with id of ${req.params.warehouseId}` })
+  }
+  res.status(200).json(warehouseInfo)
+});
+
+// get each warehouse inventory details
+wareHouseRouter.get('/:wareHouseId/inventories', (req, res) => {
+  const inventoryData = readInventoriesData()
+  const wareHouses = inventoryData.filter(inv => inv.warehouseID === req.params.wareHouseId)
+  res.status(200).json(wareHouses);
+});
+
+//create warehouse
+wareHouseRouter.post('/', (req, res) => {
+  const warehouses = readFile();
+  // Validate request details
+  if (!req.body || !req.body.name || !req.body.address || !req.body.city || !req.body.country || !req.body.contact) {
+    // Send back error message
+    return res.status(400).json({ message: 'Please send required fields' });
+  }
+
+  // add new warehouse to file
+  warehouses.push(req.body);
+  fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses));
+  res.status(200).json({ message: 'Successfully Created Warehouse' });
+});
 
 // edit a warehouse
 wareHouseRouter.put("/:wareHouseId", (req, res) => {
@@ -40,7 +69,7 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
   );
   // match req.params.wareHouseId with id from data
   if (!foundWareHouse) {
-    return res.status(404).send("Warehouse not found");
+    return res.status(404).send({ message: 'Warehouse not found' });
   }
   // after matching to validate form
   // Need to add validate phone and email
@@ -54,13 +83,9 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
     !req.body.contact.phone ||
     !req.body.contact.email
   ) {
-    return res
-      .status(400)
-      .send(
-        "Please make sure to include warehouse details and contact details of the warehouse"
-      );
+    return res.status(400).send({ message: 'Please make sure to include warehouse details and contact details of the warehouse' });
   }
-  //  what information will be update
+  //  which information will be update
   const updatedWareHouse = {
     id: foundWareHouse.id,
     name: req.body.name,
@@ -84,6 +109,7 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
   });
 
   writeFile(wareHouseList);
+  return res.status(200).send(updatedWareHouse)
 });
 
 // get each warehouse inventory details
@@ -117,8 +143,6 @@ wareHouseRouter.post("/", (req, res) => {
   res.status(200).json({ message: "Successfully Created Warehouse" });
 });
 
-// edit a warehouse
-wareHouseRouter.patch("/:wareHouseId", (req, res) => {});
 
 // delete a warehouse
 wareHouseRouter.delete("/:wareHouseId", (req, res) => {
