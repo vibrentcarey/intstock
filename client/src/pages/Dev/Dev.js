@@ -1,22 +1,24 @@
+import React, { Component } from "react";
+import Modal from "../../components/Modal";
 
-import React from 'react';
 import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
 import Stock from "../../components/stock/Stock";
 
-const Dev = () => {
-  return (
-    <div>
-      <Stock instock={true} />
-      <Stock instock={false} />
-      <WareHouseListItem 
-        wareHouseName='Manhattan'
-        address="503 Adreess Road"
-        contactName= "Permin Aujia"
-        email= "pauji@gmail.com"
-        phone= "1(333)333-3333"
-      />
-    </div>
-  )
+import WareHouseInventoryList from '../../components/WareHouseInventoryList/WareHouseInventoryList';
+import Footer from '../../components/Footer/Footer';
+
+
+class Dev extends Component {
+  render() {
+    return (
+      <div>
+        <Stock instock={true} />
+        <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone"/>
+      <Footer />
+      </div>
+      
+    );
+  }
 }
 
 export default Dev

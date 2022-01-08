@@ -10,6 +10,7 @@ import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryIt
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import Dev from "./pages/Dev/Dev";
 import Header from "./components/Header/Header";
+import "./App.scss";
 import WarehouseForm from "./components/WarehouseForm/WarehouseForm";
 
 // InStock Application
