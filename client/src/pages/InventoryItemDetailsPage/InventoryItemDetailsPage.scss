@@ -1,0 +1,61 @@
+@use "../../style/partials/variables" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/mixins" as *;
+
+.inventory-item-details {
+  &__top-section {
+    border-bottom: 1px solid $cloud;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  &__heading-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  //   &__heading-right {
+  //   }
+
+  &__back-image {
+    margin: 2px 12px 0 0;
+  }
+
+  &__title {
+    @include font-stack-m-h1;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    &:nth-child(1) {
+      margin-left: 3rem;
+    }
+  }
+
+  //   &__container-left {
+  //     // display: flex;
+  //     // flex-direction: column;
+  //   }
+
+  &__bottom-section {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+  }
+
+  //   &__container-left {
+  //   }
+
+  //   &__container-right {
+  //   }
+
+  //   &__box {
+  //   }
+}
