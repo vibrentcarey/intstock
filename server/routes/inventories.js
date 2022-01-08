@@ -20,16 +20,10 @@ const writeFile = (inventoryList) => {
 // Fetch inventory list end point
 inventoriesRouter.get("/", (_req, res) => {
   let inventoriesList = readFile();
-  inventoriesList = inventoriesList.map((inventories) => {
-    return {
-      item: inventories.itemName,
-      category: inventories.category,
-      status: inventories.status,
-      qty: inventories.quantity,
-    };
-  });
+
   return res.status(200).send(inventoriesList);
 });
+
 inventoriesRouter.get('/:warehouseId', (req, res) => {
 
 });
@@ -72,7 +66,48 @@ inventoriesRouter.post("/:warehouseId", (req, res) => {
 
 
 // edit an inventory
-inventoriesRouter.patch("/:inventoryId", (req, res) => { });
+inventoriesRouter.patch("/:inventoryId", (req, res) => {
+  let inventoriesData = readFile();
+  const foundInventory = inventoriesData.find(
+    (inventories) => inventories.id === req.params.inventoryId
+  );
+  if (!foundInventory) {
+    return res.status(400).send({ error: "Item not found" });
+  }
+
+  if (
+    !req.body.itemName &&
+    !req.body.description &&
+    !req.body.category &&
+    !req.body.status &&
+    !req.body.warehouseName
+  ) {
+    return res
+      .status(400)
+      .send(
+        "Please make sure to include Item Name, Description, Category, Status and Warehouse Name"
+      );
+  }
+
+  const updatedInventory = {
+    id: foundInventory.id,
+    itemName: req.body.itemName,
+    description: req.body.description,
+    category: req.body.category,
+    status: req.body.status,
+    warehouseName: req.body.warehouseName,
+  };
+  inventoriesData = inventoriesData.map((inventories) => {
+    if (inventories.id === foundInventory.id) {
+      return updatedInventory;
+    } else {
+      return inventories;
+    }
+  });
+  writeFile(inventoriesData);
+  console.log();
+  return res.status(200).send(updatedInventory);
+});
 
 // delete an inventory
 inventoriesRouter.delete("/:inventoryId", (req, res) => {
@@ -80,14 +115,14 @@ inventoriesRouter.delete("/:inventoryId", (req, res) => {
   const inventoryId = req.params.inventoryId;
   const inventory = readFile();
   // Filter out the item to be deleted and update file
-  const updatedInventory = inventory.filter(item => item.id !== inventoryId);
+  const updatedInventory = inventory.filter((item) => item.id !== inventoryId);
   // Validate that an item was deleted
   if (updatedInventory.length === inventory.length) {
-    return res.status(400).json({ message: 'Could not find matching item' });
+    return res.status(400).json({ message: "Could not find matching item" });
   }
   // Update file and send response
-  fs.writeFileSync('./data/inventories.json', JSON.stringify(updatedInventory));
-  res.status(200).json({ message: 'Successfully deleted item' });
+  fs.writeFileSync("./data/inventories.json", JSON.stringify(updatedInventory));
+  res.status(200).json({ message: "Successfully deleted item" });
 });
 
 module.exports = inventoriesRouter;
