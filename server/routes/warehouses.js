@@ -1,4 +1,4 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const wareHouseRouter = Router();
 const express = require("express");
 const fs = require("fs");
@@ -36,16 +36,10 @@ const readInventoriesData = () => {
   const data = fs.readFileSync('./data/inventories.json');
   return JSON.parse(data);
 }
-// Fetch warehouse list end point
-wareHouseRouter.get('/', (_req, res) => {
- 
-});
 
 // Fetch a single warehouse
 wareHouseRouter.get("/:warehouseId", (req, res) => { });
 
-//create warehouse
-wareHouseRouter.post("/", (req, res) => { });
 
 // edit a warehouse
 wareHouseRouter.put("/:wareHouseId", (req, res) => {
@@ -93,21 +87,39 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
   });
 
   writeFile(wareHouseList);
-
-  return res.status(200).send(updatedWareHouse);
-})
-
-// delete a warehouse
-wareHouseRouter.delete("/:wareHouseId", (req, res) => { });
-
-wareHouseRouter.get("/:warehouseId", (req, res) => {});
-
+}
 
 // get each warehouse inventory details
 wareHouseRouter.get('/:wareHouseId/inventories', (req, res) => {
   const inventoryData = readInventoriesData()
   const wareHouses = inventoryData.filter(inv => inv.warehouseID === req.params.wareHouseId)
-  res.status(200).json(wareHouses); 
+  res.status(200).json(wareHouses);
 });
+
+
+//create warehouse
+wareHouseRouter.post('/', (req, res) => {
+  const warehouses = readFile();
+  // Validate request details
+  if (!req.body || !req.body.name || !req.body.address || !req.body.city || !req.body.country || !req.body.contact) {
+    // Send back error message
+    return res.status(400).json({ message: 'Please send required fields' });
+  }
+  // Add new warehouse to file
+  warehouses.push(req.body);
+  fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses));
+  res.status(200).json({ message: 'Successfully Created Warehouse' });
+});
+
+// edit a warehouse
+wareHouseRouter.patch('/:wareHouseId', (req, res) => {
+
+});
+
+// delete a warehouse
+wareHouseRouter.delete('/:wareHouseId', (req, res) => {
+  return res.status(200).send(updatedWareHouse);
+})
+
 
 module.exports = wareHouseRouter;
