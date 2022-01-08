@@ -5,23 +5,26 @@ import TopBarDetails from "../../components/TopBarDetails";
 import CategoryBar from '../../components/CategoryBar';
 import { axios } from 'axios';
 
-const WarehouseDetailsPage = (props) => {
+const inventories = axios.get('/warehouses/:wareHouseId/inventories');
+
+class WarehouseDetailsPage extends Component {
   
+  render(){
+    return (
+      <>
 
-  return (
-    <>
-    
+        <CategoryBar categories={['inventory', 'category','status','quantity','actions']}/>
+      
+        <WareHouseInventoryList
+          name='Television'
+          category='Electronics'
+          quantity = '500'
+  
+        />
+      </>
+    );
+  };
 
-      <CategoryBar categories={['inventory', 'category','status','quantity','actions']}/>
-    
-      <WareHouseInventoryList
-        name='Television'
-        category='Electronics'
-        quantity = '500'
-
-      />
-    </>
-  );
-};
-
+  }
+  
 export default WarehouseDetailsPage;
