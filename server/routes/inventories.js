@@ -22,6 +22,9 @@ inventoriesRouter.get("/", (_req, res) => {
   });
   return res.status(200).send(inventoriesList);
 });
+inventoriesRouter.get('/:warehouseId', (req, res) => {
+  
+});
 
 // Fetch a single inventory
 inventoriesRouter.get("/:inventoryId", (req, res) => {});
