@@ -1,4 +1,4 @@
-const {Router} = require('express');
+const { Router } = require('express');
 const wareHouseRouter = Router();
 const express = require("express");
 const fs = require("fs");
@@ -33,7 +33,7 @@ const readInventoriesData = () => {
 }
 // Fetch warehouse list end point
 wareHouseRouter.get('/', (_req, res) => {
- 
+
 });
 
 // Fetch a single warehouse
@@ -42,14 +42,14 @@ wareHouseRouter.get('/', (_req, res) => {
 wareHouseRouter.get("/:warehouseId", (req, res) => {});
 =======
 wareHouseRouter.get('/:wareHouseId', (req, res) => {
-  
+
 });
 
 // get each warehouse inventory details
 wareHouseRouter.get('/:wareHouseId/inventories', (req, res) => {
   const inventoryData = readInventoriesData()
   const wareHouses = inventoryData.filter(inv => inv.warehouseID === req.params.wareHouseId)
-  res.status(200).json(wareHouses); 
+  res.status(200).json(wareHouses);
 });
 >>>>>>> develop
 =======
@@ -57,17 +57,26 @@ wareHouseRouter.get("/:warehouseId", (req, res) => {});
 >>>>>>> ecfab68c99e079a91a94e4c6e3b27c9523f65872
 
 //create warehouse
-wareHouseRouter.post('/',(req, res) => {
-
+wareHouseRouter.post('/', (req, res) => {
+  const warehouses = readFile();
+  // Validate request details
+  if (!req.body || !req.body.name || !req.body.address || !req.body.city || !req.body.country || !req.body.contact) {
+    // Send back error message
+    return res.status(400).json({ message: 'Please send required fields' });
+  }
+  // Add new warehouse to file
+  warehouses.push(req.body);
+  fs.writeFileSync('./data/warehouses.json', JSON.stringify(warehouses));
+  res.status(200).json({ message: 'Successfully Created Warehouse' });
 });
 
 // edit a warehouse
 wareHouseRouter.patch('/:wareHouseId', (req, res) => {
- 
+
 });
 
 // delete a warehouse
-wareHouseRouter.delete('/:wareHouseId', (req,res) => {
+wareHouseRouter.delete('/:wareHouseId', (req, res) => {
 
 })
 
