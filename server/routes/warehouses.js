@@ -38,6 +38,7 @@ wareHouseRouter.get('/', (_req, res) => {
 
 // Fetch a single warehouse
 <<<<<<< HEAD
+<<<<<<< HEAD
 wareHouseRouter.get("/:warehouseId", (req, res) => {});
 =======
 wareHouseRouter.get('/:wareHouseId', (req, res) => {
@@ -51,6 +52,9 @@ wareHouseRouter.get('/:wareHouseId/inventories', (req, res) => {
   res.status(200).json(wareHouses); 
 });
 >>>>>>> develop
+=======
+wareHouseRouter.get("/:warehouseId", (req, res) => {});
+>>>>>>> ecfab68c99e079a91a94e4c6e3b27c9523f65872
 
 //create warehouse
 wareHouseRouter.post('/',(req, res) => {
