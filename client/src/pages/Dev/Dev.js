@@ -10,7 +10,7 @@ class Dev extends Component {
     return (
       <div>
         <Stock instock={true} />
-        <Modal/>
+        <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone"/>
       <Footer />
       </div>
       

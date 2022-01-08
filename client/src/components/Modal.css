@@ -19,6 +19,7 @@
   background-color: white;
   padding: 1.2rem;
   max-width: 610px;
+  position: relative;
 }
 
 .modal__image {
@@ -35,10 +36,19 @@
   max-width: 475px;
 }
 
+.modal__footer {
+  position: absolute;
+  bottom: 50px;
+}
+
 @media (min-width: 641px) {
   .modal {
     height: 20%;
     padding: 0.4rem 1rem 2rem 2rem;
     width: 80%;
+  }
+  .modal__footer {
+    right: 0;
+    bottom: 10px;
   }
 }
