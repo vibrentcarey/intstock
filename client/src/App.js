@@ -9,7 +9,8 @@ import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/Inventory
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import Dev from "./pages/Dev/Dev";
-import './App.scss';
+import Header from "./components/Header/Header";
+import "./App.scss";
 import WarehouseForm from "./components/WarehouseForm/WarehouseForm";
 
 // InStock Application
@@ -18,6 +19,7 @@ class App extends Component {
     return (
       <>
         <BrowserRouter>
+          <Header />
           <Switch>
             <Route path="/" exact={true} component={WarehousesPage} />
             <Route
@@ -42,10 +44,7 @@ class App extends Component {
               path="/add-inventory-item"
               component={AddInventoryItemPage}
             />
-            <Route
-              path="/dev"
-              component={Dev}
-            />
+            <Route path="/dev" component={Dev} />
           </Switch>
         </BrowserRouter>
       </>
