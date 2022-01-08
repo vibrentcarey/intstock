@@ -47,6 +47,7 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
     return res.status(404).send('Warehouse not found');
   }
   // after matching to validate form
+  // Need to add validate phone and email
   if (
     !req.body.name ||
     !req.body.address ||
