@@ -31,11 +31,11 @@ inventoriesRouter.get("/", (_req, res) => {
   return res.status(200).send(inventoriesList);
 });
 inventoriesRouter.get('/:warehouseId', (req, res) => {
-  
+
 });
 
 // Fetch a single inventory
-inventoriesRouter.get("/:inventoryId", (req, res) => {});
+inventoriesRouter.get("/:inventoryId", (req, res) => { });
 
 //create single inventory item
 inventoriesRouter.post("/:warehouseId", (req, res) => {
@@ -72,9 +72,22 @@ inventoriesRouter.post("/:warehouseId", (req, res) => {
 
 
 // edit an inventory
-inventoriesRouter.patch("/:inventoryId", (req, res) => {});
+inventoriesRouter.patch("/:inventoryId", (req, res) => { });
 
 // delete an inventory
-inventoriesRouter.delete("/:inventoryId", (req, res) => {});
+inventoriesRouter.delete("/:inventoryId", (req, res) => {
+  // Get the id from params
+  const inventoryId = req.params.inventoryId;
+  const inventory = readFile();
+  // Filter out the item to be deleted and update file
+  const updatedInventory = inventory.filter(item => item.id !== inventoryId);
+  // Validate that an item was deleted
+  if (updatedInventory.length === inventory.length) {
+    return res.status(400).json({ message: 'Could not find matching item' });
+  }
+  // Update file and send response
+  fs.writeFileSync('./data/inventories.json', JSON.stringify(updatedInventory));
+  res.status(200).json({ message: 'Successfully deleted item' });
+});
 
 module.exports = inventoriesRouter;
