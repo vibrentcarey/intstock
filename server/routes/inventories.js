@@ -21,13 +21,16 @@ inventoriesRouter.get("/", (_req, res) => {
 
   return res.status(200).send(inventoriesList);
 });
-inventoriesRouter.get("/:warehouseId", (req, res) => {});
+
+inventoriesRouter.get('/:warehouseId', (req, res) => {
+
+});
 
 // Fetch a single inventory
-inventoriesRouter.get("/:inventoryId", (req, res) => {});
+inventoriesRouter.get("/:inventoryId", (req, res) => { });
 
 //create single inventory list
-inventoriesRouter.post("/", (req, res) => {});
+inventoriesRouter.post("/", (req, res) => { });
 
 // edit an inventory
 inventoriesRouter.patch("/:inventoryId", (req, res) => {
