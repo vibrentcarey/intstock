@@ -1,0 +1,26 @@
+@use '../../style/partials/mixins' as *;
+@use '../../style/partials/variables' as *;
+@use '../../style/partials/typography' as *;
+
+.footer{
+    background-color: $light-grey;
+    padding: 2.5rem 0;
+
+    @include tablet {
+        padding: 5rem 0 2.5rem;
+    }
+
+    @include desktop {
+        padding: 5.875rem 0 3rem;
+    }
+
+    &__text{
+        @include font-stack-m-p3;
+        color:$slate;
+        text-align: center;
+        @include tablet {
+            @include font-stack-tab-desc-p3;
+            color:$slate;
+        }
+    }
+}

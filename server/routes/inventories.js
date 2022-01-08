@@ -19,15 +19,6 @@ const writeFile = (inventoriesList) => {
 // Fetch inventory list end point
 inventoriesRouter.get("/", (_req, res) => {
   let inventoriesList = readFile();
-  //   inventoriesList = inventoriesList.map((inventories) => {
-  //     return {
-  //       id: inventories.id,
-  //       item: inventories.itemName,
-  //       category: inventories.category,
-  //       status: inventories.status,
-  //       qty: inventories.quantity,
-  //     };
-  //   });
   return res.status(200).send(inventoriesList);
 });
 
@@ -78,7 +69,6 @@ inventoriesRouter.patch("/:inventoryId", (req, res) => {
     }
   });
   writeFile(inventoriesData);
-  console.log();
   return res.status(200).send(updatedInventory);
 });
 
