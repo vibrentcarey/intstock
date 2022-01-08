@@ -87,7 +87,7 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
   });
 
   writeFile(wareHouseList);
-}
+})
 
 // get each warehouse inventory details
 wareHouseRouter.get('/:wareHouseId/inventories', (req, res) => {
