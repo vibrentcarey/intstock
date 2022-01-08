@@ -40,7 +40,6 @@ inventoriesRouter.get("/:inventoryId", (req, res) => {});
 //create single inventory item
 inventoriesRouter.post("/:warehouseId", (req, res) => {
   const inventoryData = readFile();
-
   if (
     !req.body.warehouseName ||
     !req.body.itemName ||
