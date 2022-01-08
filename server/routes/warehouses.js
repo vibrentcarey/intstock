@@ -1,6 +1,6 @@
-const { Router } = require("express");
-const express = require("express");
+const {Router} = require('express');
 const wareHouseRouter = Router();
+const express = require("express");
 const fs = require("fs");
 const wareHouseData = require("../data/warehouses.json");
 
@@ -30,6 +30,15 @@ wareHouseRouter.get("/", (_req, res) => {
     };
   });
   return res.status(200).send(wareHouseList);
+});
+
+const readInventoriesData = () => {
+  const data = fs.readFileSync('./data/inventories.json');
+  return JSON.parse(data);
+}
+// Fetch warehouse list end point
+wareHouseRouter.get('/', (_req, res) => {
+ 
 });
 
 // Fetch a single warehouse
@@ -90,5 +99,15 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
 
 // delete a warehouse
 wareHouseRouter.delete("/:wareHouseId", (req, res) => { });
+
+wareHouseRouter.get("/:warehouseId", (req, res) => {});
+
+
+// get each warehouse inventory details
+wareHouseRouter.get('/:wareHouseId/inventories', (req, res) => {
+  const inventoryData = readInventoriesData()
+  const wareHouses = inventoryData.filter(inv => inv.warehouseID === req.params.wareHouseId)
+  res.status(200).json(wareHouses); 
+});
 
 module.exports = wareHouseRouter;
