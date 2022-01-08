@@ -2,7 +2,9 @@
 import React from 'react';
 import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
 import Stock from "../../components/stock/Stock";
+
 import WareHouseInventoryList from '../../components/WareHouseInventoryList/WareHouseInventoryList';
+import Footer from '../../components/Footer/Footer';
 
 const Dev = () => {
   return (
@@ -10,12 +12,12 @@ const Dev = () => {
       <Stock instock={true} />
       <Stock instock={false} />
 
-      <WareHouseListItem 
+      <WareHouseListItem
         wareHouseName='Manhattan'
         address="503 Adreess Road"
-        contactName= "Permin Aujia"
-        email= "pauji@gmail.com"
-        phone= "1(333)333-3333"
+        contactName="Permin Aujia"
+        email="pauji@gmail.com"
+        phone="1(333)333-3333"
       />
       <WareHouseInventoryList
         name='Television'
@@ -23,6 +25,7 @@ const Dev = () => {
         quantity='500'
        
       />
+      <Footer />
     </div>
   )
 }
