@@ -1,7 +1,7 @@
 import React,{Component} from "react";
 import TopBar from '../../components/TopBar';
+import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
 import TopBarDetails from "../../components/TopBarDetails";
-import InventoryItem from "../../components/InventoryItem/InventoryItem";
 import CategoryBar from '../../components/CategoryBar';
 import  axios  from 'axios';
 
@@ -26,7 +26,7 @@ class WarehouseDetailsPage extends Component {
       <>
         <CategoryBar categories={['inventory', 'category','status','quantity','actions']}/>
       
-        <InventoryItem inventoryList = {this.state.inventories} />
+        <WarehouseInventory inventoryList = {this.state.inventories} />
       </>
     );
   };

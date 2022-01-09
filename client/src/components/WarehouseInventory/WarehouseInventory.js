@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 const WarehouseInventoryList = () => {
   return (
     <div>
@@ -9,3 +10,4 @@ const WarehouseInventoryList = () => {
 }
 
 export default WarehouseInventoryList
+
