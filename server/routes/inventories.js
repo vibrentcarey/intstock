@@ -111,6 +111,7 @@ inventoriesRouter.patch("/:inventoryId", (req, res) => {
 
 // delete an inventory
 inventoriesRouter.delete("/:inventoryId", (req, res) => {
+  console.log(req.params.inventoryId);
   // Get the id from params
   const inventoryId = req.params.inventoryId;
   const inventory = readFile();

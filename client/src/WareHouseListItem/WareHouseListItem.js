@@ -6,7 +6,7 @@ import editIcon from "../assets/edit-24px.svg";
 
 const WareHouseListItem = (props) => {
   // ListItem props to be used!!
-  const { wareHouseName, address, contactName, email, phone } = props;
+  const { wareHouseName, address, contactName, email, phone, id } = props;
   return (
     <>
       {/* ⇧⌘L */}
@@ -34,6 +34,7 @@ const WareHouseListItem = (props) => {
                 className="warehouse-list-item__delete"
                 src={deleteIcon}
                 alt="delete icon"
+                onClick={() => props.handleDelete(id)}
               />
               <img
                 className="warehouse-list-item__edit"
@@ -48,6 +49,7 @@ const WareHouseListItem = (props) => {
             className="warehouse-list-item__delete"
             src={deleteIcon}
             alt="delete icon "
+            onClick={() => props.handleDelete(id)}
           />
           <img
             className="warehouse-list-item__edit"

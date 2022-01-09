@@ -20,6 +20,7 @@
   padding: 1.2rem;
   max-width: 610px;
   position: relative;
+  min-height: 250px;
 }
 
 .modal__image {
