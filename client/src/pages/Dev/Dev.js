@@ -2,7 +2,7 @@
 import React from 'react';
 import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
 import Stock from "../../components/stock/Stock";
-import WareHouseInventoryList from '../../components/WareHouseInventoryList/WareHouseInventoryList';
+import InventoryItem from '../../components/InventoryItem/InventoryItem';
 
 const Dev = () => {
   return (
@@ -17,7 +17,7 @@ const Dev = () => {
         email= "pauji@gmail.com"
         phone= "1(333)333-3333"
       />
-      <WareHouseInventoryList
+      <InventoryItem
         name='Television'
         category= 'Electronics'
         quantity='500'
