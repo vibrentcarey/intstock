@@ -1,13 +1,26 @@
 import React from 'react';
+import InventoryItem from '../InventoryItem/InventoryItem';
 
 
-const WarehouseInventoryList = () => {
+const WarehouseInventory = (props) => {
+  // props passed from Warehouse Details page
+  const {inventoryList} = props
   return (
-    <div>
-      
-    </div>
+    <>
+    {/* map over inventory list */}
+    {inventoryList.map(inventory => { 
+      return (
+        <InventoryItem 
+          key={inventory.id}
+          name={inventory.itemName}
+          category={inventory.category}
+          quantity={inventory.quantity}
+          />
+      )     
+    })}
+    </>
   )
 }
 
-export default WarehouseInventoryList
+export default WarehouseInventory
 
