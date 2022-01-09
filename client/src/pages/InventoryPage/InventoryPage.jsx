@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-import InventoryList from "../../components/InventoryList/InventoryList";
+import InventoryList from "../../components/InventoryListItem/InventoryListItem";
 
 // Inventory Page
 class InventoryPage extends React.Component {
@@ -17,7 +17,7 @@ class InventoryPage extends React.Component {
         this.setState({
           inventoryList: result.data,
         });
-        console.log("WarehouseList", this.state.inventoryList);
+        console.log("Inventory_List", this.state.inventoryList);
       })
       .catch((err) => console.log(err));
   }
