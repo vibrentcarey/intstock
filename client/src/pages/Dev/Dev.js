@@ -6,7 +6,8 @@ import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
 import Stock from "../../components/stock/Stock";
 
 import WareHouseInventoryList from '../../components/WareHouseInventoryList/WareHouseInventoryList';
-import Footer from '../../components/Footer/Footer';
+import EditInventoryItemPage from '../EditInventoryItemPage/EditInventoryItemPage';
+import AddInventoryItemPage from '../AddInventoryItemPage/AddInventoryItemPage';
 
 
 class Dev extends Component {
@@ -17,8 +18,8 @@ class Dev extends Component {
         <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone"/>
       <Footer /> */}
 
-        <EditWarehousePage />
-
+        <EditInventoryItemPage />
+        {/* <AddInventoryItemPage /> */}
       </div>
 
     );
