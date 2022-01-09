@@ -44,7 +44,15 @@ class App extends Component {
               path="/add-inventory-item"
               component={AddInventoryItemPage}
             />
+           
             <Route path="/dev" component={Dev} />
+            <Route path="/dev/warehouses/:warehouseId/inventories" render = {(routerProps) => {
+              return (<WarehouseDetailsPage
+                {...routerProps}
+                />
+              )
+            }          
+            }/>
           </Switch>
         </BrowserRouter>
       </>
