@@ -124,15 +124,16 @@
 }
 
 &__textarea {
+    @include font-stack-m-p2;
     color: $instock-black;
     height: 7rem;
     width: 100%;
     margin-bottom: 0.25rem;
     resize: none;
     @include formfield;
-
-    &__textarea--invalid {
-        @include formfield-invalid;
+    @include tablet {
+        @include font-stack-tab-desc-p2;
+        color: $instock-black;
     }
 
     &::placeholder {
@@ -142,21 +143,16 @@
         }
     }
 
-    &[type='textarea'] {
-        @include font-stack-m-p2;
-        color: $instock-black;
-        @include tablet {
-            @include font-stack-tab-desc-p2;
-            color: $instock-black;
-        }
-    }
-
     &:focus {
         border: 1px solid $instock-indigo;
         }
     }
 
-    &__select-option{
+    &__textarea--invalid {
+        @include formfield-invalid;
+    }
+
+    &__select-option {
         color: $instock-black;
         height: 2.25rem;
         width: 100%;
@@ -166,21 +162,17 @@
         background-repeat: no-repeat;
         background-position: 98%;
         @include tablet {
-        height: 2.375rem;
+            height: 2.375rem;
         }
 
         &:focus {
             border: 1px solid $instock-indigo;
         }
-    }
 
-    // &__option:nth-of-type(1) {
-    //     @include font-stack-m-p2;
-    //     color: $red;
-    //     @include tablet {
-    //         @include font-stack-tab-desc-p2;
-    //     }
-    // }
+        &:invalid {
+            color: $slate;  
+        }
+    }
 
     &__select-option--invalid {
         @include formfield-invalid;
@@ -189,23 +181,34 @@
     &__status{
         @include flex (space-between, center, row);
         width: 70%;
+        @include desktop{
+            width: 50%;
+        }
     }
 
     &__label-status{
         position: relative;
         top: -2px;
         @include font-stack-m-p2;
-        color: $instock-black;
         padding-left:0.5rem;
         @include tablet {
             @include font-stack-tab-desc-p2;
-            color: $instock-black;
-            
         }
     }
 
+    &__stock input:checked +label{
+        color: $instock-black;
+    }
 
+    &__input-quantity {
+        @include desktop{
+            width: 37%;
+        }
+    }
 
+    &__input-quantity--invalid {
+        @include formfield-invalid;
+    }
 
     &__warning--valid {
     display: none;
@@ -218,7 +221,7 @@
 &__warning-icon {
     width: 1rem;
     margin-right: 5px;
-}
+    }
 
 &__warning-message {
     @include font-stack-m-p3;
@@ -226,6 +229,6 @@
     @include tablet {
         @include font-stack-tab-desc-p3;
         color: $red;
+        }
     }
-}
 }

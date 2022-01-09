@@ -4,8 +4,8 @@ import axios from "axios";
 import errorIcon from "../../assets/error-24px.svg";
 import Button from "../../Button/Button";
 
-let categoriesList = ['Accessories', 'Apparel', 'Electronics', 'Gear', 'Health']
-let warehouseNames = ['Manhattan', 'King West', 'Granville', 'San Fran', 'Santa Monica', 'Seattle', 'Montreal', 'Boston']
+let categoriesList = ['Accessories', 'Apparel', 'Electronics', 'Gear', 'Health'];
+let warehouseNames = ['Manhattan', 'King West', 'Granville', 'San Fran', 'Santa Monica', 'Seattle', 'Montreal', 'Boston'];
 
 class InventoryForm extends Component {
     state = {
@@ -63,8 +63,8 @@ class InventoryForm extends Component {
                             </div>
                             {/* Category */}
                             <label className='inventory-form__label' htmlFor='category'>Category</label>
-                            <select className={this.state.form.category ? 'inventory-form__select-option' : 'inventory-form__select-option inventory-form__select-option--invalid'} name='category' id='category'>
-                                <option className='inventory-form__option' value='Please select'>Please select</option>
+                            <select className={this.state.form.category ? 'inventory-form__select-option' : 'inventory-form__select-option inventory-form__select-option--invalid'} name='category' id='category' required>
+                                <option className='inventory-form__option' value="">Please select</option>
                                 {categoriesList.map((category, i) => {
                                     return (
                                         <option className='inventory-form__option' key={i} value={`${category}`}>{`${category}`}</option>)
@@ -83,17 +83,17 @@ class InventoryForm extends Component {
                             <label className='inventory-form__label' htmlFor='status'>Status</label>
                             <div className='inventory-form__status'>
                                 <div className='inventory-form__stock'>
-                                    <input className='inventory-form__radio-button' type='radio' name='status' value='In Stock' checked />
+                                    <input className='inventory-form__radio-button' type='radio' name='status' value='In Stock' />
                                     <label className='inventory-form__label-status' htmlFor='status'>In Stock</label>
                                 </div>
                                 <div className='inventory-form__stock'>
-                                    <input lassName='inventory-form__radio-button' type='radio' name='status' value='Out Of Stock' checked />
+                                    <input className='inventory-form__radio-button' type='radio' name='status' value='Out Of Stock' />
                                     <label className='inventory-form__label-status' htmlFor='status'>Out of Stock</label>
                                 </div>
                             </div>
                             {/* Quantity */}
                             <label className='inventory-form__label' htmlFor='quantity'>Quantity</label>
-                            <input className='inventory-form__quantity' type='text' name='quantity' id='quantity' placeholder='0' />
+                            <input className={this.state.form.quantity ? 'inventory-form__input inventory-form__input-quantity' : 'inventory-form__input inventory-form__input-quantity--invalid'} type='text' name='quantity' id='quantity' placeholder='0' />
                             {/* Validation form */}
                             <div className={this.state.form.quantity ? 'inventory-form__warning--valid' : 'inventory-form__warning'}>
                                 <img className="inventory-form__warning-icon" src={errorIcon} alt="error icon" />
@@ -101,8 +101,8 @@ class InventoryForm extends Component {
                             </div>
                             {/* WarehouseName */}
                             <label className='inventory-form__label' htmlFor='warehouseName'>Warehouse</label>
-                            <select className={this.state.form.warehouseName ? 'inventory-form__select-option' : 'inventory-form__select-option inventory-form__select-option--invalid'} name="warehouseName">
-                                <option className='inventory-form__option' value=''>Please select</option>
+                            <select className={this.state.form.warehouseName ? 'inventory-form__select-option' : 'inventory-form__select-option inventory-form__select-option--invalid'} name="warehouseName" required>
+                                <option className='inventory-form__option' value="">Please select</option>
                                 {warehouseNames.map((warehouseName, i) => {
                                     return (
                                         <option className='inventory-form__option' key={i} value={`${warehouseName}`}>{`${warehouseName}`}</option>)
