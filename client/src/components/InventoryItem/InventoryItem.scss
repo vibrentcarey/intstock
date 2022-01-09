@@ -23,18 +23,26 @@
       font-size: 14px;
       line-height: 22px;
     }
+
     &__name-wrapper {
       display: inline-flex;
       gap: 5px;    
+    }
+    &__name {
+      color: $instock-indigo;
     }
     &__categories {
       font-weight: 600;
       font-size: 11px;
       line-height: 16px;
       text-transform: uppercase;
-      color: #5C667E;
+      color: $slate;
 
       @include tablet {
+        display: none;
+      }
+
+      @include desktop {
         display: none;
       }
     }
@@ -43,8 +51,11 @@
       align-content: flex-start;
       justify-content: space-between;
       width: 80%;
-      @include tablet {
-       
+
+      @include tablet { 
+        width: 100%;
+      }
+      @include desktop { 
         width: 100%;
       }
  
@@ -55,12 +66,14 @@
     &__quantity {
       width: 35px;
     }
-    // &__status {
-    //   width: 20px;
-    // }
 
     &__category-wrapper {
       @include tablet {
+        display: flex;
+        justify-content: space-between;
+        width: 35%;
+      }
+      @include desktop {
         display: flex;
         justify-content: space-between;
         width: 35%;
@@ -76,16 +89,23 @@
       width: 15px;
     }
     &__icons {
-      display: inline-flex;
-      justify-content: space-between;
-      gap: 10px;
+      display: flex;
+      justify-content: space-between; 
     }
     &__icon{
-     padding-left: 10px;
+      @include tablet{
+        padding-left: 10px;
+
+      }
     }
     &__status-container{
       width: 20%;
       @include tablet {
+        display: flex;
+        justify-content: space-between;
+        width: 25%;
+      }
+      @include desktop {
         display: flex;
         justify-content: space-between;
         width: 25%;
@@ -107,162 +127,4 @@
         display: none;
       }
     }
-
-      
-
-
-   
-  //  &__container {
-  //    display: inline-flex;
-  //    gap: 50%;
-  //    flex-direction: row;
-  //    @include tablet {
-  //      width: 100%;
-  //      display: flex;
-  //      justify-content: space-between;
-  //      gap: 0;
-  //    }
-
-  //  }
-  //  &__item-category {
-  //    display: flex;
-  //    flex-direction: column;
-
-  //    @include tablet {
-  //      flex-direction: row;
-  //      width: 35%;
-  //      justify-content: space-between;
-  //    }
-
-  //    @include desktop {
-  //      flex-direction: row;
-  //      width: 35%;
-  //      justify-content: space-between;
-  //    }
-  //  }
-  //  &__category{
-  //   flex-basis: 20%;
-  //   margin: 0 1% 20px;
-  //   height: 300px;
-    
-  //   @include tablet {
-  //     flex-basis: 0%;
-  //     margin: 0;
-  //     height: 0;
-  //   }
-  //   @include desktop {
-  //     flex-basis: 0%;
-  //     margin: 0;
-  //     height: 0;
-  //   }
-
-  //  }
-  //  &__wrapper {
-  //   flex-basis: 20%;
-  //   margin: 0 1% 20px;
-  //   height: 30px;
-
-  //   @include tablet {
-  //     flex-basis: 0%;
-  //     margin: 0;
-  //     height: 0;
-  //   }
-  //   @include desktop{
-  //     flex-basis: 0%;
-  //     margin: 0;
-  //     height: 0;
-  //   }
-  //  }
-  //  &__name-wrapper {
-  //    display: inline-flex;
-  //    gap: 5px;
-     
-  //  }
-  //  &__name {
-  //    color: $instock-indigo;
-  //    font-weight: 600;
-  //  }
-  //  &__status-quantity {
-  //    display: flex;
-  //    flex-direction: column;
-
-  //    @include tablet {
-  //      flex-direction: row;
-  //      width: 40%;
-  //      justify-content: space-around;
-  //    }
-  //    @include desktop {
-  //      flex-direction: row;
-  //      width: 40%;
-  //      justify-content: space-around;
-  //    }
-  //  }
-  //  &__status {
-  //   flex-basis: 70%;
-  //   // margin: 0 1% 40px;
-  //   // height: 40px;
-
-  //   @include tablet {
-  //     flex-basis: 0%;
-  //     margin: 0;
-  //     height: 0;
-  //   }
-  //   @include desktop {
-  //     flex-basis: 0%;
-  //     margin: 0;
-  //     height: 0;
-  //   }
-  //  }
-  //  &__arrow {
-  //    align-self: center;
-  //    height: 20px;
-  //    width: 15px;
-  //  }
-  //  &__item {
-  //    margin: 0;
-  //  }
-  //  &__icons {
-  //    display: flex;
-  //    justify-content: space-between;
-  //    padding-top: 16px;
-
-  //    @include tablet {
-  //      padding-top: 0;
-  //      display: inline-flex; 
-  //    }
-  //    @include desktop {
-  //      padding-top: 0;
-  //      display: inline-flex; 
-  //    }
-  //  }
-  //  &__icon {
-  //    width: 30px;
-  //    height: 30px;
-  //    @include tablet {
-  //      padding-left: 10px;
-  //    }
-
-  //    @include desktop {
-  //      padding-left: 10px;
-  //    }
-  //  }
-  //  &__desktop {
-  //    display: none;
-
-  //    @include tablet {
-  //      display: inline-block;
-  //    }
-  //    @include desktop {
-  //      display: inline-block;
-  //    }
-  //  }  
-
-  //  &__mobile {
-  //    @include tablet {
-  //      display: none;
-  //    }
-  //    @include desktop {
-  //      display: none;
-  //    }
-  //  }
  }
