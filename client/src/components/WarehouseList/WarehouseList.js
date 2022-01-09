@@ -6,7 +6,8 @@ import editIcon from "../../assets/edit-24px.svg";
 import { Link } from "react-router-dom";
 
 const WarehouseList = (props) => {
-  const { id, name, address, contact_Name, phone, email } = props.warehouseList;
+  const { id, name, address, contact_Name, phone, email } = props;
+  console.log("Name: ", name);
   return (
     <div>
       {
