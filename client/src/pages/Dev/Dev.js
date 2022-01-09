@@ -3,10 +3,7 @@ import Modal from "../../components/Modal";
 
 import WareHouseListItem from '../../WareHouseListItem/WareHouseListItem';
 import Stock from "../../components/stock/Stock";
-
-import WareHouseInventoryList from '../../components/WareHouseInventoryList/WareHouseInventoryList';
-import Footer from '../../components/Footer/Footer';
-
+import InventoryItem from '../../components/InventoryItem/InventoryItem';
 
 class Dev extends Component {
   render() {

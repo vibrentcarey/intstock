@@ -1,10 +1,10 @@
 import React from 'react';
-import './WareHouseInventoryList.scss'
+import './InventoryItem.scss'
 import chevronIcon from '../../assets/chevron_right-24px.svg';
 import deleteIcon from '../../assets/delete_outline-24px.svg';
 import editIcon from '../../assets/edit-24px.svg';
 
-const WareHouseInventoryList = (props) => {
+const InventoryItem = (props) => {
 
   const {name, category, quantity} = props;
   return (
@@ -41,4 +41,4 @@ const WareHouseInventoryList = (props) => {
   )
 }
 
-export default WareHouseInventoryList
+export default InventoryItem
