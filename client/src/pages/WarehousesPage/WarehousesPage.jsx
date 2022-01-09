@@ -28,7 +28,7 @@ class WarehousesPage extends React.Component {
     return (
       <div>
         <h1>Warehouse Page</h1>
-        <WarehouseListItem warehouseList={this.state.warehouseList} />
+        <WarehouseList warehouseList={this.state.warehouseList} />
       </div>
     );
   }
