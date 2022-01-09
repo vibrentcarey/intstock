@@ -4,11 +4,12 @@ import chevronIcon from "../../assets/chevron_right-24px.svg";
 import deleteIcon from "../../assets/delete_outline-24px.svg";
 import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
+import TopBarSearch from "../../components/TopBarSearch";
 
 const InventoryList = (props) => {
   // props passed from warehouseInventory Component
 
-  const { name, category, quantity } = props;
+  const { name, category, quantity, warehouse } = props;
 
   // check if item is in stock
   const inStock = () => {
@@ -20,6 +21,7 @@ const InventoryList = (props) => {
   };
   return (
     <>
+      <TopBarSearch title={"Inventory"} />
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">
@@ -39,6 +41,7 @@ const InventoryList = (props) => {
           <div className="inventory__status-quantity">
             <p className="inventory__status inventory__item">{inStock()}</p>
             <p className="inventory__quantity inventory__item">{quantity}</p>
+            <p className="inventory__warehouse inventory__item">{warehouse}</p>
           </div>
           <div className="inventory__icons inventory__desktop">
             <img
