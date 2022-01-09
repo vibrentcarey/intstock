@@ -1,4 +1,5 @@
 import React from 'react';
+import Header from '../../components/Header/Header';
 import TopBar from '../../components/TopBar';
 import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
 import Footer from '../../components/Footer/Footer';

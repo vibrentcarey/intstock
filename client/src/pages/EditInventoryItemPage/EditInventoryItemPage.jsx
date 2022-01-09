@@ -1,6 +1,15 @@
+import React from 'react';
+import TopBar from '../../components/TopBar';
+import InventoryForm from '../../components/InventoryForm/InventoryForm';
+
 // Edit Inventory Item Page
 const EditInventoryItemPage = (props) => {
-  return <h1>Edit Inventory Item Page</h1>;
+  return (
+    <>
+      <TopBar title='Edit Inventory Item' />
+      <InventoryForm submitValue='Save' />
+    </>
+  )
 };
 
 export default EditInventoryItemPage;
