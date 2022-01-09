@@ -7,6 +7,7 @@ import TopBarDetails from './TopBarDetails';
 import Button from '../Button/Button';
 
 const TopBar = (props) => {
+  console.log(props)
   const showButton = true
   return (
     <div className='top-bar'>
