@@ -11,11 +11,7 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 8080;
 
-app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-  })
-);
+app.use(cors());
 
 app.use("/warehouses", wareHouseRouter);
 
