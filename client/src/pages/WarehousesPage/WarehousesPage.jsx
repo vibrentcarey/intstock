@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import WarehouseListItem from "../../components/WarehouseListItem/WarehouseListItem";
 
 // Warehouses Page
 
@@ -27,7 +28,7 @@ class WarehousesPage extends React.Component {
     return (
       <div>
         <h1>Warehouse Page</h1>
-        <WarehouseList warehouseList={this.state.warehouseList} />
+        <WarehouseListItem warehouseList={this.state.warehouseList} />
       </div>
     );
   }

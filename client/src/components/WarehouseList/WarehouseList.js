@@ -6,23 +6,10 @@ import editIcon from "../../assets/edit-24px.svg";
 import { Link } from "react-router-dom";
 
 const WarehouseList = (props) => {
-  const { id, name, address, contact_Name, phone, email } = props.warehouseList;
+  const { id, name, address, contact_Name, phone, email } = props;
   return (
     <div>
       {
-        /* {props.warehouseList.map((warehouseList) => { 
-        // return (
-        // //   <ul key={warehouseList.id}>
-        // //     <Link to={`warehouse-details/${warehouseList.id}`}>
-        // //       {warehouseList.name}
-        // //     </Link>
-        // //     <li>{warehouseList.address}</li>
-        // //     <li>{warehouseList.contact.name}</li>
-        // //     <li>{warehouseList.contact.phone}</li>
-        // //     <li>{warehouseList.contact.email}</li>
-        // //   </ul>
-        // );*/
-
         <article className="warehouse">
           <div className="warehouse__container">
             <div className="warehouse__item-address">
