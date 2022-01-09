@@ -24,7 +24,7 @@ function Button(props) {
   return (
     <>
       {props.type === "edit" ? (
-        <div className="container" onClick={props.onClick}>
+        <div className="edit-btn-container" onClick={props.onClick}>
           <svg
             width="24"
             height="24"
@@ -37,7 +37,7 @@ function Button(props) {
               fill="#FFF"
             />
           </svg>
-          <span className="container__text">Edit</span>
+          <span className="edit-btn-container__text">Edit</span>
         </div>
       ) : (
         <button type="button" className={btnDesign} onClick={props.onClick}>

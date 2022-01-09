@@ -1,12 +1,23 @@
 import React from 'react';
-import './WareHouseInventoryList.scss'
+import './InventoryItem.scss';
 import chevronIcon from '../../assets/chevron_right-24px.svg';
 import deleteIcon from '../../assets/delete_outline-24px.svg';
 import editIcon from '../../assets/edit-24px.svg';
+import Stock from '../stock/Stock';
 
-const WareHouseInventoryList = (props) => {
-
+const InventoryItem = (props) => {
+  // props passed from warehouseInventory Component
+  
   const {name, category, quantity} = props;
+
+  // check if item is in stock
+  const inStock = () => {
+    if(quantity === 0) {
+      return <Stock instock ={false}/>
+    }else {
+      return <Stock instock = {true}/>
+    }
+  }
   return (
     <>
       <article className='inventory'>
@@ -22,8 +33,9 @@ const WareHouseInventoryList = (props) => {
             <p className='inventory__category inventory__item'>{category}</p>
           </div>
 
+          
           <div className='inventory__status-quantity'>
-            <p className='inventory__status inventory__item'>Status</p>
+            <p className='inventory__status inventory__item'>{inStock()}</p>
             <p className='inventory__quantity inventory__item'>{quantity}</p>
           </div>
           <div className='inventory__icons inventory__desktop' >
@@ -41,4 +53,4 @@ const WareHouseInventoryList = (props) => {
   )
 }
 
-export default WareHouseInventoryList
+export default InventoryItem
