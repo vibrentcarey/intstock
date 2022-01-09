@@ -1,8 +1,8 @@
 import React from "react";
 import { Redirect } from "react-router";
+import { Link } from "react-router-dom";
 import Button from "../../Button/Button";
 import LabelValue from "../../components/LabelValue/LabelValue";
-//import TopBar from "../../components/TopBar";
 import back from "../../assets/arrow_back-24px.svg";
 import "../InventoryItemDetailsPage/InventoryItemDetailsPage.scss";
 
@@ -17,13 +17,6 @@ const dummyInventoryItem = {
   status: "In Stock",
   quantity: 500
 };
-
-// :inventoryItemId as props
-// if (this.props.match.params.videoId) {
-//   this.getVideoDetails(this.props.match.params.videoId);
-// }
-//import "./VideoUploadPage.scss";
-//import VideoUploadForm from "../../components/VideoUploadForm/VideoUploadForm";
 
 // Inventory Item Details Page
 class InventoryItemDetailsPage extends React.Component {
@@ -40,7 +33,7 @@ class InventoryItemDetailsPage extends React.Component {
 
   render() {
     if (this.state.redirectToHome) {
-      return <Redirect to="/" />;
+      return <Redirect to={`/edit-inventory-item/${this.state.details.id}`} />;
     }
 
     return (
@@ -48,11 +41,14 @@ class InventoryItemDetailsPage extends React.Component {
         <div className="inventory-item-details__top-section">
           <section className="inventory-item-details__heading">
             <div className="inventory-item-details__heading-left">
-              <img
-                src={back}
-                alt="back"
-                className="inventory-item-details__back-image"
-              />
+              <Link to="/inventory">
+                <img
+                  src={back}
+                  alt="back"
+                  className="inventory-item-details__back-image"
+                />
+              </Link>
+
               <h1 className="inventory-item-details__title">Television</h1>
             </div>
             <div className="inventory-item-details__heading-right">
@@ -79,7 +75,7 @@ class InventoryItemDetailsPage extends React.Component {
               <LabelValue
                 label="STATUS"
                 value={this.state.details.status}
-                type="component"
+                type="stock"
               />
               <LabelValue
                 label="QUANTITY"
@@ -95,8 +91,6 @@ class InventoryItemDetailsPage extends React.Component {
       </main>
     );
   }
-
-  // return <VideoUploadForm onSubmit={this.handleSubmit} />;
 }
 
 export default InventoryItemDetailsPage;
