@@ -46,8 +46,8 @@ class App extends Component {
             />
            
             <Route path="/dev" component={Dev} />
-            <Route path="/dev/warehouses/:warehouseId/inventories" render = {(routerProps) => {
-              return (<WarehouseDetailsPage
+            <Route path="/warehouses/inventories/:warehouseId" render = {(routerProps) => {
+              return (<WarehouseDetailsPage 
                 {...routerProps}
                 />
               )
