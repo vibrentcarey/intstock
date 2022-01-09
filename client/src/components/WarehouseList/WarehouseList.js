@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 const WarehouseList = (props) => {
   return (
     <div>
-      <h1> Warehouse Page</h1>
       {props.warehouseList.map((warehouseList) => {
         return (
           <ul key={warehouseList.id}>
