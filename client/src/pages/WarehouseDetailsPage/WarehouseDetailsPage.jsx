@@ -28,13 +28,13 @@ class WarehouseDetailsPage extends Component {
   // initial inventory list fetch
   componentDidMount(){
     // Please check router props!!!!
-    let warehouseId = '2922c286-16cd-4d43-ab98-c79f698aeab0'
+    let warehouseId = this.props.match.params.warehouseId
+    console.log(warehouseId);
     this.fetchInventories(warehouseId)
   }
   
 
   render(){
-    console.log(this.props)
     return (
       <>
         <CategoryBar categories={['inventory', 'category','status','quantity','actions']}/>
@@ -45,4 +45,4 @@ class WarehouseDetailsPage extends Component {
   };
   }
   
-export default withRouter(WarehouseDetailsPage);
+export default WarehouseDetailsPage;
