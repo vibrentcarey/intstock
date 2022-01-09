@@ -1,8 +1,11 @@
+<<<<<<< HEAD
 import React, { Component } from "react";
 import TopBar from '../../components/TopBar';
 import { withRouter } from "react-router-dom";
+=======
+import React,{Component} from "react";
+>>>>>>> develop
 import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
-import TopBarDetails from "../../components/TopBarDetails";
 import CategoryBar from '../../components/CategoryBar';
 import axios from 'axios';
 
@@ -26,6 +29,7 @@ class WarehouseDetailsPage extends Component {
   // pass warehouse id to endpoint url
   fetchInventories = (warehouseId) => {
     axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventories`)
+<<<<<<< HEAD
       .then(res => {
         console.log(res.data)
         this.setState({ inventories: res.data })
@@ -41,6 +45,19 @@ class WarehouseDetailsPage extends Component {
     let warehouseId = this.props.match.params.warehouseId
     console.log(warehouseId);
     this.fetchWarehouse(warehouseId)
+=======
+    .then(res => {
+      this.setState({inventories: res.data})
+    }) 
+    .catch(err => {
+      return err;
+    }) 
+  }
+
+  // initial inventory list fetch
+  componentDidMount(){
+    let warehouseId = this.props.match.params.warehouseId
+>>>>>>> develop
     this.fetchInventories(warehouseId)
   }
 
