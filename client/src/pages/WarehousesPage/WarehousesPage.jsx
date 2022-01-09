@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
+import WarehouseListItem from "../../components/WarehouseListItem/WarehouseListItem";
 
 // Warehouses Page
 

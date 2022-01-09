@@ -10,8 +10,8 @@ import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryIt
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import Dev from "./pages/Dev/Dev";
 import Header from "./components/Header/Header";
+import Footer from './components/Footer/Footer';
 import "./App.scss";
-import WarehouseForm from "./components/WarehouseForm/WarehouseForm";
 
 // InStock Application
 class App extends Component {
@@ -53,6 +53,7 @@ class App extends Component {
               }}
             />
           </Switch>
+          <Footer />
         </BrowserRouter>
       </>
     );
