@@ -11,20 +11,18 @@ class InventoryPage extends React.Component {
   //Making an axios request to get the Inventory data
   componentDidMount() {
     axios
-      .get("http://localhost:8080/inventories")
+      .get("http://localhost:8080/inventory")
       .then((result) => {
         console.log(result.data);
         this.setState({
           inventoryList: result.data,
         });
-        console.log("Inventory_List", this.state.inventoryList);
       })
       .catch((err) => console.log(err));
   }
   render() {
     return (
       <div>
-        <h1>Inventory List</h1>
         <InventoryList inventoryList={this.state.inventoryList} />
       </div>
     );

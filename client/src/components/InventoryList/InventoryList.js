@@ -2,24 +2,23 @@ import React from "react";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 
 const InventoryList = (props) => {
-  // props passed from InventoryPage
-  const { inventoryList } = props;
   return (
-    <>
+    <div>
       {/* map over inventory list */}
-      {inventoryList.map((inventory) => {
+      {props.inventoryList.map((inventoryList) => {
         return (
           <InventoryListItem
-            key={inventory.id}
-            name={inventory.itemName}
-            category={inventory.category}
-            status={inventory.status}
-            quantity={inventory.quantity}
-            warehouse={inventory.warehouseName}
+            key={inventoryList.id}
+            id={inventoryList.id}
+            name={inventoryList.itemName}
+            category={inventoryList.category}
+            status={inventoryList.status}
+            quantity={inventoryList.quantity}
+            warehouse={inventoryList.warehouseName}
           />
         );
       })}
-    </>
+    </div>
   );
 };
 
