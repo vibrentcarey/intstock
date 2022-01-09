@@ -43,20 +43,39 @@ const InventoryItem = (props) => {
               <div className='inventory__status inventory__item'>{inStock()}</div>
             </div>
 
-            <div className='inventory__categories'>
+            <div>
               <p className='inventory__categories'>qty</p>
               <p className='inventory__quantity inventory__item'>{quantity}</p>
             </div>
-          </div>   
+          </div>  
 
-
+          <div className='inventory__icons inventory__mobile' >
+            <img className='inventory__icon' src={deleteIcon} alt='delete icon'/>
+            <img className='inventory__icon' src={editIcon} alt='edit icon'/>
+          </div> 
         </div>
+
           <div className='inventory__icons inventory__desktop' >
             <img className='inventory__icon' src={deleteIcon} alt='delete icon'/>
             <img className='inventory__icon' src={editIcon} alt='edit icon'/>
           </div>
         </article>
-          <hr/>
+         
+{/* 
+        <article className='inventory__desktop'> 
+          <div className='inventory__name-wrapper'>
+            <p className='inventory__name inventory__item'>{name}</p>
+            <img className='inventory__arrow'src={chevronIcon} alt='arrow icon'/>
+            <p className='inventory__category inventory__item'>{category}</p>
+            <div className='inventory__status inventory__item'>{inStock()}</div>
+            </div> 
+            <p className='inventory__quantity inventory__item'>{quantity}</p>
+            <div className='inventory__icons inventory__desktop' >
+          <img className='inventory__icon' src={deleteIcon} alt='delete icon'/>
+          <img className='inventory__icon' src={editIcon} alt='edit icon'/>
+        </div>   
+        </article> */}
+        <hr/>
 
           {/* <div className='inventory__item-category'>
             <div className='inventory__wrapper'>
