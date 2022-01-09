@@ -28,15 +28,16 @@ const WarehouseList = (props) => {
               <p className="warehouse__address warehouse__item">{address}</p>
             </div>
 
+            <div className="warehouse__contact_Name warehouse__item">
+              {contact_Name}
+            </div>
+
             <div className="warehouse__contact_Name-contact_Information">
-              <p className="warehouse__contact_Name warehouse__item">
-                {contact_Name}
-              </p>
               <p className="warehouse__contact_Information warehouse__item">
                 {phone}
               </p>
               <p className="warehouse__contact_Information warehouse__item">
-                {email}
+                {email}{" "}
               </p>
             </div>
             <div className="warehouse__icons warehouse__desktop">
