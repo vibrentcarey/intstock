@@ -35,7 +35,9 @@ const InventoryItem = (props) => {
 
           
           <div className='inventory__status-quantity'>
-            <p className='inventory__status inventory__item'>{inStock()}</p>
+            <div className='inventory__status inventory__item'>
+              {inStock()}
+            </div>
             <p className='inventory__quantity inventory__item'>{quantity}</p>
           </div>
           <div className='inventory__icons inventory__desktop' >
