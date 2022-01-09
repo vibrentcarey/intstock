@@ -14,6 +14,7 @@ const WarehouseList = (props) => {
             contact_Name={warehouseList.contact.name}
             phone={warehouseList.contact.phone}
             email={warehouseList.contact.email}
+            onClick={props.onClick}
           />
         );
       })}
