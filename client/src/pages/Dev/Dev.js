@@ -23,12 +23,7 @@ class Dev extends Component {
     this.setState({ showModal: false })
   }
 
-  deleteInventoryItem = (id) => {
-    console.log('in');
-    axios.delete('http://localhost:8080/inventories/853bcd65-b0b3-4f9c-844f-8b4133d7df6f')
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
+
 
   render() {
     return (
