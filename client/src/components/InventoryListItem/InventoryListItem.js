@@ -43,7 +43,7 @@ const InventoryListItem = (props) => {
         <div className="inventory__container">
           <div className="inventory__item-category">
             <div className="inventory__wrapper">
-                <p className="inventory__label">NAME</p>
+              <p className="inventory__label">NAME</p>
               <div className="inventory__name-wrapper">
                 <p className="inventory__name inventory__item">{name}</p>
                 <img
@@ -84,7 +84,7 @@ const InventoryListItem = (props) => {
         </div>
         <div className="inventory__icons inventory__mobile">
           <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
-          <Link to={`edit-inventory-item/${id}`}>
+          <Link to={`warehouse-details/edit-inventory-item/${id}`}>
             <img className="inventory__icon" src={editIcon} alt="edit icon" />
           </Link>
         </div>
