@@ -9,6 +9,7 @@ import Footer from '../../components/Footer/Footer';
 import WarehouseDetailsPage from '../WarehouseDetailsPage/WarehouseDetailsPage';
 
 import InventoryItem from '../../components/InventoryItem/InventoryItem';
+import TopBar from "../../components/TopBar";
 
 class Dev extends Component {
   state = {
@@ -34,14 +35,14 @@ class Dev extends Component {
       <div>
         {/* <Stock instock={true} /> */}
         {/* <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone"/> */}
-        <WarehouseDetailsPage />
+        {/* <WarehouseDetailsPage /> */}
         <Footer />
-        <Stock instock={true} />
-
+        {/* <Stock instock={true} /> */}
+        <TopBar title='Television' showButton />
         {/* <Footer /> */}
-        <WareHouseListItem handleDelete={this.showModal} />
+        {/* <WareHouseListItem handleDelete={this.showModal} />
         {this.state.showModal && <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone" onClose={this.hideModal} onDelete={this.deleteInventoryItem} />}
-        <button onClick={this.showModal}>click</button>
+        <button onClick={this.showModal}>click</button> */}
 
       </div>
 
