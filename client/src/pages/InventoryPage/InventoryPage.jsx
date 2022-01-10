@@ -25,7 +25,7 @@ class InventoryPage extends React.Component {
     return (
       <div>
         <TopBarSearch title={"Inventory"} />
-        <InventoryList inventoryList={this.state.inventoryList} />
+        <InventoryList inventoryList={this.state.inventoryList} props={this.props}/>
       </div>
     );
   }
