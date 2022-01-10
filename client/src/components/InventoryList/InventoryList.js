@@ -2,7 +2,6 @@ import React from "react";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 
 const InventoryList = (props) => {
-  console.log("Props", props);
   return (
     <div>
       {props.inventoryList.map((inventoryList) => {

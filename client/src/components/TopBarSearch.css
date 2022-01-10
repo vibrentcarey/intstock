@@ -1,0 +1,27 @@
+.top-search {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.top-search__input {
+  border-radius: 50px;
+  border: 1px solid silver;
+  padding: 0.8rem;
+  background-image: url("../assets/search-24px.svg");
+  background-position: 95%;
+  background-repeat: no-repeat;
+  width: 90%;
+}
+
+@media (min-width: 641px) {
+  .top-search {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .top-search__input {
+    width: 30%;
+  }
+}

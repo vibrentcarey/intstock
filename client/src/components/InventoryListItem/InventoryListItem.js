@@ -12,21 +12,22 @@ import { Link } from "react-router-dom";
 const InventoryListItem = (props) => {
   // props passed from Inventory List Component
   const { id, name, category, status, quantity, warehouse } = props;
-  // Please allow use of hooks too late to refactor entire component to class :) 
+  // Please allow use of hooks too late to refactor entire component to class :)
   const [showModal, setShowModal] = useState(false);
 
   const handleModalOpen = () => {
-    setShowModal(true)
-  }
+    setShowModal(true);
+  };
   const handleModalClose = () => {
-    setShowModal(false)
-  }
+    setShowModal(false);
+  };
 
   const deleteInventoryItem = () => {
-    axios.delete(`http://localhost:8080/inventories/${id}`)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
+    axios
+      .delete(`http://localhost:8080/inventories/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   // check if item is in stock
   const inStock = () => {
     if (quantity === 0) {
@@ -38,7 +39,18 @@ const InventoryListItem = (props) => {
 
   return (
     <>
+<<<<<<< HEAD
+      {showModal && (
+        <Modal
+          title={`Delete ${name} inventory item?`}
+          message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`}
+          onClose={handleModalClose}
+          onDelete={deleteInventoryItem}
+        />
+      )}
+=======
       {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem} />}
+>>>>>>> develop
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">
@@ -85,10 +97,20 @@ const InventoryListItem = (props) => {
           </div>
         </div>
         <div className="inventory__icons inventory__mobile">
+<<<<<<< HEAD
+          <img
+            className="inventory__icon"
+            src={deleteIcon}
+            alt="delete icon"
+            onClick={handleModalOpen}
+          />
+          <img className="inventory__icon" src={editIcon} alt="edit icon" />
+=======
           <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
           <Link to={`edit-inventory-item/${id}`}>
             <img className="inventory__icon" src={editIcon} alt="edit icon" />
           </Link>
+>>>>>>> develop
         </div>
       </article>
     </>
