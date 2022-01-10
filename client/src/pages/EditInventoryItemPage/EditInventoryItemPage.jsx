@@ -7,7 +7,7 @@ const EditInventoryItemPage = (props) => {
   return (
     <>
       <TopBar title='Edit Inventory Item' />
-      <InventoryForm submitValue='Save' />
+      <InventoryForm submitValue='Save' props={props} />
     </>
   )
 };

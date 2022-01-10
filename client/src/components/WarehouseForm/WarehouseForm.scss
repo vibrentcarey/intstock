@@ -11,6 +11,7 @@
         @include flex(space-between, flex-start, row);
         background-color: $light-grey;
         width: 100%;
+        margin-bottom: 6rem;
 
         @include tablet {
             @include flex(flex-end, center, row);

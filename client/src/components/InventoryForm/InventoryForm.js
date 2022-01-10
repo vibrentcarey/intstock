@@ -9,15 +9,15 @@ let warehouseNames = ['Manhattan', 'King West', 'Granville', 'San Fran', 'Santa 
 
 class InventoryForm extends Component {
     state = {
-        form:{
+        form: {
             itemName: '',
-            description:'',
+            description: '',
             category: '',
             quantity: '',
             status: '',
-            warehouseName: '', 
+            warehouseName: '',
         },
-        validation : {
+        validation: {
             itemName: true,
             description: true,
             category: true,
@@ -27,26 +27,26 @@ class InventoryForm extends Component {
         }
     }
 
-    cancelHandler = (e) => {   
+    cancelHandler = (e) => {
         this.props.props.history.push("/")
     }
 
     handleChange = (e) => {
-        this.setState({  
-            form:{
+        this.setState({
+            form: {
                 [e.target.name]: e.target.value
             }
-        });  
-       
+        });
+
         console.log(e.target.value)
     }
     isFormDataValid = (e) => {
-        const { itemName, description, category,quantity, warehouseName, status} = this.state; 
-        if(!itemName || !category || !description ||!quantity || !warehouseName || !status) {
-        return false 
+        const { itemName, description, category, quantity, warehouseName, status } = this.state;
+        if (!itemName || !category || !description || !quantity || !warehouseName || !status) {
+            return false
         }
     }
-  
+
     // submit form
     submitHandler = (e) => {
         e.preventDefault();
@@ -54,67 +54,79 @@ class InventoryForm extends Component {
 
         // validating form after submission
         // itemName
-        if(!this.state.form.itemName) {
-            this.setState({validation: {
-                itemName: false
-            }})
+        if (!this.state.form.itemName) {
+            this.setState({
+                validation: {
+                    itemName: false
+                }
+            })
         }
         // description
-        if(!this.state.form.description) {
-            this.setState({validation: {
-                description: false
-            }})
+        if (!this.state.form.description) {
+            this.setState({
+                validation: {
+                    description: false
+                }
+            })
         }
 
         // category
-        if(!this.state.form.category) {
-            this.setState({validation: {
-                category: false
-            }})
+        if (!this.state.form.category) {
+            this.setState({
+                validation: {
+                    category: false
+                }
+            })
         }
 
         // status
-        if(!this.state.form.status) {
-            this.setState({validation: {
-                status: false
-            }})
+        if (!this.state.form.status) {
+            this.setState({
+                validation: {
+                    status: false
+                }
+            })
         }
 
         // quantity
-        if(!this.state.form.quantity) {
-            this.setState({validation: {
-                quantity: false
-            }})
+        if (!this.state.form.quantity) {
+            this.setState({
+                validation: {
+                    quantity: false
+                }
+            })
         }
         // warehouseName
-        if(!this.state.form.warehouseName) {
-            this.setState({validation: {
-                warehouseName: false
-            }})
+        if (!this.state.form.warehouseName) {
+            this.setState({
+                validation: {
+                    warehouseName: false
+                }
+            })
         }
 
-        if(this.isFormDataValid) {
+        if (this.isFormDataValid) {
             const warehouseId = this.props.props.match.params.warehouseId
-        
+
             axios.post(`http://localhost:8080/inventories/${warehouseId}`,
-            {
-                itemName: e.target.itemName.value,
-                description: e.target.description.value,
-                category: e.target.category.value,
-                status: e.target.status.value,
-                quantity: e.target.quantity.value,
-                warehouseName: e.target.warehouseName.value
-            }
+                {
+                    itemName: e.target.itemName.value,
+                    description: e.target.description.value,
+                    category: e.target.category.value,
+                    status: e.target.status.value,
+                    quantity: e.target.quantity.value,
+                    warehouseName: e.target.warehouseName.value
+                }
             )
-            .then(res => {
-                alert('Data submitted')      
-            }) 
-            .catch(err => {
-                console.log(err)
-                return err
-            })
+                .then(res => {
+                    alert('Data submitted')
+                })
+                .catch(err => {
+                    console.log(err)
+                    return err
+                })
             e.target.reset();
-        }         
+        }
     }
 
     render() {
@@ -122,7 +134,7 @@ class InventoryForm extends Component {
         console.log(this.props.props.match.params.warehouseId)
         return (
             <section className='inventory-form'>
-                <form  onSubmit={this.submitHandler}className='inventory-form__form' id='inventory-form'>
+                <form onSubmit={this.submitHandler} className='inventory-form__form' id='inventory-form'>
                     <div className='inventory-form__input-container'>
                         {/* Item Details */}
                         <fieldset className='inventory-form__item-details' form='inventory-form' name='inventory-form__item-details'>
@@ -134,8 +146,8 @@ class InventoryForm extends Component {
                                 name='itemName'
                                 type='text'
                                 placeholder='Item Name'
-                                onChange ={this.handleChange}
-                                 />
+                                onChange={this.handleChange}
+                            />
                             {/* Validation form */}
                             <div className={this.state.validation.itemName ? 'inventory-form__warning--valid' : 'inventory-form__warning'}>
                                 <img
@@ -153,12 +165,12 @@ class InventoryForm extends Component {
                             <textarea
                                 placeholder='Please enter a brief item description...'
                                 name='description'
-                                onChange ={this.handleChange}
+                                onChange={this.handleChange}
                                 className={this.state.validation.description ? 'inventory-form__textarea' : 'inventory-form__textarea inventory-form__textarea--invalid'}>
                             </textarea>
 
                             {/* Validation form */}
-                            <div className={this.state.validation.description  ? 'inventory-form__warning--valid' : 'inventory-form__warning'}>
+                            <div className={this.state.validation.description ? 'inventory-form__warning--valid' : 'inventory-form__warning'}>
                                 <img className='inventory-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='inventory-form__warning-message'> This field is required</p>
                             </div>
@@ -166,7 +178,7 @@ class InventoryForm extends Component {
                             {/* Category */}
                             <label className='inventory-form__label' htmlFor='category'>Category</label>
                             <select className={this.state.validation.category ? 'inventory-form__select-option' : 'inventory-form__select-option inventory-form__select-option--invalid'} name='category' id='category'
-                            onChange ={this.handleChange} required>
+                                onChange={this.handleChange} required>
                                 <option className='inventory-form__option' value="">Please select</option>
                                 {categoriesList.map((category, i) => {
                                     return (
@@ -189,25 +201,25 @@ class InventoryForm extends Component {
                             <div className='inventory-form__status'>
 
                                 <div className='inventory-form__stock'>
-                                    <input className='inventory-form__radio-button' 
-                                    type='radio' name='status' id='instock'
-                                    onChange ={this.handleChange} value='In Stock' />
+                                    <input className='inventory-form__radio-button'
+                                        type='radio' name='status' id='instock'
+                                        onChange={this.handleChange} value='In Stock' />
                                     <label className='inventory-form__label-status' htmlFor='status'>In Stock</label>
                                 </div>
 
                                 <div className='inventory-form__stock'>
-                                    <input className='inventory-form__radio-button' type='radio' name='status' onChange ={this.handleChange}  id='outOfStock' value='Out Of Stock' />
+                                    <input className='inventory-form__radio-button' type='radio' name='status' onChange={this.handleChange} id='outOfStock' value='Out Of Stock' />
                                     <label className='inventory-form__label-status' htmlFor='status'>Out of Stock</label>
                                 </div>
                             </div>
 
                             {/* Quantity */}
                             {this.state.form.status === 'Out Of Stock' || <><label className='inventory-form__label' htmlFor='quantity'>Quantity</label>
-                            <input className={this.state.validation.quantity? 'inventory-form__input inventory-form__input-quantity' : 'inventory-form__input inventory-form__input-quantity--invalid'} type='text' name='quantity' 
-                            onChange ={this.handleChange}id='quantity' placeholder='0' /></>}
+                                <input className={this.state.validation.quantity ? 'inventory-form__input inventory-form__input-quantity' : 'inventory-form__input inventory-form__input-quantity--invalid'} type='text' name='quantity'
+                                    onChange={this.handleChange} id='quantity' placeholder='0' /></>}
                             {/* Validation form */}
 
-                            <div className={this.state.validation.quantity? 'inventory-form__warning--valid' : 'inventory-form__warning'}>
+                            <div className={this.state.validation.quantity ? 'inventory-form__warning--valid' : 'inventory-form__warning'}>
                                 <img className="inventory-form__warning-icon" src={errorIcon} alt="error icon" />
                                 <p className='inventory-form__warning-message'> This field is required</p>
                             </div>
@@ -215,7 +227,7 @@ class InventoryForm extends Component {
                             {/* WarehouseName */}
                             <label className='inventory-form__label' htmlFor='warehouseName'>Warehouse</label>
                             <select className={this.state.validation.warehouseName ? 'inventory-form__select-option' : 'inventory-form__select-option inventory-form__select-option--invalid'} name="warehouseName"
-                            onChange ={this.handleChange} required>
+                                onChange={this.handleChange} required>
                                 <option className='inventory-form__option' value="">Please select</option>
                                 {warehouseNames.map((warehouseName, i) => {
                                     return (
@@ -229,10 +241,10 @@ class InventoryForm extends Component {
                             </div>
                         </fieldset>
                     </div>
-                    {/* <div className='inventory-form__button-container'> */}
-                    <Button type='secondary' value='Cancel' onClick={this.cancelHandler} />
-                    <Button type='primary' value={this.props.submitValue} />
-                    {/* </div> */}
+                    <div className='inventory-form__button-container'>
+                        <Button type='secondary' value='Cancel' onClick={this.cancelHandler} />
+                        <Button type='primary' value={this.props.submitValue} />
+                    </div>
                 </form>
             </section>
         );
