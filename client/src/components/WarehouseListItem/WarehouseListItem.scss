@@ -40,13 +40,13 @@
 
     @include tablet {
       flex-direction: row;
-      width: 35%;
+      width: 30%;
       justify-content: space-between;
     }
 
     @include desktop {
       flex-direction: row;
-      width: 35%;
+      width: 30%;
       justify-content: space-between;
     }
   }
