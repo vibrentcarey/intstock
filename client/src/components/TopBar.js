@@ -20,11 +20,9 @@ const TopBar = (props) => {
       </section>
       {props.details && (
         <div className='top-bar__details'>
-          <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-          <div className='top-bar__additional'>
-            <TopBarDetails heading='Contact Name' info={props.details.name} content={props.details.position} />
-            <TopBarDetails heading='Contact Information' info={props.details.phone} content={props.details.email} />
-          </div>
+          {props.details.map((detail, i) => {
+            return <TopBarDetails heading={detail.heading} info={detail.info} content={detail.content} key={i} />
+          })}
         </div>
       )}
     </div>
@@ -34,7 +32,7 @@ const TopBar = (props) => {
 TopBar.propTypes = {
   title: PropTypes.string.isRequired,
   showButton: PropTypes.bool,
-  details: PropTypes.object,
+  details: PropTypes.array,
 }
 
 export default TopBar;

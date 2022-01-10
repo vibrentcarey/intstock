@@ -28,8 +28,9 @@ class App extends Component {
             />
             <Route
               path="/edit-warehouse/:warehouseId"
-              component={EditWarehousePage}
-            />
+              render={(routerProps) => {
+                return <EditWarehousePage {...routerProps} />
+              }} />
             <Route path="/add-warehouse" component={AddWarehousePage} />
             <Route path="/inventory" component={InventoryPage} />
             <Route

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Route } from 'react-router-dom';
 import Header from '../../components/Header/Header';
 import TopBar from '../../components/TopBar';
 import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
@@ -9,8 +10,7 @@ const EditWarehousePage = (props) => {
   return (
     <div>
       <TopBar title='Edit Warehouse' />
-      <WarehouseForm submitValue='Save' />
-      <Footer />
+      <WarehouseForm submitValue='Save' props={props} />
     </div>
   );
 };

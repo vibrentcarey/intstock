@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import TopBar from '../../components/TopBar';
-import { withRouter } from "react-router-dom";
-import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
 import CategoryBar from '../../components/CategoryBar';
+import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
+
 import axios from 'axios';
 
 
@@ -12,10 +12,10 @@ class WarehouseDetailsPage extends Component {
     warehouse: []
   }
 
+  // fetch function to update state for warehouse
   fetchWarehouse = (warehouseId) => {
     axios.get(`http://localhost:8080/warehouses/${warehouseId}`)
       .then(res => {
-        console.log(res.data)
         this.setState({ warehouse: res.data })
       })
       .catch(err => {
@@ -28,7 +28,6 @@ class WarehouseDetailsPage extends Component {
       .then(res => {
         console.log(res.data)
         this.setState({ inventories: res.data })
-
       })
       .catch(err => {
         return err;
@@ -42,20 +41,21 @@ class WarehouseDetailsPage extends Component {
     this.fetchWarehouse(warehouseId)
   }
 
-
   render() {
-
-    const { warehouse } = this.state
 
     if (this.state.warehouse.length === 0) {
       return <p className="container__message">...Loading page...</p>;
     }
 
+    const details = [
+      { heading: "Warehouse Address", info: this.state.warehouse.address, content: `${this.state.warehouse.city}, ${this.state.warehouse.country}` },
+      { heading: "Contact Name", info: this.state.warehouse.contact.name, content: `${this.state.warehouse.contact.position}` },
+      { heading: "Contact Information", info: this.state.warehouse.contact.phone, content: `${this.state.warehouse.contact.email}` }
+    ]
     return (
       <>
-        <TopBar title={warehouse.name} />
+        <TopBar title={this.state.warehouse.name} details={details} />
         <CategoryBar categories={['inventory', 'category', 'status', 'quantity', 'actions']} />
-
         <WarehouseInventory inventoryList={this.state.inventories} />
       </>
     );
