@@ -26,7 +26,9 @@ class WarehouseDetailsPage extends Component {
   fetchInventories = (warehouseId) => {
     axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventories`)
       .then(res => {
+        console.log(res.data)
         this.setState({ inventories: res.data })
+
       })
       .catch(err => {
         return err;
@@ -42,9 +44,16 @@ class WarehouseDetailsPage extends Component {
 
 
   render() {
+
+    const { warehouse } = this.state
+
+    if (this.state.warehouse.length === 0) {
+      return <p className="container__message">...Loading page...</p>;
+    }
+
     return (
       <>
-        <TopBar title={this.state.warehouse.name} />
+        <TopBar title={warehouse.name} />
         <CategoryBar categories={['inventory', 'category', 'status', 'quantity', 'actions']} />
 
         <WarehouseInventory inventoryList={this.state.inventories} />

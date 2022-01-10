@@ -28,6 +28,7 @@ class WarehouseForm extends Component {
 
     //  component was created, insert into DOM, and rendered first time
     componentDidMount() {
+        const warehouseId = this.props.match.params.warehousesId;
 
         if (warehouseId) {
             axios
@@ -123,8 +124,8 @@ class WarehouseForm extends Component {
                 .put(`http://localhost:8080/warehouses/${warehouseId}`, warehouseDetails)
                 .then(res => {
                     console.log(res)
-                    // alert('Warehouse edited!')
-                    // this.props.history.push('/')
+                    alert('Warehouse edited!')
+                    this.props.history.push('/')
                 })
                 .catch(err => console.log(`Put request for editing of warehouse with: ${err}`))
         }
