@@ -1,14 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InventoryListItem.scss";
 import chevronIcon from "../../assets/chevron_right-24px.svg";
 import deleteIcon from "../../assets/delete_outline-24px.svg";
 import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
+import TopBarSearch from "../TopBarSearch";
+import Modal from "../Modal";
+import axios from "axios";
 
 const InventoryListItem = (props) => {
   // props passed from Inventory List Component
-
   const { id, name, category, status, quantity, warehouse } = props;
+  // Please allow use of hooks too late to refactor entire component to class :)
+  const [showModal, setShowModal] = useState(false);
+
+  const handleModalOpen = () => {
+    setShowModal(true);
+  };
+  const handleModalClose = () => {
+    setShowModal(false);
+  };
+
+  const deleteInventoryItem = () => {
+    axios
+      .delete(`http://localhost:8080/inventories/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   // check if item is in stock
   const inStock = () => {
     if (quantity === 0) {
@@ -20,6 +38,14 @@ const InventoryListItem = (props) => {
 
   return (
     <>
+      {showModal && (
+        <Modal
+          title={`Delete ${name} inventory item?`}
+          message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`}
+          onClose={handleModalClose}
+          onDelete={deleteInventoryItem}
+        />
+      )}
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">
@@ -46,12 +72,18 @@ const InventoryListItem = (props) => {
               className="inventory__icon"
               src={deleteIcon}
               alt="delete icon"
+              onClick={handleModalOpen}
             />
             <img className="inventory__icon" src={editIcon} alt="edit icon" />
           </div>
         </div>
         <div className="inventory__icons inventory__mobile">
-          <img className="inventory__icon" src={deleteIcon} alt="delete icon" />
+          <img
+            className="inventory__icon"
+            src={deleteIcon}
+            alt="delete icon"
+            onClick={handleModalOpen}
+          />
           <img className="inventory__icon" src={editIcon} alt="edit icon" />
         </div>
       </article>

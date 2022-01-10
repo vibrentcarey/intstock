@@ -133,7 +133,7 @@ wareHouseRouter.put("/:wareHouseId", (req, res) => {
   });
 
   writeFile(wareHouseList);
-  return res.status(200).send(updatedWareHouse);
+  return res.status(200).send(updatedWareHouse)
 });
 
 // get each warehouse inventory details

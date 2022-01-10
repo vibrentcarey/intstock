@@ -52,7 +52,9 @@ inventoriesRouter.post("/:warehouseId", (req, res) => {
     !req.body.status ||
     !req.body.quantity
   ) {
+    console.log(req.body)
     return res.status(400).send("Ensure you include all required field.");
+    
   }
   const newInventory = {
     id: uuid(),
