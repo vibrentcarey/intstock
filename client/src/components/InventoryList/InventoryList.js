@@ -8,7 +8,6 @@ const InventoryList = (props) => {
     <div>
       {props.inventoryList.map((inventoryList) => {
         const inventoryId = inventoryList.id
-        console.log(inventoryId)
         return (
           <Link to={`inventory-item-details/${inventoryId}`}  key={inventoryList.id}>
             <InventoryListItem
