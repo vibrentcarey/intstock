@@ -96,7 +96,7 @@ class InventoryForm extends Component {
         if(this.isFormDataValid) {
             const warehouseId = this.props.props.match.params.warehouseId
         
-            axios.post(`http://localhost:8080/inventories/${warehouseId}`,
+            axios.post(`http://localhost:8080/inventory/${warehouseId}`,
             {
                 itemName: e.target.itemName.value,
                 description: e.target.description.value,
