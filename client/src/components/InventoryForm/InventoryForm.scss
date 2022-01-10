@@ -8,6 +8,7 @@
     @include flex(flex-start, stretch, column);
 
     &__button-container {
+        margin-bottom: 7rem;
         background-color: $light-grey;
         @include flex(space-between, flex-start, row);
         background-color: $light-grey;

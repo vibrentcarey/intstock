@@ -3,10 +3,11 @@
 @use "../src/style/partials/typography" as *;
 
 * {
-    margin: 0;
-    box-sizing: border-box; 
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Titillium Web', 'Calibri', sans-serif;
+  font-family: "Titillium Web", "Calibri", sans-serif;
+  background-color: $light-grey;
 }
