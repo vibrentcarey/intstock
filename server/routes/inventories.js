@@ -28,6 +28,7 @@ inventoriesRouter.get("/", (_req, res) => {
 
 // Fetch a single inventory item
 inventoriesRouter.get("/:inventoryId", (req, res) => {
+  console.log("inventory id=", req.params.inventoryId);
   const inventoryData = readFile();
 
   const inventoryItem = inventoryData.find(
@@ -87,6 +88,7 @@ inventoriesRouter.patch("/:inventoryId", (req, res) => {
     !req.body.description &&
     !req.body.category &&
     !req.body.status &&
+    !req.body.warehouseID &&
     !req.body.warehouseName
   ) {
     return res
@@ -102,6 +104,8 @@ inventoriesRouter.patch("/:inventoryId", (req, res) => {
     description: req.body.description,
     category: req.body.category,
     status: req.body.status,
+    quantity: req.body.quantity,
+    warehouseID: req.body.warehouseID,
     warehouseName: req.body.warehouseName
   };
   inventoriesData = inventoriesData.map((inventories) => {
