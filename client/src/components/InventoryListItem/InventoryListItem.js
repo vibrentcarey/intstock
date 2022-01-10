@@ -43,6 +43,7 @@ const InventoryListItem = (props) => {
         <div className="inventory__container">
           <div className="inventory__item-category">
             <div className="inventory__wrapper">
+                <p className="inventory__label">NAME</p>
               <div className="inventory__name-wrapper">
                 <p className="inventory__name inventory__item">{name}</p>
                 <img
@@ -52,12 +53,21 @@ const InventoryListItem = (props) => {
                 />
               </div>
             </div>
+            <p className="inventory__label">CATEGORY</p>
             <p className="inventory__category inventory__item">{category}</p>
           </div>
 
           <div className="inventory__status-quantity">
-            <p className="inventory__status inventory__item">{inStock()}</p>
-            <p className="inventory__quantity inventory__item">{quantity}</p>
+            <div>
+              <p className="inventory__label">STATUS</p>
+              <p className="inventory__status inventory__item">{inStock()}</p>
+            </div>
+            <div>
+              <p className="inventory__label">QUANTITY</p>
+              <p className="inventory__quantity inventory__item">{quantity}</p>
+            </div>
+            <div></div>
+            <p className="inventory__label">WAREHOUSE</p>
             <p className="inventory__warehouse inventory__item">{warehouse}</p>
           </div>
           <div className="inventory__icons inventory__desktop">
