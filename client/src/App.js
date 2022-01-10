@@ -23,14 +23,30 @@ class App extends Component {
           <Switch>
             <Route path="/" exact={true} component={WarehousesPage} />
             <Route
+              path="/warehouses/inventories/:warehouseId"
+              render={(routerProps) => {
+                return <WarehouseDetailsPage {...routerProps} />;
+              }}
+            />
+            <Route
+              path="/edit-warehouse/:warehouseId"
+              render={(routerProps) => {
+                return <EditWarehousePage {...routerProps} />;
+              }}
+            />
+
+            {/* <Route
               path="/warehouse-details/:warehouseId"
               component={WarehouseDetailsPage}
-            />
-            <Route path="/edit-warehouse/:warehouseId" component={EditWarehousePage} />
+            /> */}
+            {/* <Route path="/edit-warehouse/:warehouseId" component={EditWarehousePage} /> */}
+
             <Route path="/add-warehouse" component={AddWarehousePage} />
+
+
             <Route path="/inventory" component={InventoryPage} />
             <Route
-              path="/inventory-item-details/:inventoryItemId"
+              path="/inventory/inventory-item-details/:inventoryItemId"
               component={InventoryItemDetailsPage}
             />
             <Route
@@ -43,12 +59,7 @@ class App extends Component {
             />
 
             <Route path="/dev" component={Dev} />
-            <Route
-              path="/warehouses/inventories/:warehouseId"
-              render={(routerProps) => {
-                return <WarehouseDetailsPage {...routerProps} />;
-              }}
-            />
+
           </Switch>
           <Footer />
         </BrowserRouter>
