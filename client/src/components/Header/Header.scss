@@ -15,21 +15,22 @@ body {
 }
 
 .header {
+  position: relative;
   background-color: $graphite;
 
   &__box {
     @include flex(flex-start, stretch, column);
     margin: 0;
-    padding: 1.5rem 1rem 1.5rem 1rem;
+    padding: 1.5rem 1rem 5.5rem 1rem;
 
     @include tablet {
       @include flex(space-between, center, row);
-      padding: 2rem 2rem 2rem 2rem;
+      padding: 2rem 2rem 7rem 2rem;
     }
 
     @include desktop {
       @include flex(space-between, center, row);
-      padding: 2rem 5rem 2rem 5rem;
+      padding: 2rem 5rem 7rem 5rem;
     }
   }
 
