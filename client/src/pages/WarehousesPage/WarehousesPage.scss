@@ -1,4 +1,11 @@
-.warehouse__top {
-  display: flex;
-  justify-content: space-between;
+@use "../../style/partials/mixins" as *;
+
+.topbar {
+  &__search {
+    @include tablet {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
 }

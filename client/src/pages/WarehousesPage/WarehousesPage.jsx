@@ -5,6 +5,7 @@ import Modal from "../../components/Modal";
 import TopBarSearch from "../../components/TopBarSearch";
 import Button from "../../Button/Button";
 import "./WarehousesPage.scss";
+import CategoryBar from "../../components/CategoryBar";
 
 // Warehouses Page
 
@@ -66,14 +67,25 @@ class WarehousesPage extends React.Component {
             onDelete={this.deleteWarehouse}
           />
         )}
-        <div className="warehouse__top">
-          <TopBarSearch title={"Warehouses"} />
-          <Button value={"+ Add New Warehouse"} />
+        <div className="topbar">
+          <div className="topbar__search">
+            <TopBarSearch title={"Warehouses"} className="topbar__item" />
+            <Button type="primary" value={"+ Add New Warehouse"} />
+          </div>
+          <CategoryBar
+            categories={[
+              "warehouse",
+              "address",
+              "contact_name",
+              "contact_information",
+              "actions",
+            ]}
+          />
+          <WarehouseList
+            warehouseList={this.state.warehouseList}
+            onClick={this.showModal}
+          />
         </div>
-        <WarehouseList
-          warehouseList={this.state.warehouseList}
-          onClick={this.showModal}
-        />
       </div>
     );
   }
