@@ -19,9 +19,9 @@ const InventoryListItem = (props) => {
       return <Stock instock={true} />;
     }
   };
+
   return (
     <>
-      <TopBarSearch title={"Inventory"} />
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">

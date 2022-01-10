@@ -2,9 +2,9 @@ import React from "react";
 import InventoryListItem from "../InventoryListItem/InventoryListItem";
 
 const InventoryList = (props) => {
+  console.log("Props", props);
   return (
     <div>
-      {/* map over inventory list */}
       {props.inventoryList.map((inventoryList) => {
         return (
           <InventoryListItem
@@ -14,6 +14,7 @@ const InventoryList = (props) => {
             category={inventoryList.category}
             status={inventoryList.status}
             quantity={inventoryList.quantity}
+            warehouse_Id={inventoryList.warehouseId}
             warehouse={inventoryList.warehouseName}
           />
         );
