@@ -44,18 +44,18 @@ inventoriesRouter.get("/:inventoryId", (req, res) => {
 //create single inventory item
 inventoriesRouter.post("/:warehouseId", (req, res) => {
   const inventoryData = readFile();
-  // if (
-  //   !req.body.warehouseName ||
-  //   !req.body.itemName ||
-  //   !req.body.description ||
-  //   !req.body.category ||
-  //   !req.body.status ||
-  //   !req.body.quantity
-  // ) {
-  //   console.log(res)
-  //   return res.status(400).send("Ensure you include all required field.");
+  if (
+    !req.body.warehouseName ||
+    !req.body.itemName ||
+    !req.body.description ||
+    !req.body.category ||
+    !req.body.status ||
+    !req.body.quantity
+  ) {
+    console.log(req.body)
+    return res.status(400).send("Ensure you include all required field.");
     
-  // }
+  }
   const newInventory = {
     id: uuid(),
     warehouseID: req.params.warehouseId,
