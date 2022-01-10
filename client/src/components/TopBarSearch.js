@@ -1,5 +1,5 @@
 import React from 'react';
-import './TopBarSearch.css'
+import './TopBarSearch.scss'
 import PropTypes from 'prop-types'
 
 const TopBarSearch = (props) => {

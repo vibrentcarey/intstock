@@ -1,0 +1,29 @@
+@use "../style/partials/mixins"as *;
+@use "../style/partials/variables"as *;
+
+.top-search {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+
+  @include tablet() {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__input {
+    border-radius: 50px;
+    border: 1px solid silver;
+    padding: 0.8rem;
+    background-image: url("../assets/search-24px.svg");
+    background-position: 95%;
+    background-repeat: no-repeat;
+    width: 90%;
+
+    @include tablet() {
+      width: 30%;
+
+    }
+  }
+}

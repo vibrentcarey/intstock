@@ -26,10 +26,7 @@ class App extends Component {
               path="/warehouse-details/:warehouseId"
               component={WarehouseDetailsPage}
             />
-            <Route
-              path="/edit-warehouse/:warehouseId"
-              component={EditWarehousePage}
-            />
+            <Route path="/edit-warehouse/:warehouseId" component={EditWarehousePage} />
             <Route path="/add-warehouse" component={AddWarehousePage} />
             <Route path="/inventory" component={InventoryPage} />
             <Route
@@ -40,10 +37,6 @@ class App extends Component {
               path="/edit-inventory-item/:inventoryItemId"
               component={EditInventoryItemPage}
             />
-            {/* <Route
-              path="/add-inventory-item"
-              component={AddInventoryItemPage}
-            /> */}
             <Route
               path="/inventories/:warehouseId"
               component={AddInventoryItemPage}

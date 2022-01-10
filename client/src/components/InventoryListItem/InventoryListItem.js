@@ -7,6 +7,7 @@ import Stock from "../stock/Stock";
 import TopBarSearch from "../TopBarSearch";
 import Modal from "../Modal";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const InventoryListItem = (props) => {
   // props passed from Inventory List Component
@@ -38,6 +39,7 @@ const InventoryListItem = (props) => {
 
   return (
     <>
+<<<<<<< HEAD
       {showModal && (
         <Modal
           title={`Delete ${name} inventory item?`}
@@ -46,6 +48,9 @@ const InventoryListItem = (props) => {
           onDelete={deleteInventoryItem}
         />
       )}
+=======
+      {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem} />}
+>>>>>>> develop
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">
@@ -84,10 +89,13 @@ const InventoryListItem = (props) => {
               alt="delete icon"
               onClick={handleModalOpen}
             />
-            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            <Link to={`edit-inventory-item/${id}`}>
+              <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            </Link>
           </div>
         </div>
         <div className="inventory__icons inventory__mobile">
+<<<<<<< HEAD
           <img
             className="inventory__icon"
             src={deleteIcon}
@@ -95,6 +103,12 @@ const InventoryListItem = (props) => {
             onClick={handleModalOpen}
           />
           <img className="inventory__icon" src={editIcon} alt="edit icon" />
+=======
+          <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
+          <Link to={`edit-inventory-item/${id}`}>
+            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          </Link>
+>>>>>>> develop
         </div>
       </article>
     </>
