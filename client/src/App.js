@@ -40,8 +40,12 @@ class App extends Component {
               path="/edit-inventory-item/:inventoryItemId"
               component={EditInventoryItemPage}
             />
-            <Route
+            {/* <Route
               path="/add-inventory-item"
+              component={AddInventoryItemPage}
+            /> */}
+            <Route
+              path="/inventories/:warehouseId"
               component={AddInventoryItemPage}
             />
            

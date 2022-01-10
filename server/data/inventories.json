@@ -698,5 +698,14 @@
     "category": "Health",
     "status": "Out of Stock",
     "quantity": 0
+  },
+  {
+    "id": "92d86fb4-2ed5-43a6-bbbb-c69a395be9f7",
+    "warehouseID": "2922c286-16cd-4d43-ab98-c79f698aeab0",
+    "warehouseName": "Manhattan",
+    "itemName": "Bells",
+    "description": "Big bells",
+    "category": "Apparel",
+    "quantity": "10"
   }
 ]
