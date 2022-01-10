@@ -7,13 +7,17 @@
     @include flex(flex-start, stretch, column);
 
     &__button-container {
+        background-color: $light-grey;
         @include flex(space-between, flex-start, row);
-        width: 90%;
-        padding: 1rem;
+        background-color: $light-grey;
+        width: 100%;
 
-        @include tablet() {
-            align-self: flex-end;
-            width: 50%;
+        @include tablet {
+            @include flex(flex-end, center, row);
+            padding-right: 1rem;
+        }
+        @include tablet {
+            padding-right: 1.5rem;
         }
     }
 
@@ -22,17 +26,15 @@
         width: 100%;
 
         @include tablet {
-            @include dividerStyleTop;
+            // @include dividerStyleTop;
         }
     }
 
     &__input-container {
         @include flex(center, center, column);
         width: 100%;
-
         @include tablet {
             @include flex(space-between, flex-start, row);
-
         }
     }
 
@@ -42,17 +44,21 @@
         width: 100%;
         padding: 1rem 1.5rem 1.5rem 1.5rem;
         border: none;
-        @include dividerStyleTop;
-
         @include tablet {
             border-top: none;
             margin: 1.5rem 0 2rem 0;
             width: 50%;
             padding: 0rem 2rem;
         }
-
         @include desktop {
             padding: 0rem 2.5rem;
+        }
+    }
+
+    &__contact-details {
+        @include dividerStyleTop;
+        @include tablet {
+            border-top: none;
         }
     }
 
@@ -62,11 +68,16 @@
         }
     }
 
+    &__contact-details {
+        @include dividerStyleTop;
+        @include tablet {
+            border-top: none;
+        }
+    }
 
     &__heading {
         @include font-stack-m-h2;
         padding-bottom: 0.5rem;
-
         @include tablet {
             @include font-stack-tab-desc-h2;
         }
@@ -75,7 +86,6 @@
     &__label {
         @include font-stack-m-h3;
         padding: 1rem 0 0.25rem 0;
-
         @include tablet {
             @include font-stack-tab-desc-h3;
             padding: 1.5rem 0 0.25rem 0;
@@ -83,18 +93,17 @@
     }
 
     &__input {
+        color: $instock-black;
         height: 2.25rem;
         width: 100%;
         margin-bottom: 0.25rem;
         @include formfield;
-
         @include tablet {
             height: 2.375rem;
         }
 
         &::placeholder {
             @include font-stack-m-p2;
-
             @include tablet {
                 @include font-stack-tab-desc-p2;
             }
@@ -103,9 +112,9 @@
         &[type='text'] {
             @include font-stack-m-p2;
             color: $instock-black;
-
             @include tablet {
                 @include font-stack-tab-desc-p2;
+                color: $instock-black;
             }
         }
 
@@ -134,12 +143,24 @@
     &__warning-message {
         @include font-stack-m-p3;
         color: $red;
-
         @include tablet {
             @include font-stack-tab-desc-p3;
             color: $red;
         }
     }
+}
 
-
+.button {
+    &__primary{
+        width: 50%;
+        @include tablet {
+            width: auto;
+        }
+    }
+    &__secondary{
+        width: 50%;
+        @include tablet {
+            width: auto;
+        }
+    }
 }

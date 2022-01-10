@@ -1,0 +1,95 @@
+@use "../../style/partials/variables" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/mixins" as *;
+
+.inventory-item-details {
+  box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
+  border-radius: 3px;
+  margin: 0 1rem 0 1rem;
+
+  position: absolute;
+  left: 4.27%;
+  right: 4.27%;
+  top: 20.39%;
+  bottom: 24.89%;
+
+  background: $white;
+
+  &__top-section {
+    border-bottom: 1px solid $cloud;
+  }
+
+  &__heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+  }
+
+  &__heading-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__heading-right {
+    @include tablet {
+      width: 81px;
+    }
+    @include desktop {
+      width: 81px;
+    }
+  }
+
+  &__back-image {
+    margin: 0.5rem 0.75rem 0 0;
+  }
+
+  &__title {
+    @include font-stack-m-h1;
+  }
+
+  &__status {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    & > * {
+      flex: 50%;
+    }
+  }
+
+  &__container-left {
+    @include tablet {
+      flex: 50%;
+    }
+    @include desktop {
+      flex: 50%;
+    }
+  }
+
+  &__bottom-section {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      padding-top: 1.5rem;
+    }
+
+    @include desktop {
+    }
+  }
+
+  &__container-right {
+    @include tablet {
+      border-left: 1px solid $cloud;
+      padding-left: 1.5rem;
+      flex: 50%;
+    }
+
+    @include desktop {
+      flex: 50%;
+    }
+  }
+}

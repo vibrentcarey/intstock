@@ -1,14 +1,14 @@
 import WarehouseForm from "../../components/WarehouseForm/WarehouseForm";
-import TopBar from '../../components/TopBar'
+import TopBar from "../../components/TopBar";
 
 // Add New Warehouse Page
 const AddWarehousePage = (props) => {
   return (
-    <div>
-      <TopBar title='Add Warehouse' />
+    <>
+      <TopBar title='Edit Inventory Item' />
       <WarehouseForm submitValue='Save' />
-    </div>
+    </>
   )
-};
+}
 
-export default AddWarehousePage;
+export default AddWarehousePage

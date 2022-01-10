@@ -1,0 +1,48 @@
+@use "../../style/partials/variables" as *;
+@use "../../style/partials/typography" as *;
+@use "../../style/partials/mixins" as *;
+
+.label-value-container {
+  padding-top: 1rem;
+  padding-right: 2rem;
+
+  @include tablet {
+    padding: 0 1.5rem 0 0.5rem;
+  }
+
+  @include desktop {
+    padding: 0 1.5rem 0 1rem;
+  }
+
+  &__label {
+    @include font-stack-m-h4;
+
+    @include tablet {
+      @include font-stack-tab-desc-h4;
+    }
+
+    @include desktop {
+      @include font-stack-tab-desc-h4;
+    }
+  }
+
+  &__value {
+    padding-top: 0.25rem;
+
+    @include font-stack-m-p2;
+
+    @include tablet {
+      @include font-stack-tab-desc-p2;
+      padding-bottom: 2rem;
+    }
+
+    @include desktop {
+      @include font-stack-tab-desc-p2;
+      padding-bottom: 2rem;
+    }
+  }
+
+  &__stock {
+    padding-top: 0.25rem;
+  }
+}
