@@ -40,7 +40,7 @@ function Button(props) {
           <span className="edit-btn-container__text">Edit</span>
         </div>
       ) : (
-        <button type="button" className={btnDesign} onClick={props.onClick}>
+        <button type="submit" className={btnDesign} onClick={props.onClick}>
           <span>{props.value}</span>
         </button>
       )}
