@@ -14,16 +14,6 @@ const warehouseId = null;
 
 class WarehouseForm extends Component {
     state = {
-        validation: {
-            name: true,
-            address: true,
-            city: true,
-            country: true,
-            contactName: true,
-            position: true,
-            phone: true,
-            email: true,
-        },
         form: {
             name: '',
             address: '',
@@ -46,31 +36,9 @@ class WarehouseForm extends Component {
         //         this.setState({ validation: { [key]: false } })
         //     }
         // })
-
-        if (!this.state.form.name) {
-            this.setState({
-                validation: {
-                    // ...this.state.validation,
-                    name: false
-                }
-            })
+        if (!this.state.form.name || !this.state.form.address || !this.state.form.city || !this.state.form.country || !this.state.form.contactName || !this.state.form.position || !this.state.form.phone || !this.state.form.email) {
+            return
         }
-        // description
-        if (!this.state.form.address) {
-            this.setState({
-                validation: {
-                    // ...this.state.validation,
-                    address: false
-                }
-            })
-        }
-
-        // if(!this.state.form.city) {
-        //     this.setState({validation: {
-        //         ...this.state.validation,
-        //         city: false
-        //     }})
-        // }
         // Format Object To Send To Database
         const warehouseDetails = {
             name: this.state.form.name,
@@ -90,10 +58,21 @@ class WarehouseForm extends Component {
 
     handleChange = (e) => {
         // Set The State Based On The Target, Reset Validation State If User Starts Typing 
-        this.setState({ form: { [e.target.name]: e.target.value }, validation: { ...this.state.validation, [e.target.name]: true } })
+        this.setState({ form: { ...this.state.form, [e.target.name]: e.target.value } })
     }
 
     render() {
+        // Convert The State To A Boolean To Check Validity
+        // Empty String Is False - Once They Type It's True
+        const nameIsValid = !!this.state.form.name;
+        const addressIsValid = !!this.state.form.address;
+        const cityIsValid = !!this.state.form.city;
+        const countryIsValid = !!this.state.form.country;
+        const contactIsValid = !!this.state.form.contactName;
+        const positionIsValid = !!this.state.form.position;
+        const phoneIsValid = !!this.state.form.phone;
+        const emailIsValid = !!this.state.form.email;
+
         return (
             <section className='warehouse-form'>
                 <form className='warehouse-form__form' id='warehouse-form' onSubmit={!warehouseId ? this.addHandler : this.editHandler}>
@@ -104,7 +83,7 @@ class WarehouseForm extends Component {
                             {/* Warehouse Name */}
                             <label className='warehouse-form__label' htmlFor='name'>Warehouse Name</label>
                             <input
-                                className={this.state.validation.name ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={nameIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='name'
                                 name='name'
                                 type='text'
@@ -112,7 +91,7 @@ class WarehouseForm extends Component {
                                 onChange={this.handleChange}
                             />
                             {/* Validation form */}
-                            <div className={this.state.validation.name ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={nameIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -120,7 +99,7 @@ class WarehouseForm extends Component {
                             {/* Street Address */}
                             <label className='warehouse-form__label' htmlFor='address'>Street Address</label>
                             <input
-                                className={this.state.validation.address ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={addressIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='address'
                                 name='address'
                                 type='text'
@@ -128,21 +107,21 @@ class WarehouseForm extends Component {
                                 onChange={this.handleChange}
                             />
                             {/* Validation form */}
-                            <div className={this.state.validation.address ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={addressIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
                             {/* City */}
                             <label className='warehouse-form__label' htmlFor='city'>City</label>
                             <input
-                                className={this.state.validation.city ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={cityIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='city'
                                 name='city'
                                 type='text'
                                 placeholder='City'
                                 onChange={this.handleChange} />
                             {/* Validation form */}
-                            <div className={this.state.validation.city ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={cityIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -150,7 +129,7 @@ class WarehouseForm extends Component {
                             {/* Country */}
                             <label className='warehouse-form__label' htmlFor='country'>Country</label>
                             <input
-                                className={this.state.validation.country ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={countryIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='country'
                                 name='country'
                                 type='text'
@@ -158,7 +137,7 @@ class WarehouseForm extends Component {
                                 onChange={this.handleChange}
                             />
                             {/* Validation form */}
-                            <div className={this.state.validation.country ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={countryIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
@@ -169,7 +148,7 @@ class WarehouseForm extends Component {
                             {/* Contact Name */}
                             <label className='warehouse-form__label' htmlFor='contactName'>Contact Name</label>
                             <input
-                                className={this.state.validation.contactName ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={contactIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='contactName'
                                 name='contactName'
                                 type='text'
@@ -177,49 +156,49 @@ class WarehouseForm extends Component {
                                 onChange={this.handleChange}
                             />
                             {/* Validation form */}
-                            <div className={this.state.validation.contactName ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={contactIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
                             {/* Position of contact name */}
                             <label className='warehouse-form__label' htmlFor='position'>Position</label>
                             <input
-                                className={this.state.validation.position ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={positionIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='position'
                                 name='position'
                                 type='text'
                                 placeholder='Position'
                                 onChange={this.handleChange}
                             />
-                            <div className={this.state.validation.position ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={positionIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
                             {/* Phone Number of contact name */}
                             <label className='warehouse-form__label' htmlFor='phone'>Phone Number</label>
                             <input
-                                className={this.state.validation.phone ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={phoneIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='phone'
                                 name='phone'
                                 type='text'
                                 placeholder='Phone Number'
                                 onChange={this.handleChange}
                             />
-                            <div className={this.state.validation.phone ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={phoneIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>
                             {/* Email of contact name*/}
                             <label className='warehouse-form__label' htmlFor='email'>Email</label>
                             <input
-                                className={this.state.validation.email ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
+                                className={emailIsValid ? 'warehouse-form__input' : 'warehouse-form__input warehouse-form__input--invalid'}
                                 id='email'
                                 name='email'
                                 type='text'
                                 placeholder='Email'
                                 onChange={this.handleChange}
                             />
-                            <div className={this.state.validation.email ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
+                            <div className={emailIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                                 <p className='warehouse-form__warning-message'>This field is required</p>
                             </div>

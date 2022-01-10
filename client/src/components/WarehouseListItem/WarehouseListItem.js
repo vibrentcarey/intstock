@@ -47,7 +47,7 @@ const WarehouseListItem = (props) => {
                 alt="delete icon"
                 onClick={() => onClick(id, name)}
               />
-              <Link className="warehouse__icons warehouse__mobile-link" to={`edit-warehouse/${id}`}>
+              <Link to={`edit-warehouse/${id}`}>
                 <img className="warehouse__icon" src={editIcon} alt="edit icon" />
               </Link>
             </div>
@@ -59,7 +59,7 @@ const WarehouseListItem = (props) => {
               alt="delete icon"
               onClick={() => onClick(id, name)}
             />
-            <Link className="warehouse__icons warehouse__mobile-link" to={`edit-warehouse/${id}`}>
+            <Link to={`edit-warehouse/${id}`}>
               <img className="warehouse__icon" src={editIcon} alt="edit icon" />
             </Link>
           </div>
