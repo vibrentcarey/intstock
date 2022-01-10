@@ -4,11 +4,11 @@ import TopBar from "../../components/TopBar";
 // Add New Warehouse Page
 const AddWarehousePage = (props) => {
   return (
-    <div>
-      <TopBar title="Add Warehouse" />
-      <WarehouseForm submitValue="Save" />
-    </div>
-  );
-};
+    <>
+      <TopBar title='Edit Inventory Item' />
+      <WarehouseForm submitValue='Save' />
+    </>
+  )
+}
 
-export default AddWarehousePage;
+export default AddWarehousePage

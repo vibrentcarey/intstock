@@ -15,7 +15,7 @@ app.use(cors());
 
 app.use("/warehouses", wareHouseRouter);
 
-app.use("/inventories", inventoryRouter);
+app.use("/inventory", inventoryRouter);
 
 app.listen(PORT, () => {
   console.log(`🚀 Server started on port ${PORT}`);

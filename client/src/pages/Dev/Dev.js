@@ -36,8 +36,8 @@ class Dev extends Component {
       <div>
         {/* <Stock instock={true} /> */}
         {/* <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone"/> */}
-        {/* <WarehouseDetailsPage/>
-      <Footer />
+        <WarehouseDetailsPage />
+        <Footer />
         <Stock instock={true} />
 
         {/* <Footer /> */}

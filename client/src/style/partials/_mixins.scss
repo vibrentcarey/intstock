@@ -40,3 +40,18 @@
   border:1px solid $red;
 }
 
+@mixin formfieldSelect {
+  outline: none;
+  border-radius: 1.25rem;
+  border: 1px solid $cloud;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 0 0px $white inset;
+  appearance: none;
+  @include font-stack-m-p2;
+  color: $instock-black;
+  @include tablet {
+    @include font-stack-tab-desc-p2;
+    color: $instock-black;
+}
+}
+

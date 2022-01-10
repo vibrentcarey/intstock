@@ -10,8 +10,8 @@ import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryIt
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import Dev from "./pages/Dev/Dev";
 import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import "./App.scss";
-import WarehouseForm from "./components/WarehouseForm/WarehouseForm";
 
 // InStock Application
 class App extends Component {
@@ -44,16 +44,16 @@ class App extends Component {
               path="/add-inventory-item"
               component={AddInventoryItemPage}
             />
-           
+
             <Route path="/dev" component={Dev} />
-            <Route path="/warehouses/inventories/:warehouseId" render = {(routerProps) => {
-              return (<WarehouseDetailsPage 
-                {...routerProps}
-                />
-              )
-            }          
-            }/>
+            <Route
+              path="/warehouses/inventories/:warehouseId"
+              render={(routerProps) => {
+                return <WarehouseDetailsPage {...routerProps} />;
+              }}
+            />
           </Switch>
+          <Footer />
         </BrowserRouter>
       </>
     );

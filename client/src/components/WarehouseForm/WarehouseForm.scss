@@ -9,16 +9,25 @@
     &__button-container {
         background-color: $light-grey;
         @include flex(space-between, flex-start, row);
+        background-color: $light-grey;
         width: 100%;
-        padding: 0rem 0.5rem;
+
         @include tablet {
-            padding: 1rem 2rem;
+            @include flex(flex-end, center, row);
+            padding-right: 1rem;
+        }
+        @include tablet {
+            padding-right: 1.5rem;
         }
     }
 
     &__form {
         @include flex(center, center, column);
         width: 100%;
+
+        @include tablet {
+            // @include dividerStyleTop;
+        }
     }
 
     &__input-container {
@@ -43,6 +52,13 @@
         }
         @include desktop {
             padding: 0rem 2.5rem;
+        }
+    }
+
+    &__contact-details {
+        @include dividerStyleTop;
+        @include tablet {
+            border-top: none;
         }
     }
 
@@ -130,6 +146,21 @@
         @include tablet {
             @include font-stack-tab-desc-p3;
             color: $red;
+        }
+    }
+}
+
+.button {
+    &__primary{
+        width: 50%;
+        @include tablet {
+            width: auto;
+        }
+    }
+    &__secondary{
+        width: 50%;
+        @include tablet {
+            width: auto;
         }
     }
 }
