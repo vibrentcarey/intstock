@@ -65,7 +65,7 @@ class InventoryItemDetailsPage extends React.Component {
                   />
                 </Link>
 
-                <h1 className="inventory-item-details__title">Television</h1>
+                <h1 className="inventory-item-details__title">{this.state.details?.itemName}</h1>
               </div>
               <div className="inventory-item-details__heading-right">
                 <Button
