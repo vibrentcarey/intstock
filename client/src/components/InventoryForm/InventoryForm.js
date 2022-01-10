@@ -184,7 +184,7 @@ class InventoryForm extends Component {
 
   render() {
     console.log(this.props);
-    console.log(this.props.match.params.warehouseId);
+    // console.log(this.props.match.params.warehouseId);
     return (
       <section className="inventory-form">
         <form
