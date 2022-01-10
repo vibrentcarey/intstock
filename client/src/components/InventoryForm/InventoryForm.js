@@ -229,10 +229,10 @@ class InventoryForm extends Component {
                             </div>
                         </fieldset>
                     </div>
-                    <div className='inventory-form__button-container'>
-                        <Button type='secondary' value='Cancel' onClick={this.CancelHandler} />
-                        <Button  type='primary' value={this.props.submitValue} />
-                    </div>
+                    {/* <div className='inventory-form__button-container'> */}
+                    <Button type='secondary' value='Cancel' onClick={this.cancelHandler} />
+                    <Button type='primary' value={this.props.submitValue} />
+                    {/* </div> */}
                 </form>
             </section>
         );

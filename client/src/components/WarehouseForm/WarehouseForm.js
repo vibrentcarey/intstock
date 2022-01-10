@@ -8,7 +8,7 @@ import Button from "../../Button/Button";
 import axios from "axios";
 
 // Temporary value to be replaced with query param
-const warehouseId = '5bf7bd6c-2b16-4129-bddc-9d37ff8539e9';
+const warehouseId = null;
 // const warehouseId = '';
 
 class WarehouseForm extends Component {
@@ -74,11 +74,10 @@ class WarehouseForm extends Component {
     addHandler = (e) => {
         e.preventDefault()
         console.log(e.target.name);
-        //TODO: Check for better way to do this
         if (!this.nameRef.current.value) {
-            this.setState({ ...this.state.form, name: false }, () => {
-                console.log(this.state.form);
-            })
+            this.setState({ ...this.state.form, name: false })
+        } else if(!this.addressRef.current.value ){
+            this.setState({ ...this.state.form, address: false })
         }
 
         const warehouseDetails = {
