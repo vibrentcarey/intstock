@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import TopBar from '../../components/TopBar';
 import CategoryBar from '../../components/CategoryBar';
 import WarehouseInventory from "../../components/WarehouseInventory/WarehouseInventory";
-
 import axios from 'axios';
 
 
@@ -22,6 +21,7 @@ class WarehouseDetailsPage extends Component {
         return err;
       })
   }
+
   // pass warehouse id to endpoint url
   fetchInventories = (warehouseId) => {
     axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventories`)
@@ -34,7 +34,7 @@ class WarehouseDetailsPage extends Component {
       })
   }
 
-  // initial inventory list fetch
+  // initial warehouse details and inventory list fetch
   componentDidMount() {
     let warehouseId = this.props.match.params.warehouseId
     this.fetchInventories(warehouseId)
@@ -54,7 +54,7 @@ class WarehouseDetailsPage extends Component {
     ]
     return (
       <>
-        <TopBar title={this.state.warehouse.name} details={details} />
+        <TopBar title={this.state.warehouse.name} details={details} showButton={true} />
         <CategoryBar categories={['inventory', 'category', 'status', 'quantity', 'actions']} />
         <WarehouseInventory inventoryList={this.state.inventories} />
       </>
