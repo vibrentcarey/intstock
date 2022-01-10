@@ -1,0 +1,22 @@
+@use '../../style/partials/mixins' as *;
+@use '../../style/partials/variables' as *;
+@use '../../style/partials/typography' as *;
+.topbar {
+  
+  &__search {
+    @include tablet {
+      width: 100%;
+      display: flex;
+      justify-content: column;
+   
+    }
+    @include desktop{
+      width: 100%;
+      display: flex;
+      justify-content: column;
+   
+    }
+
+  }
+  
+}
