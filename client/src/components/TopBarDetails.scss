@@ -5,15 +5,15 @@
   margin: 0 1rem;
   min-width: 150px;
   max-width: 150px;
-}
 
-&__heading {
-  text-transform: uppercase;
-  margin-bottom: 0.6rem;
-  font-size: 0.8rem;
-}
+  &__heading {
+    text-transform: uppercase;
+    margin-bottom: 0.6rem;
+    font-size: 0.8rem;
+  }
 
-&__info {
-  margin: 0.2rem;
-  font-size: 1.1rem;
+  &__info {
+    margin: 0.2rem;
+    font-size: 1.1rem;
+  }
 }
