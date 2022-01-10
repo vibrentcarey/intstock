@@ -1,7 +1,7 @@
 import axios from "axios";
 import React from "react";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
-import WarehouseListItem from "../../components/WarehouseListItem/WarehouseListItem";
+import Modal from "../../components/Modal";
 
 // Warehouses Page
 
@@ -9,26 +9,64 @@ class WarehousesPage extends React.Component {
   state = {
     warehouseList: [],
     selectedWarehouse: null,
+    showModal: false,
+    warehouseId: null,
+    warehouseName: null
   };
 
-  //Making an axios request to get the data
-  componentDidMount() {
+  showModal = (warehouseId, warehouseName) => {
+    this.setState({
+      showModal: true,
+      warehouseId,
+      warehouseName
+    });
+  };
+  hideModal = () => {
+    this.setState({ showModal: false });
+  };
+
+  deleteWarehouse = () => {
+    const url = `http://localhost:8080/warehouses/${this.state.warehouseId}`;
+    axios
+      .delete(url)
+      .then((res) => {
+        this.hideModal();
+        this.getAllWarehouses();
+      })
+      .catch((err) => console.log(err));
+  };
+
+  getAllWarehouses() {
     axios
       .get("http://localhost:8080/warehouses")
       .then((result) => {
-        console.log(result.data);
         this.setState({
-          warehouseList: result.data,
+          warehouseList: result.data
         });
-        console.log("WarehouseList", this.state.warehouseList);
       })
       .catch((err) => console.log(err));
   }
+
+  //Making an axios request to get the data
+  componentDidMount() {
+    this.getAllWarehouses();
+  }
+
   render() {
     return (
       <div>
-        <h1>Warehouse Page</h1>
-        <WarehouseList warehouseList={this.state.warehouseList} />
+        {this.state.showModal && (
+          <Modal
+            title={`Delete ${this.state.warehouseName} warehouse?`}
+            message={`Please confirm that you'd like to delete the ${this.state.warehouseName} from the list of warehouses. You won't be able to undo this action.`}
+            onClose={this.hideModal}
+            onDelete={this.deleteWarehouse}
+          />
+        )}
+        <WarehouseList
+          warehouseList={this.state.warehouseList}
+          onClick={this.showModal}
+        />
       </div>
     );
   }

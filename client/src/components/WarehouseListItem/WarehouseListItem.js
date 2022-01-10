@@ -6,7 +6,7 @@ import editIcon from "../../assets/edit-24px.svg";
 import { Link } from "react-router-dom";
 
 const WarehouseListItem = (props) => {
-  const { id, name, address, contact_Name, phone, email } = props;
+  const { id, name, address, contact_Name, phone, email, onClick } = props;
   return (
     <div>
       {
@@ -45,6 +45,7 @@ const WarehouseListItem = (props) => {
                 className="warehouse__icon"
                 src={deleteIcon}
                 alt="delete icon"
+                onClick={() => onClick(id, name)}
               />
               <img className="warehouse__icon" src={editIcon} alt="edit icon" />
             </div>
@@ -54,6 +55,7 @@ const WarehouseListItem = (props) => {
               className="warehouse__icon"
               src={deleteIcon}
               alt="delete icon"
+              onClick={() => onClick(id, name)}
             />
             <img className="warehouse__icon" src={editIcon} alt="edit icon" />
           </div>
