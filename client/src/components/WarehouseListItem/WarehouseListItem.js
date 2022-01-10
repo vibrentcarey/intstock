@@ -48,7 +48,11 @@ const WarehouseListItem = (props) => {
                 onClick={() => onClick(id, name)}
               />
               <Link to={`edit-warehouse/${id}`}>
-                <img className="warehouse__icon" src={editIcon} alt="edit icon" />
+                <img
+                  className="warehouse__icon"
+                  src={editIcon}
+                  alt="edit icon"
+                />
               </Link>
             </div>
           </div>

@@ -55,14 +55,16 @@ const InventoryListItem = (props) => {
         <div className="inventory__container">
           <div className="inventory__item-category">
             <div className="inventory__wrapper">
-                <p className="inventory__label">NAME</p>
+              <p className="inventory__label">NAME</p>
               <div className="inventory__name-wrapper">
-                <p className="inventory__name inventory__item">{name}</p>
-                <img
-                  className="inventory__arrow"
-                  src={chevronIcon}
-                  alt="arrow icon"
-                />
+                <Link to={`inventory-item-details/${id}`} key={id}>
+                  <p className="inventory__name inventory__item">{name}</p>
+                  <img
+                    className="inventory__arrow"
+                    src={chevronIcon}
+                    alt="arrow icon"
+                  />
+                </Link>
               </div>
             </div>
             <p className="inventory__label">CATEGORY</p>
