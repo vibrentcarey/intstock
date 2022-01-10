@@ -2,6 +2,9 @@ import axios from "axios";
 import React from "react";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Modal from "../../components/Modal";
+import TopBarSearch from "../../components/TopBarSearch";
+import Button from "../../Button/Button";
+import "./WarehousesPage.scss";
 
 // Warehouses Page
 
@@ -11,14 +14,14 @@ class WarehousesPage extends React.Component {
     selectedWarehouse: null,
     showModal: false,
     warehouseId: null,
-    warehouseName: null
+    warehouseName: null,
   };
 
   showModal = (warehouseId, warehouseName) => {
     this.setState({
       showModal: true,
       warehouseId,
-      warehouseName
+      warehouseName,
     });
   };
   hideModal = () => {
@@ -41,7 +44,7 @@ class WarehousesPage extends React.Component {
       .get("http://localhost:8080/warehouses")
       .then((result) => {
         this.setState({
-          warehouseList: result.data
+          warehouseList: result.data,
         });
       })
       .catch((err) => console.log(err));
@@ -63,6 +66,10 @@ class WarehousesPage extends React.Component {
             onDelete={this.deleteWarehouse}
           />
         )}
+        <div className="warehouse__top">
+          <TopBarSearch title={"Warehouses"} />
+          <Button value={"+ Add New Warehouse"} />
+        </div>
         <WarehouseList
           warehouseList={this.state.warehouseList}
           onClick={this.showModal}

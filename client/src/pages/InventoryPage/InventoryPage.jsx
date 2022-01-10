@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import InventoryList from "../../components/InventoryList/InventoryList";
 import TopBarSearch from "../../components/TopBarSearch";
+import Button from "../../Button/Button";
 
 // Inventory Page
 class InventoryPage extends React.Component {
@@ -25,6 +26,7 @@ class InventoryPage extends React.Component {
     return (
       <div>
         <TopBarSearch title={"Inventory"} />
+        <Button value={"+ Add New Warehouse"} />
         <InventoryList inventoryList={this.state.inventoryList} />
       </div>
     );

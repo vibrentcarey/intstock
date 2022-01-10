@@ -4,13 +4,11 @@ import chevronIcon from "../../assets/chevron_right-24px.svg";
 import deleteIcon from "../../assets/delete_outline-24px.svg";
 import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
-import TopBarSearch from "../TopBarSearch";
 
 const InventoryListItem = (props) => {
   // props passed from Inventory List Component
 
   const { id, name, category, status, quantity, warehouse } = props;
-  console.log("name", name);
   // check if item is in stock
   const inStock = () => {
     if (quantity === 0) {
