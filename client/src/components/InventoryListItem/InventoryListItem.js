@@ -7,6 +7,7 @@ import Stock from "../stock/Stock";
 import TopBarSearch from "../TopBarSearch";
 import Modal from "../Modal";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const InventoryListItem = (props) => {
   // props passed from Inventory List Component
@@ -37,11 +38,12 @@ const InventoryListItem = (props) => {
 
   return (
     <>
-    {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem}/>}
+      {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem} />}
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">
             <div className="inventory__wrapper">
+                <p className="inventory__label">NAME</p>
               <div className="inventory__name-wrapper">
                 <p className="inventory__name inventory__item">{name}</p>
                 <img
@@ -51,12 +53,21 @@ const InventoryListItem = (props) => {
                 />
               </div>
             </div>
+            <p className="inventory__label">CATEGORY</p>
             <p className="inventory__category inventory__item">{category}</p>
           </div>
 
           <div className="inventory__status-quantity">
-            <p className="inventory__status inventory__item">{inStock()}</p>
-            <p className="inventory__quantity inventory__item">{quantity}</p>
+            <div>
+              <p className="inventory__label">STATUS</p>
+              <p className="inventory__status inventory__item">{inStock()}</p>
+            </div>
+            <div>
+              <p className="inventory__label">QUANTITY</p>
+              <p className="inventory__quantity inventory__item">{quantity}</p>
+            </div>
+            <div></div>
+            <p className="inventory__label">WAREHOUSE</p>
             <p className="inventory__warehouse inventory__item">{warehouse}</p>
           </div>
           <div className="inventory__icons inventory__desktop">
@@ -66,12 +77,16 @@ const InventoryListItem = (props) => {
               alt="delete icon"
               onClick={handleModalOpen}
             />
-            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            <Link to={`edit-inventory-item/${id}`}>
+              <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            </Link>
           </div>
         </div>
         <div className="inventory__icons inventory__mobile">
-          <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen}/>
-          <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
+          <Link to={`edit-inventory-item/${id}`}>
+            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          </Link>
         </div>
       </article>
     </>

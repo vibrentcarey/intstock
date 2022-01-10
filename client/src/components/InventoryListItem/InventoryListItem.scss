@@ -189,4 +189,13 @@
       display: none;
     }
   }
+
+  &__label {
+    @include tablet {
+      display: none;
+    }
+    @include desktop {
+      display: none;
+    }
+  }
 }

@@ -16,7 +16,7 @@ class InventoryItemDetailsPage extends React.Component {
   };
 
   getInventoryItemDetails = (id) => {
-    const url = `http://localhost:8080/inventories/${id}`;
+    const url = `http://localhost:8080/inventory/${id}`;
 
     axios
       .get(url)
