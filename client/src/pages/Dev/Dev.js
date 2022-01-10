@@ -41,7 +41,7 @@ class Dev extends Component {
         {this.state.showModal && <Modal title="Delete inventory item?" message="'Are you sure you want to delete this cannot be undone" onClose={this.hideModal} onDelete={this.deleteInventoryItem} />}
         <button onClick={this.showModal}>click</button> */}
         {/* <WarehouseForm submitValue='save'/> */}
-        <EditWarehouseForm />
+        <WarehouseForm />
       </div>
 
     );

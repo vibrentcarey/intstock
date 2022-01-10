@@ -1,5 +1,5 @@
 import React from 'react';
-import './CategoryBar.css'
+import './CategoryBar.scss'
 import arrows from '../assets/sort-24px.svg'
 import PropTypes from 'prop-types'
 
