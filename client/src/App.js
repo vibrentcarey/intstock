@@ -10,7 +10,7 @@ import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryIt
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
 import Dev from "./pages/Dev/Dev";
 import Header from "./components/Header/Header";
-import Footer from './components/Footer/Footer';
+import Footer from "./components/Footer/Footer";
 import "./App.scss";
 
 // InStock Application
