@@ -1,0 +1,53 @@
+@use "../style/partials/mixins"as *;
+@use "../style/partials/variables"as *;
+@use "../style//partials/typography"as *;
+
+.details {
+  width: 100%;
+  padding: 0 1.5rem 1rem;
+  &:last-child {
+    position: absolute;
+    bottom: 0%;
+    left:50%;
+  }
+  @include tablet {
+    padding: 0 0rem 1.5rem 2rem;
+    &:last-child {
+      position: static;
+      bottom: 0%;
+      left:0%;
+    }
+
+    &:first-child{
+       @include dividerStyleRight;
+    }
+  }
+  @include desktop {
+    padding: 0 2.5rem 1.5rem;
+    &:last-child {
+      padding-left: 1.75rem;
+    }
+  }
+
+
+  &__heading {
+    width: 100%;
+    text-transform: uppercase;
+    margin-bottom: 0.25rem;
+    @include font-stack-m-h4;
+    @include tablet {
+      @include font-stack-tab-desc-h4;
+    }
+  }
+
+  &__info {
+    width: 100%;
+    @include font-stack-m-p2;
+    color: $instock-black;
+    @include tablet {
+      @include font-stack-tab-desc-p2;
+      color: $instock-black;
+    }
+
+  }
+}

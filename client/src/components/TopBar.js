@@ -20,7 +20,7 @@ const TopBar = (props) => {
           <img src={back} alt='back' onClick={handleBack} />
           <h1>{props.title}</h1>
         </div>
-        {props.showButton && <Button value='Edit' />}
+        {props.showButton && <Button type='edit' value='Edit' />}
       </section>
       {props.details && (
         <div className='top-bar__details'>

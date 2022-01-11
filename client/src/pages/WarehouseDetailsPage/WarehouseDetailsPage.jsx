@@ -48,7 +48,7 @@ class WarehouseDetailsPage extends Component {
     }
 
     const details = [
-      { heading: "Warehouse Address", info: this.state.warehouse.address, content: `${this.state.warehouse.city}, ${this.state.warehouse.country}` },
+      { heading: "Warehouse Address", info: `${this.state.warehouse.address},`, content: `${this.state.warehouse.city}, ${this.state.warehouse.country}` },
       { heading: "Contact Name", info: this.state.warehouse.contact.name, content: `${this.state.warehouse.contact.position}` },
       { heading: "Contact Information", info: this.state.warehouse.contact.phone, content: `${this.state.warehouse.contact.email}` }
     ]

@@ -1,5 +1,5 @@
 import React from 'react';
-import './TopBarDetails.css'
+import './TopBarDetails.scss'
 import PropTypes from 'prop-types'
 
 const TopBarDetails = (props) => {
