@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import PropTypes from 'prop-types'
 import TopBarDetails from './TopBarDetails';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 const TopBar = (props) => {
   const history = useHistory()
@@ -20,7 +21,7 @@ const TopBar = (props) => {
           <img src={back} alt='back' onClick={handleBack} />
           <h1>{props.title}</h1>
         </div>
-        {props.showButton && <Button type='edit' value='Edit' />}
+        {props.showButton && <Link to={props.pass}><Button type='edit' value='Edit' /></Link>}
       </section>
       {props.details && (
         <div className='top-bar__details'>

@@ -10,6 +10,8 @@ const WarehouseInventory = (props) => {
       {/* map over inventory list */}
       {inventoryList.map((inventory) => {
         return (
+          
+          
           <InventoryItem
             key={inventory.id}
             name={inventory.itemName}
