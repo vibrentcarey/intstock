@@ -8,15 +8,19 @@ import Button from "../../Button/Button";
 import axios from "axios";
 import { useFormik } from "formik";
 import * as Yup from 'yup';
+import { v4 as uuidv4 } from 'uuid';
+import { useHistory } from 'react-router-dom';
 
 const WarehouseForm = (props) => {
+    const history = useHistory();
+
     const formik = useFormik({
         initialValues: {
             name: '',
             address: '',
             city: '',
             country: '',
-            contact: '',
+            contactName: '',
             position: '',
             phone: '',
             email: '',
@@ -26,40 +30,36 @@ const WarehouseForm = (props) => {
             address: Yup.string().required(),
             city: Yup.string().required(),
             country: Yup.string().required(),
-            contact: Yup.string().required(),
+            contactName: Yup.string().required(),
             position: Yup.string().required(),
             phone: Yup.string().required(),
-            email: Yup.string().required()
+            email: Yup.string().required().email('Invalid Email')
 
         }),
         onSubmit: (values) => {
-            console.log(values);
+            const warehouseDetails = {
+                id: uuidv4(),
+                name: values.name,
+                address: values.address,
+                city: values.city,
+                country: values.country,
+                contact: {
+                    name: values.contactName,
+                    position: values.position,
+                    phone: values.phone,
+                    email: values.email
+                }
+            }
+
+            axios.post('http://localhost:8080/warehouses', warehouseDetails)
+                .then(res => console.log(res))
+                .catch(err => console.log(err))
         }
     })
-    console.log(formik.errors);
-    console.log(formik.touched);
-    console.log(formik.values.name);
-
-    const addHandler = (e) => {
-        e.preventDefault();
-        // Format Object To Send To Database
-        // const warehouseDetails = {
-        //     name: this.state.form.name,
-        //     address: this.state.form.address,
-        //     city: this.state.form.city,
-        //     country: this.state.form.country,
-        //     contact: this.state.form.contact,
-        //     position: this.state.form.position,
-        //     phone: this.state.form.phone,
-        //     email: this.state.form.email
-        // }
-        // // Send Request To Database
-        // axios.post('http://localhost:8080/warehouses', warehouseDetails)
-        //     .then(res => console.log(res))
-        //     .catch(err => console.log(err))
-    }
+    console.log(formik.values.contact);
 
     const cancelHandler = () => {
+        history.goBack()
     }
     return (
         <section className='warehouse-form'>
@@ -104,6 +104,7 @@ const WarehouseForm = (props) => {
                             <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                             <p className='warehouse-form__warning-message'>This field is required</p>
                         </div>
+
                         {/* City */}
                         <label className='warehouse-form__label' htmlFor='city'>City</label>
                         <input
@@ -147,17 +148,17 @@ const WarehouseForm = (props) => {
                         {/* Contact Name */}
                         <label className='warehouse-form__label' htmlFor='contactName'>Contact Name</label>
                         <input
-                            className={formik.touched.country && formik.errors.country ? 'warehouse-form__input warehouse-form__input--invalid' : 'warehouse-form__input'}
+                            className={formik.touched.contactName && formik.errors.contactName ? 'warehouse-form__input warehouse-form__input--invalid' : 'warehouse-form__input'}
                             id='contactName'
                             name='contactName'
                             type='text'
                             placeholder='Contact Name'
                             onChange={formik.handleChange}
                             onBlur={formik.handleBlur}
-                            value={formik.values.country}
+                            value={formik.values.contactName}
                         />
                         {/* Validation form */}
-                        <div className={formik.touched.country && formik.errors.country ? 'warehouse-form__warning' : 'warehouse-form__warning--valid'}>
+                        <div className={formik.touched.contact && formik.errors.contact ? 'warehouse-form__warning' : 'warehouse-form__warning--valid'}>
                             <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
                             <p className='warehouse-form__warning-message'>This field is required</p>
                         </div>
@@ -210,7 +211,7 @@ const WarehouseForm = (props) => {
                         />
                         <div className={formik.touched.email && formik.errors.email ? 'warehouse-form__warning' : 'warehouse-form__warning--valid'}>
                             <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
-                            <p className='warehouse-form__warning-message'>This field is required</p>
+                            <p className='warehouse-form__warning-message'>{formik.errors.email ? formik.errors.email : 'This field is required'}</p>
                         </div>
                     </fieldset>
                 </div>
