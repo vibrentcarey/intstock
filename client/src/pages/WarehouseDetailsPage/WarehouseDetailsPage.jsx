@@ -41,7 +41,10 @@ class WarehouseDetailsPage extends Component {
     this.fetchWarehouse(warehouseId)
   }
 
+
+
   render() {
+    let warehouseId = this.props.match.params.warehouseId
 
     if (this.state.warehouse.length === 0) {
       return <p className="container__message">...Loading page...</p>;
@@ -53,8 +56,10 @@ class WarehouseDetailsPage extends Component {
       { heading: "Contact Information", info: this.state.warehouse.contact.phone, content: `${this.state.warehouse.contact.email}` }
     ]
     return (
+
+      
       <>
-        <TopBar title={this.state.warehouse.name} details={details} showButton={true} />
+        <TopBar pass={`/edit-warehouse/${warehouseId}`} title={this.state.warehouse.name} details={details} showButton={true} />
         <CategoryBar categories={['inventory', 'category', 'status', 'quantity', 'actions']} />
         <WarehouseInventory inventoryList={this.state.inventories} />
       </>

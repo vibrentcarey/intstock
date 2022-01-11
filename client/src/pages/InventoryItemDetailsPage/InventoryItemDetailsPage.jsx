@@ -7,6 +7,7 @@ import Card from "../../components/Card/Card";
 import LabelValue from "../../components/LabelValue/LabelValue";
 import back from "../../assets/arrow_back-24px.svg";
 import "../InventoryItemDetailsPage/InventoryItemDetailsPage.scss";
+import TopBar from "../../components/TopBar";
 
 // Inventory Item Details Page
 class InventoryItemDetailsPage extends React.Component {
@@ -54,28 +55,8 @@ class InventoryItemDetailsPage extends React.Component {
     return (
       <Card>
         <div>
-          <div className="inventory-item-details__top-section">
-            <section className="inventory-item-details__heading">
-              <div className="inventory-item-details__heading-left">
-                <Link to="/inventory">
-                  <img
-                    src={back}
-                    alt="back"
-                    className="inventory-item-details__back-image"
-                  />
-                </Link>
-
-                <h1 className="inventory-item-details__title">{this.state.details?.itemName}</h1>
-              </div>
-              <div className="inventory-item-details__heading-right">
-                <Button
-                  type="edit"
-                  value="Edit"
-                  onClick={this.handleEditButtonClick}
-                />
-              </div>
-            </section>
-          </div>
+         
+          <TopBar title={this.state.details?.itemName} showButton pass={`/edit-inventory-item/${this.state.details?.id}`}/>
           {this.state.details && (
             <section className="inventory-item-details__bottom-section">
               <div className="inventory-item-details__container-left">

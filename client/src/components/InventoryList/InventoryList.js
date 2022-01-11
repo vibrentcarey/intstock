@@ -5,7 +5,6 @@ const InventoryList = (props) => {
   return (
     <div>
       {props.inventoryList.map((inventoryList) => {
-        const inventoryId = inventoryList.id
         return (
             <InventoryListItem
               key={inventoryList.id}

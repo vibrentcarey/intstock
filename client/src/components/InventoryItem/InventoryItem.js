@@ -42,15 +42,17 @@ console.log(location);
         <div className="inventory__mobile-container">
           <div className="inventory__category-wrapper">
             <div className="inventory__category-container">
-              <p className="inventory__categories">inventory item</p>
+                <p className="inventory__categories">inventory item</p>
+              <Link to={`/inventory/inventory-item-details/${id}`}>
               <div className="inventory__name-wrapper">
                 <p className="inventory__name inventory__item">{name}</p>
                 <img
                   className="inventory__arrow"
                   src={chevronIcon}
                   alt="arrow icon"
-                />
+                  />
               </div>
+              </Link>
             </div>
 
             <div className="inventory__category-container">

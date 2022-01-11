@@ -69,7 +69,7 @@ wareHouseRouter.post("/", (req, res) => {
     !req.body.name ||
     !req.body.address ||
     !req.body.city ||
-    !req.body.country ||
+    !req.body.country  ||
     !req.body.contact
   ) {
     // Send back error message
