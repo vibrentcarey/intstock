@@ -55,8 +55,11 @@ class InventoryItemDetailsPage extends React.Component {
     return (
       <Card>
         <div>
-         
-          <TopBar title={this.state.details?.itemName} showButton pass={`/edit-inventory-item/${this.state.details?.id}`}/>
+          <TopBar
+            title={this.state.details?.itemName}
+            showButton
+            pass={`/edit-inventory-item/${this.state.details?.id}`}
+          />
           {this.state.details && (
             <section className="inventory-item-details__bottom-section">
               <div className="inventory-item-details__container-left">

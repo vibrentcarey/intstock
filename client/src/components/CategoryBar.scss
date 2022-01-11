@@ -1,5 +1,6 @@
-@use "../style/partials/mixins"as *;
-@use "../style/partials/variables"as *;
+@use "../style/partials/mixins" as *;
+@use "../style/partials/variables" as *;
+@use "../style/partials/typography" as *;
 
 .category {
   display: none;
@@ -15,6 +16,11 @@
     height: 30px;
     background-color: $light-grey;
     text-transform: uppercase;
+
+    @include tablet {
+      padding: 0 1.5rem 0 1.5rem;
+      @include font-stack-tab-desc-h4;
+    }
   }
 
   &__item {

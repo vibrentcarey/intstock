@@ -4,6 +4,7 @@ import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Modal from "../../components/Modal";
 import TopBarSearch from "../../components/TopBarSearch";
 import Button from "../../Button/Button";
+import Card from "../../components/Card/Card";
 import "./WarehousesPage.scss";
 import CategoryBar from "../../components/CategoryBar";
 import { Link } from "react-router-dom";
@@ -16,14 +17,14 @@ class WarehousesPage extends React.Component {
     selectedWarehouse: null,
     showModal: false,
     warehouseId: null,
-    warehouseName: null,
+    warehouseName: null
   };
 
   showModal = (warehouseId, warehouseName) => {
     this.setState({
       showModal: true,
       warehouseId,
-      warehouseName,
+      warehouseName
     });
   };
   hideModal = () => {
@@ -46,7 +47,7 @@ class WarehousesPage extends React.Component {
       .get("http://localhost:8080/warehouses")
       .then((result) => {
         this.setState({
-          warehouseList: result.data,
+          warehouseList: result.data
         });
       })
       .catch((err) => console.log(err));
@@ -59,7 +60,7 @@ class WarehousesPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <Card>
         {this.state.showModal && (
           <Modal
             title={`Delete ${this.state.warehouseName} warehouse?`}
@@ -71,7 +72,7 @@ class WarehousesPage extends React.Component {
         <div className="topbar">
           <div className="topbar__search">
             <TopBarSearch title={"Warehouses"} className="topbar__item" />
-            <Link to='/add-warehouse'>
+            <Link to="/add-warehouse">
               <Button type="primary" value={"+ Add New Warehouse"} />
             </Link>
           </div>
@@ -79,9 +80,9 @@ class WarehousesPage extends React.Component {
             categories={[
               "warehouse",
               "address",
-              "contact_name",
-              "contact_information",
-              "actions",
+              "contact name",
+              "contact information",
+              "actions"
             ]}
           />
           <WarehouseList
@@ -89,7 +90,7 @@ class WarehousesPage extends React.Component {
             onClick={this.showModal}
           />
         </div>
-      </div>
+      </Card>
     );
   }
 }
