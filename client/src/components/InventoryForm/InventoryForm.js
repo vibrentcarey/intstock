@@ -80,11 +80,11 @@ class InventoryForm extends Component {
             }
         });
 
-        // if (e.target.value === "Out Of Stock") {
-        //     this.setState({
-        //         quantity: 0
-        //     });
-        // }
+        if (e.target.value === "Out Of Stock") {
+            this.setState({
+                quantity: 0
+            });
+        }
         console.log(e.target.value);
     };
     isFormDataValid = (e) => {
