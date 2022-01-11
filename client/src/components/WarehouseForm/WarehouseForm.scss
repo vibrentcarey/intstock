@@ -7,17 +7,21 @@
     @include flex(flex-start, stretch, column);
 
     &__button-container {
+        margin-bottom: 6rem;
         background-color: $light-grey;
         @include flex(space-between, flex-start, row);
         background-color: $light-grey;
         width: 100%;
+        margin-bottom: 6rem;
 
         @include tablet {
             @include flex(flex-end, center, row);
             padding-right: 1rem;
+            margin-bottom: 8.5rem;
         }
-        @include tablet {
+        @include desktop {
             padding-right: 1.5rem;
+            margin-bottom: 9rem;
         }
     }
 

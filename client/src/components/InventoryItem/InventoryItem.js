@@ -1,15 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InventoryItem.scss";
 import chevronIcon from "../../assets/chevron_right-24px.svg";
 import deleteIcon from "../../assets/delete_outline-24px.svg";
 import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
+import axios from "axios";
+import Modal from "../Modal";
+import { Link, useLocation } from "react-router-dom";
 
 const InventoryItem = (props) => {
   // props passed from Inventory Component
-
   const { id, name, category, status, quantity, warehouse } = props;
-
+  const [showModal, setShowModal] = useState(false);
+const location = useLocation()
+console.log(location);
+  const handleModalOpen = () => {
+    setShowModal(true)
+  }
+  const handleModalClose = () => {
+    setShowModal(false)
+  }
+  const deleteInventoryItem = () => {
+    console.log(id);
+    axios.delete(`http://localhost:8080/inventory/${id}`)
+      .then(res => console.log(res))
+      .catch(err => console.log(err))
+    handleModalClose()
+  }
   // check if item is in stock
   const inStock = () => {
     if (quantity === 0) {
@@ -20,19 +37,22 @@ const InventoryItem = (props) => {
   };
   return (
     <>
+      {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem} />}
       <article className="inventory">
         <div className="inventory__mobile-container">
           <div className="inventory__category-wrapper">
             <div className="inventory__category-container">
-              <p className="inventory__categories">inventory item</p>
+                <p className="inventory__categories">inventory item</p>
+              <Link to={`/inventory/inventory-item-details/${id}`}>
               <div className="inventory__name-wrapper">
                 <p className="inventory__name inventory__item">{name}</p>
                 <img
                   className="inventory__arrow"
                   src={chevronIcon}
                   alt="arrow icon"
-                />
+                  />
               </div>
+              </Link>
             </div>
 
             <div className="inventory__category-container">
@@ -60,14 +80,19 @@ const InventoryItem = (props) => {
               className="inventory__icon"
               src={deleteIcon}
               alt="delete icon"
+              onClick={handleModalOpen}
             />
-            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            <Link to={`/edit-inventory-item/${id}`}>
+              <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            </Link>
           </div>
         </div>
 
         <div className="inventory__icons inventory__desktop">
-          <img className="inventory__icon" src={deleteIcon} alt="delete icon" />
-          <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
+          <Link to={`/edit-inventory-item/${id}`}>
+            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          </Link>
         </div>
       </article>
     </>

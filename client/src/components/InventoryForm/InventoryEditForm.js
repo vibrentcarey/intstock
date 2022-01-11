@@ -23,7 +23,7 @@ let warehouseNames = [
     "Boston"
 ];
 
-class InventoryForm extends Component {
+class InventoryEditForm extends Component {
     state = {
         form: {
             itemName: "",
@@ -74,7 +74,6 @@ class InventoryForm extends Component {
     };
 
     handleChange = (e) => {
-        console.log(e.target.value);
         this.setState({
             form: {
                 [e.target.name]: e.target.value
@@ -190,7 +189,6 @@ class InventoryForm extends Component {
         console.log(this.props.match.params?.warehouseId);
         return (
             <>
-            {(this.props.match.params?.warehouseId ? <div></div> : <TopBar title="Add New Inventory Item"/>)}
             
             <section className="inventory-form">
                 <form
@@ -344,7 +342,7 @@ class InventoryForm extends Component {
                                         type="radio"
                                         name="status"
                                         id="instock"
-                                        checked={this.state.form.status === 'In Stock' || !this.state.form.status}
+                                        checked={this.state.quantity !== 0}
                                         onChange={this.handleChange}
                                         value="In Stock"
                                     />
@@ -361,7 +359,7 @@ class InventoryForm extends Component {
                                         className="inventory-form__radio-button"
                                         type="radio"
                                         name="status"
-                                        checked={this.state.form.status === 'Out Of Stock'}
+                                        checked={this.state.quantity === 0}
                                         onChange={this.handleChange}
                                         id="outOfStock"
                                         value="Out Of Stock"
@@ -376,7 +374,7 @@ class InventoryForm extends Component {
                             </div>
 
                             {/* Quantity */}
-                            {!this.state.form.status || this.state.form.status === "In Stock" ? (
+                            {this.state.form.status === "Out Of Stock" || (
                                 <>
                                     <label className="inventory-form__label" htmlFor="quantity">
                                         Quantity
@@ -394,8 +392,8 @@ class InventoryForm extends Component {
                                         id="quantity"
                                         placeholder="0"
                                     />
-                                </> 
-                            ): null }
+                                </>
+                            )}
                             {/* Validation form */}
 
                             <div
@@ -471,10 +469,9 @@ class InventoryForm extends Component {
                         onClick={this.cancelHandler}
                     />
                    
-                    {(this.props.match.params.warehouseId ? 
+                     
                         <Button type="primary" value={this.props.submitValue} />
- :                     <Button type="primary" value='+ Add Item' />
- )}
+ 
 
                     </div>
                 </form>
@@ -484,4 +481,4 @@ class InventoryForm extends Component {
     }
 }
 
-export default InventoryForm;
+export default InventoryEditForm;

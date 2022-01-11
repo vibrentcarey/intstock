@@ -1,29 +1,33 @@
 import React from 'react';
-import './TopBar.css'
+import './TopBar.scss'
 
 import back from '../assets/arrow_back-24px.svg'
+import { useHistory } from "react-router-dom";
 import PropTypes from 'prop-types'
 import TopBarDetails from './TopBarDetails';
 import Button from '../Button/Button';
+import { Link } from 'react-router-dom';
 
 const TopBar = (props) => {
-  const showButton = true
+  const history = useHistory()
+  const handleBack = () => {
+    history.goBack()
+  }
+
   return (
     <div className='top-bar'>
       <section className='top-bar__top'>
         <div className='top-bar__left'>
-          <img src={back} alt='back' />
+          <img src={back} alt='back' onClick={handleBack} />
           <h1>{props.title}</h1>
         </div>
-        {showButton && <button>Edit</button>}
+        {props.showButton && <Link to={props.pass}><Button type='edit' value='Edit' /></Link>}
       </section>
       {props.details && (
         <div className='top-bar__details'>
-          <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-          <div className='top-bar__additional'>
-            <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-            <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-          </div>
+          {props.details.map((detail, i) => {
+            return <TopBarDetails heading={detail.heading} info={detail.info} content={detail.content} key={i} />
+          })}
         </div>
       )}
     </div>
@@ -33,7 +37,7 @@ const TopBar = (props) => {
 TopBar.propTypes = {
   title: PropTypes.string.isRequired,
   showButton: PropTypes.bool,
-  details: PropTypes.object,
+  details: PropTypes.array,
 }
 
 export default TopBar;

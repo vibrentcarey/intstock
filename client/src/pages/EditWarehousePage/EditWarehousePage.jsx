@@ -1,16 +1,13 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
 import TopBar from '../../components/TopBar';
-import WarehouseForm from '../../components/WarehouseForm/WarehouseForm';
-import Footer from '../../components/Footer/Footer';
+import EditWarehouseForm from '../../components/WarehouseForm/EditWarehouseForm';
 
 // Warehouse Edit Page
 const EditWarehousePage = (props) => {
   return (
     <div>
       <TopBar title='Edit Warehouse' />
-      <WarehouseForm submitValue='Save' />
-      <Footer />
+      <EditWarehouseForm submitValue='Save' props={props} />
     </div>
   );
 };

@@ -16,7 +16,7 @@ const WarehouseListItem = (props) => {
               <div className="warehouse__wrapper">
                 <div className="warehouse__name-wrapper">
                   <p className="warehouse__name warehouse__item">
-                    <Link to={`warehouse-details/${id}`}>{name}</Link>
+                    <Link to={`warehouses/inventories/${id}`}>{name}</Link>
                   </p>
                   <img
                     className="warehouse__arrow"
@@ -47,7 +47,13 @@ const WarehouseListItem = (props) => {
                 alt="delete icon"
                 onClick={() => onClick(id, name)}
               />
-              <img className="warehouse__icon" src={editIcon} alt="edit icon" />
+              <Link to={`edit-warehouse/${id}`}>
+                <img
+                  className="warehouse__icon"
+                  src={editIcon}
+                  alt="edit icon"
+                />
+              </Link>
             </div>
           </div>
           <div className="warehouse__icons warehouse__mobile">
@@ -57,7 +63,9 @@ const WarehouseListItem = (props) => {
               alt="delete icon"
               onClick={() => onClick(id, name)}
             />
-            <img className="warehouse__icon" src={editIcon} alt="edit icon" />
+            <Link to={`edit-warehouse/${id}`}>
+              <img className="warehouse__icon" src={editIcon} alt="edit icon" />
+            </Link>
           </div>
         </article>
       }

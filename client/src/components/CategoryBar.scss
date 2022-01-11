@@ -1,0 +1,36 @@
+@use "../style/partials/mixins" as *;
+@use "../style/partials/variables" as *;
+@use "../style/partials/typography" as *;
+
+.category {
+  display: none;
+
+  @include tablet() {
+    display: unset;
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 30px;
+    background-color: $light-grey;
+    text-transform: uppercase;
+
+    @include tablet {
+      padding: 0 1.5rem 0 1.5rem;
+      @include font-stack-tab-desc-h4;
+    }
+  }
+
+  &__item {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+  }
+
+  &__image {
+    height: 16px;
+  }
+}

@@ -2,6 +2,12 @@ import axios from "axios";
 import React from "react";
 import WarehouseList from "../../components/WarehouseList/WarehouseList";
 import Modal from "../../components/Modal";
+import TopBarSearch from "../../components/TopBarSearch";
+import Button from "../../Button/Button";
+import Card from "../../components/Card/Card";
+import "./WarehousesPage.scss";
+import CategoryBar from "../../components/CategoryBar";
+import { Link } from "react-router-dom";
 
 // Warehouses Page
 
@@ -32,6 +38,7 @@ class WarehousesPage extends React.Component {
       .then((res) => {
         this.hideModal();
         this.getAllWarehouses();
+        this.hideModal()
       })
       .catch((err) => console.log(err));
   };
@@ -54,7 +61,7 @@ class WarehousesPage extends React.Component {
 
   render() {
     return (
-      <div>
+      <Card>
         {this.state.showModal && (
           <Modal
             title={`Delete ${this.state.warehouseName} warehouse?`}
@@ -63,11 +70,28 @@ class WarehousesPage extends React.Component {
             onDelete={this.deleteWarehouse}
           />
         )}
-        <WarehouseList
-          warehouseList={this.state.warehouseList}
-          onClick={this.showModal}
-        />
-      </div>
+        <div className="topbar">
+          <div className="topbar__search">
+            <TopBarSearch title={"Warehouses"} className="topbar__item" />
+            <Link to="/add-warehouse">
+              <Button type="primary" value={"+ Add New Warehouse"} />
+            </Link>
+          </div>
+          <CategoryBar
+            categories={[
+              "warehouse",
+              "address",
+              "contact name",
+              "contact information",
+              "actions"
+            ]}
+          />
+          <WarehouseList
+            warehouseList={this.state.warehouseList}
+            onClick={this.showModal}
+          />
+        </div>
+      </Card>
     );
   }
 }

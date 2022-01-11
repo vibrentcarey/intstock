@@ -1,22 +1,32 @@
-import React from 'react';
-import './CategoryBar.css'
-import arrows from '../assets/sort-24px.svg'
-import PropTypes from 'prop-types'
+import React from "react";
+import "./CategoryBar.scss";
+import arrows from "../assets/sort-24px.svg";
+import PropTypes from "prop-types";
 
-function CategoryBar (props)  {
+function CategoryBar(props) {
   return (
-    <div className='category'>
-      <ul className='category__list'>
-        {props.categories && props.categories.map(category => {
-          return <li key={category} className='category__item'>{category} <img className='category__image' src={arrows} alt='arrows'/></li>
-        })}
+    <div className="category">
+      <ul className="category__list">
+        {props.categories &&
+          props.categories.map((category, idx) => {
+            return (
+              <li key={category} className="category__item">
+                {category}
+                {idx !== props.categories.length - 1 ? (
+                  <img className="category__image" src={arrows} alt="arrows" />
+                ) : (
+                  ""
+                )}
+              </li>
+            );
+          })}
       </ul>
     </div>
   );
-};
+}
 
 CategoryBar.propTypes = {
   categories: PropTypes.array.isRequired
-}
+};
 
 export default CategoryBar;
