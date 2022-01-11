@@ -50,7 +50,7 @@ class App extends Component {
               }}
             />
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </BrowserRouter>
       </>
     );
