@@ -61,7 +61,7 @@ class App extends Component {
             <Route path="/dev" component={Dev} />
 
           </Switch>
-          <Footer />
+          {/* <Footer /> */}
         </BrowserRouter>
       </>
     );

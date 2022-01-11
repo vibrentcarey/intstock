@@ -5,8 +5,8 @@ import TopBar from "../../components/TopBar";
 const AddWarehousePage = (props) => {
   return (
     <>
-      <TopBar title="Add New Warehouse" />
-      <WarehouseForm submitValue="+ Add Warehouse" />
+      <TopBar title='Add New Warehouse' />
+      <WarehouseForm submitValue='+Add Warehouse' />
     </>
   );
 };
