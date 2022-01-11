@@ -2,10 +2,8 @@ import React from 'react';
 import TopBar from '../../components/TopBar';
 import EditWarehouseForm from '../../components/WarehouseForm/EditWarehouseForm';
 
-
 // Warehouse Edit Page
 const EditWarehousePage = (props) => {
-  console.log(props)
   return (
     <div>
       <TopBar title='Edit Warehouse' />

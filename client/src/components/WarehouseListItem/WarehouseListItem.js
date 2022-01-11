@@ -16,7 +16,7 @@ const WarehouseListItem = (props) => {
               <div className="warehouse__wrapper">
                 <div className="warehouse__name-wrapper">
                   <p className="warehouse__name warehouse__item">
-                    <Link to={`warehouse-details/${id}`}>{name}</Link>
+                    <Link to={`warehouses/inventories/${id}`}>{name}</Link>
                   </p>
                   <img
                     className="warehouse__arrow"

@@ -1,5 +1,6 @@
 import "./WarehouseForm.scss";
 import React, { Component } from "react";
+
 import { Link } from "react-router-dom";
 // import axios from 'axios';
 import back from "../../assets/arrow_back-24px.svg";
@@ -57,7 +58,7 @@ class WarehouseForm extends Component {
 
     handleChange = (e) => {
         // Set The State Based On The Target, Reset Validation State If User Starts Typing 
-        this.setState({ form: {...this.state.form, [e.target.name]: e.target.value } })
+        this.setState({ form: { ...this.state.form, [e.target.name]: e.target.value } })
     }
 
     render() {
@@ -153,7 +154,6 @@ class WarehouseForm extends Component {
                                 type='text'
                                 placeholder='Contact Name'
                                 onChange={this.handleChange}
-
                             />
                             {/* Validation form */}
                             <div className={contactIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
@@ -169,7 +169,6 @@ class WarehouseForm extends Component {
                                 type='text'
                                 placeholder='Position'
                                 onChange={this.handleChange}
-
                             />
                             <div className={positionIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
@@ -184,7 +183,6 @@ class WarehouseForm extends Component {
                                 type='text'
                                 placeholder='Phone Number'
                                 onChange={this.handleChange}
-
                             />
                             <div className={phoneIsValid ? 'warehouse-form__warning--valid' : 'warehouse-form__warning'}>
                                 <img className='warehouse-form__warning-icon' src={errorIcon} alt='error icon' />
@@ -207,7 +205,7 @@ class WarehouseForm extends Component {
                         </fieldset>
                     </div>
                     <div className='warehouse-form__button-container'>
-                        <Button type='secondary' value='Cancel' onClick={this.CancelHandler} />
+                        <Button type='secondary' value='Cancel' onClick={this.cancelHandler} />
                         <Button type='primary' value={this.props.submitValue} />
                     </div>
                 </form>
