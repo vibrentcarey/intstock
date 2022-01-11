@@ -159,25 +159,26 @@ class InventoryForm extends Component {
             });
         }
 
-        if (this.isFormDataValid) {
-            const warehouseId = this.props.props.match.params.warehouseId;
-
-            axios
-                .post(`http://localhost:8080/inventories/${warehouseId}`, {
-                    itemName: e.target.itemName.value,
-                    description: e.target.description.value,
-                    category: e.target.category.value,
-                    status: e.target.status.value,
-                    quantity: e.target.quantity.value,
-                    warehouseName: e.target.warehouseName.value
-                })
-                .then((res) => {
-                    alert("Data submitted");
-                })
-                .catch((err) => {
-                    console.log(err);
-                    return err;
-                });
+        if(this.isFormDataValid) {
+            const warehouseId = this.props.props.match.params.warehouseId
+        
+            axios.post(`http://localhost:8080/inventory/${warehouseId}`,
+            {
+                itemName: e.target.itemName.value,
+                description: e.target.description.value,
+                category: e.target.category.value,
+                status: e.target.status.value,
+                quantity: e.target.quantity.value,
+                warehouseName: e.target.warehouseName.value
+            }
+            )
+            .then(res => {
+                alert('Data submitted')      
+            }) 
+            .catch(err => {
+                console.log(err)
+                return err
+            })
             e.target.reset();
         }
     };
