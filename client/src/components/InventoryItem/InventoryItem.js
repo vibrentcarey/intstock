@@ -6,6 +6,7 @@ import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
 import axios from "axios";
 import Modal from "../Modal";
+import { Link } from "react-router-dom";
 
 const InventoryItem = (props) => {
   // props passed from Inventory Component
@@ -34,7 +35,7 @@ const InventoryItem = (props) => {
   };
   return (
     <>
-     {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem}/>}
+      {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem} />}
       <article className="inventory">
         <div className="inventory__mobile-container">
           <div className="inventory__category-wrapper">
@@ -77,13 +78,17 @@ const InventoryItem = (props) => {
               alt="delete icon"
               onClick={handleModalOpen}
             />
-            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            <Link to={`edit-inventory-item/${id}`}>
+              <img className="inventory__icon" src={editIcon} alt="edit icon" />
+            </Link>
           </div>
         </div>
 
         <div className="inventory__icons inventory__desktop">
-          <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen}/>
-          <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
+          <Link to={`edit-inventory-item/${id}`}>
+            <img className="inventory__icon" src={editIcon} alt="edit icon" />
+          </Link>
         </div>
       </article>
     </>

@@ -20,15 +20,13 @@ const TopBar = (props) => {
           <img src={back} alt='back' onClick={handleBack} />
           <h1>{props.title}</h1>
         </div>
-        {props.showButton && <Button value='Edit'/>}
+        {props.showButton && <Button type='edit' value='Edit' />}
       </section>
       {props.details && (
         <div className='top-bar__details'>
-          <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-          <div className='top-bar__additional'>
-            <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-            <TopBarDetails heading='Warehouse address' info={props.details.address} content={props.details.city + ', ' + props.details.country} />
-          </div>
+          {props.details.map((detail, i) => {
+            return <TopBarDetails heading={detail.heading} info={detail.info} content={detail.content} key={i} />
+          })}
         </div>
       )}
     </div>
@@ -38,7 +36,7 @@ const TopBar = (props) => {
 TopBar.propTypes = {
   title: PropTypes.string.isRequired,
   showButton: PropTypes.bool,
-  details: PropTypes.object,
+  details: PropTypes.array,
 }
 
 export default TopBar;

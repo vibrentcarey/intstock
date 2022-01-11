@@ -8,7 +8,7 @@ const AddWarehousePage = (props) => {
       <TopBar title='Add New Warehouse' />
       <WarehouseForm submitValue='+Add Warehouse' />
     </>
-  )
-}
+  );
+};
 
-export default AddWarehousePage
+export default AddWarehousePage;

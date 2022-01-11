@@ -16,7 +16,7 @@ const WarehouseListItem = (props) => {
               <div className="warehouse__wrapper">
                 <div className="warehouse__name-wrapper">
                   <p className="warehouse__name warehouse__item">
-                    <Link to={`warehouse-details/${id}`}>{name}</Link>
+                    <Link to={`warehouses/inventories/${id}`}>{name}</Link>
                   </p>
                   <img
                     className="warehouse__arrow"
@@ -48,7 +48,11 @@ const WarehouseListItem = (props) => {
                 onClick={() => onClick(id, name)}
               />
               <Link to={`edit-warehouse/${id}`}>
-                <img className="warehouse__icon" src={editIcon} alt="edit icon" />
+                <img
+                  className="warehouse__icon"
+                  src={editIcon}
+                  alt="edit icon"
+                />
               </Link>
             </div>
           </div>

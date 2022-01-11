@@ -4,6 +4,7 @@ import InventoryItem from "../InventoryItem/InventoryItem";
 const WarehouseInventory = (props) => {
   // props passed from Warehouse Details page
   const { inventoryList } = props;
+  console.log(props)
   return (
     <>
       {/* map over inventory list */}
@@ -14,6 +15,7 @@ const WarehouseInventory = (props) => {
             name={inventory.itemName}
             category={inventory.category}
             quantity={inventory.quantity}
+            id={inventory.id}
           />
         );
       })}
