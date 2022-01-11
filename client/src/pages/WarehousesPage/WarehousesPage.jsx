@@ -71,7 +71,7 @@ class WarehousesPage extends React.Component {
         <div className="topbar">
           <div className="topbar__search">
             <TopBarSearch title={"Warehouses"} className="topbar__item" />
-            <Link to={`edit-warehouse/${this.state.warehouseId}`}>
+            <Link to={`add-warehouse`}>
               <Button type="primary" value={"+ Add New Warehouse"} />
             </Link>
           </div>
