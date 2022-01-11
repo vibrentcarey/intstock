@@ -23,7 +23,7 @@ let warehouseNames = [
     "Boston"
 ];
 
-class InventoryForm extends Component {
+class InventoryEditForm extends Component {
     state = {
         form: {
             itemName: "",
@@ -189,7 +189,6 @@ class InventoryForm extends Component {
         console.log(this.props.match.params?.warehouseId);
         return (
             <>
-            {(this.props.match.params?.warehouseId ? <div></div> : <TopBar title="Add New Inventory Item"/>)}
             
             <section className="inventory-form">
                 <form
@@ -470,10 +469,9 @@ class InventoryForm extends Component {
                         onClick={this.cancelHandler}
                     />
                    
-                    {(this.props.match.params.warehouseId ? 
+                     
                         <Button type="primary" value={this.props.submitValue} />
- :                     <Button type="primary" value='+ Add Item' />
- )}
+ 
 
                     </div>
                 </form>
@@ -483,4 +481,4 @@ class InventoryForm extends Component {
     }
 }
 
-export default InventoryForm;
+export default InventoryEditForm;

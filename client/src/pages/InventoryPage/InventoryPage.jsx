@@ -5,6 +5,7 @@ import TopBarSearch from "../../components/TopBarSearch";
 import CategoryBar from "../../components/CategoryBar";
 import Button from "../../Button/Button";
 import "./InventoryPage.scss";
+import { Link } from "react-router-dom";
 
 // Inventory Page
 class InventoryPage extends React.Component {
@@ -25,15 +26,18 @@ class InventoryPage extends React.Component {
       .catch((err) => console.log(err));
   }
   render() {
+    
     return (
       <div className="topbar">
         <div className="topbar__search">
           <TopBarSearch title={"Inventory"} className="topbar__item" />
-          <Button type="primary" value="+ Add New Item" />
+          <Link to={`/add-inventory`}>
+            <Button type="primary" value="+ Add New Item" />
+          </Link>
         </div>
         <CategoryBar
           categories={[
-            "inventory",
+            "inventory item",
             "category",
             "status",
             "quantity",

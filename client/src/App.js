@@ -12,6 +12,8 @@ import Dev from "./pages/Dev/Dev";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
 import "./App.scss";
+import InventoryForm from './components/InventoryForm/InventoryForm';
+import InventoryItem from "./components/InventoryItem/InventoryItem";
 
 // InStock Application
 class App extends Component {
@@ -43,20 +45,24 @@ class App extends Component {
 
             <Route path="/add-warehouse" component={AddWarehousePage} />
 
-
-            <Route path="/inventory" component={InventoryPage} />
             <Route
               path="/inventory/inventory-item-details/:inventoryItemId"
               component={InventoryItemDetailsPage}
             />
+
+            <Route path="/inventory" component={InventoryPage} />
             <Route
               path="/edit-inventory-item/:inventoryItemId"
               component={EditInventoryItemPage}
             />
+              <Route
+               path="/add-inventory" exact
+               component={InventoryForm}/>
             <Route
               path="/inventories/:warehouseId"
               component={AddInventoryItemPage}
             />
+            
 
             <Route path="/dev" component={Dev} />
 
