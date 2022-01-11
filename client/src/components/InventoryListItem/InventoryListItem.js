@@ -12,21 +12,22 @@ import { Link } from "react-router-dom";
 const InventoryListItem = (props) => {
   // props passed from Inventory List Component
   const { id, name, category, status, quantity, warehouse } = props;
-  // Please allow use of hooks too late to refactor entire component to class :) 
+  // Please allow use of hooks too late to refactor entire component to class :)
   const [showModal, setShowModal] = useState(false);
 
   const handleModalOpen = () => {
-    setShowModal(true)
-  }
+    setShowModal(true);
+  };
   const handleModalClose = () => {
-    setShowModal(false)
-  }
+    setShowModal(false);
+  };
 
   const deleteInventoryItem = () => {
-    axios.delete(`http://localhost:8080/inventories/${id}`)
-      .then(res => console.log(res))
-      .catch(err => console.log(err))
-  }
+    axios
+      .delete(`http://localhost:8080/inventories/${id}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
   // check if item is in stock
   const inStock = () => {
     if (quantity === 0) {
@@ -38,19 +39,28 @@ const InventoryListItem = (props) => {
 
   return (
     <>
-      {showModal && <Modal title={`Delete ${name} inventory item?`} message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`} onClose={handleModalClose} onDelete={deleteInventoryItem} />}
+      {showModal && (
+        <Modal
+          title={`Delete ${name} inventory item?`}
+          message={`Please confirm that you want to delete ${name}. You won't be able to undo this action.`}
+          onClose={handleModalClose}
+          onDelete={deleteInventoryItem}
+        />
+      )}
       <article className="inventory">
         <div className="inventory__container">
           <div className="inventory__item-category">
             <div className="inventory__wrapper">
               <p className="inventory__label">NAME</p>
               <div className="inventory__name-wrapper">
-                <p className="inventory__name inventory__item">{name}</p>
-                <img
-                  className="inventory__arrow"
-                  src={chevronIcon}
-                  alt="arrow icon"
-                />
+                <Link to={`inventory-item-details/${id}`} key={id}>
+                  <p className="inventory__name inventory__item">{name}</p>
+                  <img
+                    className="inventory__arrow"
+                    src={chevronIcon}
+                    alt="arrow icon"
+                  />
+                </Link>
               </div>
             </div>
             <p className="inventory__label">CATEGORY</p>

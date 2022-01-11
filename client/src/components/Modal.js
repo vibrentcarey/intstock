@@ -1,6 +1,6 @@
 import React from 'react';
 import close from '../assets/close-24px.svg'
-import './Modal.css'
+import './Modal.scss'
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 

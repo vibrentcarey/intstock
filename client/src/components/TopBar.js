@@ -1,5 +1,5 @@
 import React from 'react';
-import './TopBar.css'
+import './TopBar.scss'
 
 import back from '../assets/arrow_back-24px.svg'
 import { useHistory } from "react-router-dom";
