@@ -24,9 +24,10 @@ const InventoryListItem = (props) => {
 
   const deleteInventoryItem = () => {
     axios
-      .delete(`http://localhost:8080/inventories/${id}`)
+      .delete(`http://localhost:8080/inventory/${id}`)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
+      handleModalClose()
   };
   // check if item is in stock
   const inStock = () => {

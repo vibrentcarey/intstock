@@ -6,14 +6,14 @@ import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
 import axios from "axios";
 import Modal from "../Modal";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const InventoryItem = (props) => {
   // props passed from Inventory Component
   const { id, name, category, status, quantity, warehouse } = props;
-
   const [showModal, setShowModal] = useState(false);
-
+const location = useLocation()
+console.log(location);
   const handleModalOpen = () => {
     setShowModal(true)
   }
@@ -21,9 +21,11 @@ const InventoryItem = (props) => {
     setShowModal(false)
   }
   const deleteInventoryItem = () => {
-    axios.delete(`http://localhost:8080/inventories/${id}`)
+    console.log(id);
+    axios.delete(`http://localhost:8080/inventory/${id}`)
       .then(res => console.log(res))
       .catch(err => console.log(err))
+    handleModalClose()
   }
   // check if item is in stock
   const inStock = () => {
@@ -78,7 +80,7 @@ const InventoryItem = (props) => {
               alt="delete icon"
               onClick={handleModalOpen}
             />
-            <Link to={`edit-inventory-item/${id}`}>
+            <Link to={`/edit-inventory-item/${id}`}>
               <img className="inventory__icon" src={editIcon} alt="edit icon" />
             </Link>
           </div>
@@ -86,7 +88,7 @@ const InventoryItem = (props) => {
 
         <div className="inventory__icons inventory__desktop">
           <img className="inventory__icon" src={deleteIcon} alt="delete icon" onClick={handleModalOpen} />
-          <Link to={`edit-inventory-item/${id}`}>
+          <Link to={`/edit-inventory-item/${id}`}>
             <img className="inventory__icon" src={editIcon} alt="edit icon" />
           </Link>
         </div>

@@ -37,6 +37,7 @@ class WarehousesPage extends React.Component {
       .then((res) => {
         this.hideModal();
         this.getAllWarehouses();
+        this.hideModal()
       })
       .catch((err) => console.log(err));
   };
