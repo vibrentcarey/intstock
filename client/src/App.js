@@ -8,12 +8,10 @@ import InventoryPage from "./pages/InventoryPage/InventoryPage";
 import InventoryItemDetailsPage from "./pages/InventoryItemDetailsPage/InventoryItemDetailsPage";
 import EditInventoryItemPage from "./pages/EditInventoryItemPage/EditInventoryItemPage";
 import AddInventoryItemPage from "./pages/AddInventoryItemPage/AddInventoryItemPage";
-import Dev from "./pages/Dev/Dev";
 import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
 import "./App.scss";
 import InventoryForm from './components/InventoryForm/InventoryForm';
-import InventoryItem from "./components/InventoryItem/InventoryItem";
+import Footer from "./components/Footer/Footer";
 
 // InStock Application
 class App extends Component {
@@ -37,12 +35,6 @@ class App extends Component {
               }}
             />
 
-            {/* <Route
-              path="/warehouse-details/:warehouseId"
-              component={WarehouseDetailsPage}
-            /> */}
-            {/* <Route path="/edit-warehouse/:warehouseId" component={EditWarehousePage} /> */}
-
             <Route path="/add-warehouse" component={AddWarehousePage} />
 
             <Route
@@ -62,12 +54,9 @@ class App extends Component {
               path="/inventories/:warehouseId"
               component={AddInventoryItemPage}
             />
-            
-
-            <Route path="/dev" component={Dev} />
 
           </Switch>
-          {/* <Footer /> */}
+          <Footer/>
         </BrowserRouter>
       </>
     );

@@ -49,7 +49,6 @@ class InventoryForm extends Component {
         axios
             .get(url)
             .then((res) => {
-                console.log("res.data=", res.data);
                 this.setState({
                     itemName: res.data.itemName,
                     description: res.data.description,
@@ -74,7 +73,6 @@ class InventoryForm extends Component {
     };
 
     handleChange = (e) => {
-        console.log(e.target.value);
         this.setState({
             form: {
                 [e.target.name]: e.target.value
@@ -86,7 +84,6 @@ class InventoryForm extends Component {
                 quantity: 0
             });
         }
-        console.log(e.target.value);
     };
     isFormDataValid = (e) => {
         const { itemName, description, category, quantity, warehouseName, status } =
@@ -106,8 +103,6 @@ class InventoryForm extends Component {
     // submit form
     submitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state.form.itemName);
-
         // validating form after submission
         // itemName
         if (!this.state.form.itemName) {
@@ -186,8 +181,6 @@ class InventoryForm extends Component {
     };
 
     render() {
-        console.log(this.props);
-        console.log(this.props.match.params?.warehouseId);
         return (
             <>
             {(this.props.match.params?.warehouseId ? <div></div> : <TopBar title="Add New Inventory Item"/>)}

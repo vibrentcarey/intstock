@@ -19,7 +19,6 @@ class InventoryPage extends React.Component {
     axios
       .get("http://localhost:8080/inventory")
       .then((result) => {
-        console.log(result.data);
         this.setState({
           inventoryList: result.data
         });

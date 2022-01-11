@@ -2,13 +2,9 @@ import React from "react";
 import WarehouseListItem from "../WarehouseListItem/WarehouseListItem";
 
 const WarehouseList = (props) => {
-  console.log(props.warehouseList)
   return (
     <div>
       {props.warehouseList.map((warehouseList) => {
-        console.log(warehouseList)
-        // console.log(warehouseList.contact.position)
-        // console.log(warehouseList.contact.name)
         return (
           <WarehouseListItem
             key={warehouseList.id}

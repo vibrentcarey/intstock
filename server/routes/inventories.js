@@ -28,7 +28,6 @@ inventoriesRouter.get("/", (_req, res) => {
 
 // Fetch a single inventory item
 inventoriesRouter.get("/:inventoryId", (req, res) => {
-  console.log("inventory id=", req.params.inventoryId);
   const inventoryData = readFile();
 
   const inventoryItem = inventoryData.find(
@@ -53,7 +52,6 @@ inventoriesRouter.post("/:warehouseId", (req, res) => {
     !req.body.status ||
     !req.body.quantity
   ) {
-    console.log(req.body)
     return res.status(400).send("Ensure you include all required field.");
     
   }
@@ -116,13 +114,11 @@ inventoriesRouter.patch("/:inventoryId", (req, res) => {
     }
   });
   writeFile(inventoriesData);
-  console.log();
   return res.status(200).send(updatedInventory);
 });
 
 // delete an inventory
 inventoriesRouter.delete("/:inventoryId", (req, res) => {
-  console.log(req.params.inventoryId);
   // Get the id from params
   const inventoryId = req.params.inventoryId;
   const inventory = readFile();

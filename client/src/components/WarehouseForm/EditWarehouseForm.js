@@ -3,10 +3,6 @@ import React, { Component } from "react";
 import errorIcon from "../../assets/error-24px.svg";
 import Button from "../../Button/Button";
 import axios from "axios";
-
-// Temporary value to be replaced with query param
-const warehouseId = null;
-
 class EditWarehouseForm extends Component {
   state = {
     form: null,
@@ -95,7 +91,6 @@ class EditWarehouseForm extends Component {
             }
           })
         .then(res => {
-          console.log(res)
           alert('Warehouse edited!')
           this.props.props.history.push('/')
         })
@@ -108,8 +103,6 @@ class EditWarehouseForm extends Component {
   }
 
   render() {
-    console.log(this.props)
-    console.log(this.props.props.match.params.warehouseId)
     return (
       <section className='warehouse-form'>
         <form className='warehouse-form__form' id='warehouse-form' onSubmit={this.editHandler}>

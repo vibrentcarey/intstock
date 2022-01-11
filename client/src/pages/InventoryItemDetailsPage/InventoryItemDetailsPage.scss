@@ -3,18 +3,6 @@
 @use "../../style/partials/mixins" as *;
 
 .inventory-item-details {
-  // box-shadow: 0px 2px 5px rgba(19, 24, 44, 0.1);
-  // border-radius: 3px;
-  // margin: 0 1rem 0 1rem;
-
-  // position: absolute;
-  // left: 4.27%;
-  // right: 4.27%;
-  // top: 20.39%;
-  // bottom: 24.89%;
-
-  // background: $white;
-
   &__top-section {
     border-bottom: 1px solid $cloud;
   }

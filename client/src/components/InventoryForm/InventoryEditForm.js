@@ -3,7 +3,6 @@ import React, { Component } from "react";
 import axios from "axios";
 import errorIcon from "../../assets/error-24px.svg";
 import Button from "../../Button/Button";
-import TopBar from "../TopBar";
 
 let categoriesList = [
     "Accessories",
@@ -49,7 +48,6 @@ class InventoryEditForm extends Component {
         axios
             .get(url)
             .then((res) => {
-                console.log("res.data=", res.data);
                 this.setState({
                     itemName: res.data.itemName,
                     description: res.data.description,
@@ -85,7 +83,6 @@ class InventoryEditForm extends Component {
                 quantity: 0
             });
         }
-        console.log(e.target.value);
     };
     isFormDataValid = (e) => {
         const { itemName, description, category, quantity, warehouseName, status } =
@@ -105,7 +102,6 @@ class InventoryEditForm extends Component {
     // submit form
     submitHandler = (e) => {
         e.preventDefault();
-        console.log(this.state.form.itemName);
 
         // validating form after submission
         // itemName
@@ -185,8 +181,6 @@ class InventoryEditForm extends Component {
     };
 
     render() {
-        console.log(this.props);
-        console.log(this.props.match.params?.warehouseId);
         return (
             <>
             

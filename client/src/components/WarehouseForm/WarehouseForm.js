@@ -1,8 +1,5 @@
 import "./WarehouseForm.scss";
 
-import { Link } from "react-router-dom";
-// import axios from 'axios';
-import back from "../../assets/arrow_back-24px.svg";
 import errorIcon from "../../assets/error-24px.svg";
 import Button from "../../Button/Button";
 import axios from "axios";
@@ -56,7 +53,6 @@ const WarehouseForm = (props) => {
                 .catch(err => console.log(err))
         }
     })
-    console.log(formik.values.contact);
 
     const cancelHandler = () => {
         history.goBack()

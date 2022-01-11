@@ -1,11 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { Redirect } from "react-router";
-import { Link } from "react-router-dom";
-import Button from "../../Button/Button";
 import Card from "../../components/Card/Card";
 import LabelValue from "../../components/LabelValue/LabelValue";
-import back from "../../assets/arrow_back-24px.svg";
 import "../InventoryItemDetailsPage/InventoryItemDetailsPage.scss";
 import TopBar from "../../components/TopBar";
 

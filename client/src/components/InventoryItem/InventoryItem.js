@@ -6,14 +6,12 @@ import editIcon from "../../assets/edit-24px.svg";
 import Stock from "../stock/Stock";
 import axios from "axios";
 import Modal from "../Modal";
-import { Link, useLocation } from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 const InventoryItem = (props) => {
   // props passed from Inventory Component
-  const { id, name, category, status, quantity, warehouse } = props;
+  const { id, name, category, quantity } = props;
   const [showModal, setShowModal] = useState(false);
-const location = useLocation()
-console.log(location);
   const handleModalOpen = () => {
     setShowModal(true)
   }
@@ -21,7 +19,6 @@ console.log(location);
     setShowModal(false)
   }
   const deleteInventoryItem = () => {
-    console.log(id);
     axios.delete(`http://localhost:8080/inventory/${id}`)
       .then(res => console.log(res))
       .catch(err => console.log(err))

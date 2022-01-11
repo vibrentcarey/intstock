@@ -26,7 +26,6 @@ class WarehouseDetailsPage extends Component {
   fetchInventories = (warehouseId) => {
     axios.get(`http://localhost:8080/warehouses/${warehouseId}/inventories`)
       .then(res => {
-        console.log(res.data)
         this.setState({ inventories: res.data })
       })
       .catch(err => {
