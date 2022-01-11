@@ -4,12 +4,18 @@
 .top-search {
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 1rem;
+  min-width: 100%;
 
   @include tablet() {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  &__heading {
+    align-self: flex-start;
   }
 
   &__input {
@@ -20,6 +26,7 @@
     background-position: 95%;
     background-repeat: no-repeat;
     width: 90%;
+    max-width: 500px;
 
     @include tablet() {
       width: 30%;

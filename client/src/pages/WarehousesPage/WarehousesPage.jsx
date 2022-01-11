@@ -6,7 +6,6 @@ import TopBarSearch from "../../components/TopBarSearch";
 import Button from "../../Button/Button";
 import "./WarehousesPage.scss";
 import CategoryBar from "../../components/CategoryBar";
-import { Link } from "react-router-dom";
 
 // Warehouses Page
 
@@ -70,10 +69,8 @@ class WarehousesPage extends React.Component {
         )}
         <div className="topbar">
           <div className="topbar__search">
-            <TopBarSearch title={"Warehouses"} className="topbar__item" />
-            <Link to='/add-warehouse'>
-              <Button type="primary" value={"+ Add New Warehouse"} />
-            </Link>
+            <TopBarSearch title={"Warehouses"} className="topbar__item" buttonTitle="+ Add New Warehouse" path='/add-warehouse'/>
+
           </div>
           <CategoryBar
             categories={[

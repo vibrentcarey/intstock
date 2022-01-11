@@ -1,14 +1,19 @@
-@use "../../style/partials/mixins" as *;
-@use "../../style/partials/variables" as *;
-@use "../../style/partials/typography" as *;
+@use "../../style/partials/mixins"as *;
+@use "../../style/partials/variables"as *;
+@use "../../style/partials/typography"as *;
 
 .topbar {
   &__search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     @include tablet {
       width: 100%;
       display: flex;
       justify-content: space-between;
     }
+
     @include desktop {
       width: 100%;
       display: flex;

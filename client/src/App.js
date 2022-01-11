@@ -58,6 +58,11 @@ class App extends Component {
               component={AddInventoryItemPage}
             />
 
+            <Route
+              path="/addInventory"
+              component={AddInventoryItemPage}
+            />
+
             <Route path="/dev" component={Dev} />
 
           </Switch>

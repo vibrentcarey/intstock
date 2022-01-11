@@ -27,6 +27,8 @@
     display: inline-flex;
     gap: 50%;
     flex-direction: row;
+    width: 100%;
+    padding: 0 2rem;
     @include tablet {
       width: 100%;
       display: flex;
@@ -89,6 +91,7 @@
   &__name {
     color: $instock-indigo;
     font-weight: 600;
+    min-width: 60px;
   }
   &__status-quantity {
     display: flex;
@@ -149,6 +152,7 @@
     display: flex;
     justify-content: space-between;
     padding-top: 16px;
+    margin:0  2rem;
 
     @include tablet {
       padding-top: 0;
@@ -191,6 +195,8 @@
   }
 
   &__label {
+    margin: 0.4rem 0;
+
     @include tablet {
       display: none;
     }

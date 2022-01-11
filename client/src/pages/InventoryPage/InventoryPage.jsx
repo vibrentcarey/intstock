@@ -28,8 +28,7 @@ class InventoryPage extends React.Component {
     return (
       <div className="topbar">
         <div className="topbar__search">
-          <TopBarSearch title={"Inventory"} className="topbar__item" />
-          <Button type="primary" value="+ Add New Item" />
+          <TopBarSearch title={"Inventory"} className="topbar__item" buttonTitle="+Add New Item" path='/addInventory' />
         </div>
         <CategoryBar
           categories={[
