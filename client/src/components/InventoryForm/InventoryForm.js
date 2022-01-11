@@ -73,17 +73,18 @@ class InventoryForm extends Component {
     };
 
     handleChange = (e) => {
+        console.log(e.target.value);
         this.setState({
             form: {
                 [e.target.name]: e.target.value
             }
         });
 
-        if (e.target.value === "Out Of Stock") {
-            this.setState({
-                quantity: 0
-            });
-        }
+        // if (e.target.value === "Out Of Stock") {
+        //     this.setState({
+        //         quantity: 0
+        //     });
+        // }
         console.log(e.target.value);
     };
     isFormDataValid = (e) => {
@@ -339,7 +340,7 @@ class InventoryForm extends Component {
                                         type="radio"
                                         name="status"
                                         id="instock"
-                                        checked={this.state.quantity !== 0}
+                                        checked={this.state.form.status === 'In Stock' || !this.state.form.status}
                                         onChange={this.handleChange}
                                         value="In Stock"
                                     />
@@ -356,7 +357,7 @@ class InventoryForm extends Component {
                                         className="inventory-form__radio-button"
                                         type="radio"
                                         name="status"
-                                        checked={this.state.quantity === 0}
+                                        checked={this.state.form.status === 'Out Of Stock'}
                                         onChange={this.handleChange}
                                         id="outOfStock"
                                         value="Out Of Stock"
@@ -371,7 +372,7 @@ class InventoryForm extends Component {
                             </div>
 
                             {/* Quantity */}
-                            {this.state.form.status === "Out Of Stock" || (
+                            {!this.state.form.status || this.state.form.status === "In Stock" ? (
                                 <>
                                     <label className="inventory-form__label" htmlFor="quantity">
                                         Quantity
@@ -389,8 +390,8 @@ class InventoryForm extends Component {
                                         id="quantity"
                                         placeholder="0"
                                     />
-                                </>
-                            )}
+                                </> 
+                            ): null }
                             {/* Validation form */}
 
                             <div
